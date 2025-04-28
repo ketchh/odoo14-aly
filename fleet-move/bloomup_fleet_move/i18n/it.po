@@ -1,0 +1,2190 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bloomup_fleet_move
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-18 10:21+0000\n"
+"PO-Revision-Date: 2022-01-18 11:23+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: it\n"
+"X-Generator: Poedit 2.4.3\n"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/hub.py:0
+#, python-format
+msgid "%s | %s from %s"
+msgstr "%s | %s da %s"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/hub.py:0
+#, python-format
+msgid "%s | %s from %s to %s"
+msgstr "%s | %s da %s a %s"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.portal_breadcrumb
+msgid "<b>Addresses</b>"
+msgstr "<b>Indirizzi</b>"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.portal_breadcrumb
+msgid "<b>Moves</b>"
+msgstr "<b>Movimentazioni</b>"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.portal_breadcrumb
+msgid "<b>Vehicles</b>"
+msgstr "<b>Veicoli</b>"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_partner_form
+msgid ""
+"<span class=\"o_form_label o_td_label\" name=\"address_name\">\n"
+"                                <b>Address</b>\n"
+"                            </span>"
+msgstr ""
+"<span class=\"o_form_label o_td_label\" name=\"address_name\">\n"
+"                                <b>Indirizzo</b>\n"
+"                            </span>"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/hub.py:0
+#, python-format
+msgid "A vehicle cannot stay in two locations at the same time"
+msgstr "Un veicolo non può rimanere in due luoghi contemporaneamente"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#: code:addons/bloomup_fleet_move/static/src/xml/vehicles.xml:0
+#, python-format
+msgid "Action"
+msgstr "Azione"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__message_needaction
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__message_needaction
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__message_needaction
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__message_needaction
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__message_needaction
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__message_needaction
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__message_needaction
+msgid "Action Needed"
+msgstr "Azione Necessaria"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/move.xml:0
+#, python-format
+msgid "Actions"
+msgstr "Azioni"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__active
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__active
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__active
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_search
+msgid "Active"
+msgstr "Attivo"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__activity_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__activity_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__activity_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__activity_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__activity_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__activity_ids
+msgid "Activities"
+msgstr "Attività"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__activity_exception_decoration
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__activity_exception_decoration
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__activity_exception_decoration
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__activity_exception_decoration
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__activity_exception_decoration
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decorazione per Eccezione Attività"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__activity_state
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__activity_state
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__activity_state
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__activity_state
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__activity_state
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__activity_state
+msgid "Activity State"
+msgstr "Stato attività"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__activity_type_icon
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__activity_type_icon
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__activity_type_icon
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__activity_type_icon
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__activity_type_icon
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Tipo Icona Attività"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/planner.xml:0
+#, python-format
+msgid "Add Group"
+msgstr "Aggiungi Gruppo"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_kanban
+msgid "Added by:"
+msgstr "Richiedente"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#, python-format
+msgid "Address"
+msgstr "Indirizzo"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.bloomup_portal_my_home
+msgid ""
+"Addresses\n"
+"                    <span class=\"badge                      badge-secondary badge-pill badge-owl\" data-model=\"fleet.partner\" data-field=\"owner_id\">\n"
+"                        <span class=\"zero\"><i class=\"fa fa-spin fa-spinner\"/></span>\n"
+"                    </span>"
+msgstr ""
+"Indirizzi\n"
+"                    <span class=\"badge                      badge-secondary badge-pill badge-owl\" data-model=\"fleet.partner\" data-field=\"owner_id\">\n"
+"                        <span class=\"zero\"><i class=\"fa fa-spin fa-spinner\"/></span>\n"
+"                    </span>"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle__Aftermarket
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer_config__field_id__aftermarket
+msgid "Aftermarket"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer_config__field_id__fuel_type
+msgid "Alimentazione"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_search
+msgid "Archived"
+msgstr "Archiviato"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__message_attachment_count
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__message_attachment_count
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__message_attachment_count
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__message_attachment_count
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__message_attachment_count
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__message_attachment_count
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__message_attachment_count
+msgid "Attachment Count"
+msgstr "Numero allegati"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance_wizard__attendance_id
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_attendance_view_search
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_vehicle_view_form_inherit_fleet
+msgid "Attendance"
+msgstr "Presenza"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__attendance_ids
+#: model:ir.ui.menu,name:bloomup_fleet_move.fleet_attendance_root
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_location_view_form
+msgid "Attendances"
+msgstr "Presenze"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_config_importer__partner_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer_config__partner_id
+msgid "Azienda"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/vehicles.xml:0
+#, python-format
+msgid "Brand"
+msgstr "Produttore"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/planner.py:0
+#, python-format
+msgid "Calendar Event"
+msgstr "Evento Calendario"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#: code:addons/bloomup_fleet_move/static/src/xml/move.xml:0
+#: code:addons/bloomup_fleet_move/static/src/xml/vehicles.xml:0
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__cancel
+#, python-format
+msgid "Cancel"
+msgstr "Fase annullata"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle__cancel_from_user
+msgid "Cancel From User"
+msgstr "Cancellato dall'utente"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__cancel_user
+msgid "Cancel User"
+msgstr "Cancellato dall'utente"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_attendance_wizard_view_form
+msgid "Cancella"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_search
+msgid "Carrier"
+msgstr "Vettore"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__employee_id
+msgid "Carrier/Employee"
+msgstr "Vettore"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_kanban
+msgid "Carrier:"
+msgstr "Vettore:"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle__Categoria
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer_config__field_id__categoria
+msgid "Categoria"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#: code:addons/bloomup_fleet_move/static/src/xml/move.xml:0
+#: code:addons/bloomup_fleet_move/static/src/xml/vehicles.xml:0
+#, python-format
+msgid "Chiudi"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/planner.xml:0
+#, python-format
+msgid "Choose Employee"
+msgstr "Scegli Dipendente"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__city
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_partner_form
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_partner_view_search
+#, python-format
+msgid "City"
+msgstr "Città"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__primary_color
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__primary_color
+msgid "Color"
+msgstr "Colore"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/models/fleet_partner.py:0
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_partner__company_type__company
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_search
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_partner_view_search
+#, python-format
+msgid "Company"
+msgstr "Azienda"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#, python-format
+msgid "Company name"
+msgstr "Nome Azienda"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_kanban
+msgid "Company:"
+msgstr "Azienda:"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/planner.xml:0
+#, python-format
+msgid "Complete"
+msgstr "Completa"
+
+#. module: bloomup_fleet_move
+#: model:ir.model,name:bloomup_fleet_move.model_fleet_move_config_importer
+msgid "Config Importer"
+msgstr "Configurazione importatore csv"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_search
+msgid "Confirmed Date"
+msgstr "Data di conferma"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__confirmed_date
+msgid "Confirmed Datetime"
+msgstr "Data di conferma"
+
+#. module: bloomup_fleet_move
+#: model:ir.model,name:bloomup_fleet_move.model_res_partner
+msgid "Contact"
+msgstr "Contatto"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#, python-format
+msgid "Contact Person"
+msgstr "Persona di contatto"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__country_id
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_partner_form
+#, python-format
+msgid "Country"
+msgstr "Nazione"
+
+#. module: bloomup_fleet_move
+#: model:ir.actions.server,name:bloomup_fleet_move.create_order_from_task
+msgid "Create Order From Task"
+msgstr "Crea ordine dalle attività"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__create_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance_wizard__create_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__create_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__create_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_config_importer__create_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_event__create_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_group__create_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__create_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__create_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__create_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer_config__create_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__create_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance_wizard__create_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__create_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__create_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_config_importer__create_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_event__create_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_group__create_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__create_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__create_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__create_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer_config__create_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_res_partner__input_file
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_res_users__input_file
+msgid "Csv"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_res_partner__csv_configuration
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_res_users__csv_configuration
+msgid "Csv Configuration"
+msgstr "Configurazione CSV"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_res_partner__csv_hub_configuration
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_res_users__csv_hub_configuration
+msgid "Csv Hub Configuration"
+msgstr "Configurazione CSV Hub"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_search
+msgid "Current Month"
+msgstr "Mese corrente"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_attendance_view_search
+msgid "Currently Present"
+msgstr "Attualmente presente"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__currently_attendance
+msgid "Currently attendance"
+msgstr "Presenza corrente"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/hub.py:0
+#, python-format
+msgid "Customer is missing."
+msgstr "Manca il cliente"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/planner.xml:0
+#, python-format
+msgid "Da:"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle__Data_Ordine
+msgid "Data Ordine"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle__Data_prevista_arrivo
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer_config__field_id__data_prevista_arrivo
+msgid "Data prevista arrivo"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer_config__field_id__acquisition_date
+msgid "Data_Immatricolazione"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer_config__field_id__data_ordine
+msgid "Data_Ordine"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/move.xml:0
+#, python-format
+msgid "Date"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_event__event_datetime
+msgid "Date Time"
+msgstr "Data e ora"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_event__event_datetime_end
+msgid "Date Time end"
+msgstr "Data fine"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__entry_date
+msgid "Date of entry"
+msgstr "Ingresso"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__exit_date
+msgid "Date of exit"
+msgstr "Uscita"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__default
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_project_task_type__is_default
+msgid "Default"
+msgstr "Fase Predefinita"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__delimiter
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_res_partner__delimiter
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_res_users__delimiter
+msgid "Delimiter"
+msgstr "Delimitatore"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/move.xml:0
+#, python-format
+msgid "Delivery"
+msgstr "Spedizione"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__delivery_address
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__delivery_street
+#, python-format
+msgid "Delivery Address"
+msgstr "Indirizzo di consegna"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__delivery_city
+#, python-format
+msgid "Delivery Address City"
+msgstr "Indirizzo di consegna: CITTA'"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__delivery_country_id
+#, python-format
+msgid "Delivery Address Country"
+msgstr "Indirizzo di consegna: NAZIONE"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__delivery_email
+#, python-format
+msgid "Delivery Address E-mail"
+msgstr "Indirizzo di consegna: E-MAIL"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__delivery_firstname
+#, python-format
+msgid "Delivery Address First Name"
+msgstr "Indirizzo di consegna: NOME"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__delivery_lastname
+#, python-format
+msgid "Delivery Address Last Name"
+msgstr "Indirizzo di consegna: COGNOME"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__delivery_name
+#, python-format
+msgid "Delivery Address Name"
+msgstr "Indirizzo di consegna: NOME COMPLETO"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__delivery_street2
+#, python-format
+msgid "Delivery Address Number"
+msgstr "Indirizzo di consegna: CIVICO"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__delivery_phone
+#, python-format
+msgid "Delivery Address Phone"
+msgstr "Indirizzo di consegna: TELEFONO"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__delivery_reference
+#, python-format
+msgid "Delivery Address Reference"
+msgstr "Indirizzo di consegna: REFERENTE"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__delivery_state_id
+#, python-format
+msgid "Delivery Address State"
+msgstr "Indirizzo di consegna: PROVINCIA"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__delivery_company_type
+#, python-format
+msgid "Delivery Address Type"
+msgstr "Indirizzo di consegna: TIPO"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__delivery_zip
+#, python-format
+msgid "Delivery Address Zip"
+msgstr "Indirizzo di consegna: CAP"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance_wizard__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_config_importer__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_event__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_group__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer_config__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_product_pricelist_item__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_project_project__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_project_task__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_project_task_type__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_res_partner__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/hub.py:0
+#: code:addons/bloomup_fleet_move/models/planner.py:0
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__done
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_group__state__done
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer__state__done
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.hub_importer_view_search
+#, python-format
+msgid "Done"
+msgstr "Fase Completata"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/hub.py:0
+#: code:addons/bloomup_fleet_move/models/planner.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_group__state__draft
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer__state__draft
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.hub_importer_view_search
+#, python-format
+msgid "Draft"
+msgstr "Bozza"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__email
+#, python-format
+msgid "E-Mail"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#, python-format
+msgid "Edit Address"
+msgstr "Modifica Indirizzo"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/move.xml:0
+#, python-format
+msgid "Edit Move"
+msgstr "Modifica Movimentazione"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/vehicles.xml:0
+#, python-format
+msgid "Edit Vehicle"
+msgstr "Modifica Veicolo"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_group__employee_id
+msgid "Employee"
+msgstr "Dipendente"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_location_view_search
+msgid "Empty"
+msgstr "Vuoto"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_res_partner__message
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_res_users__message
+msgid "Errore"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__fleet_move_event_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_group__event_ids
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_group_view_form
+msgid "Events"
+msgstr "Eventi"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/hub.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_location__type__external
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_location_view_search
+#, python-format
+msgid "External"
+msgstr "Esterno"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_config_importer__field_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer_config__field_id
+msgid "Field"
+msgstr "Campo"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_config_importer__name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer_config__name
+msgid "Field csv"
+msgstr "intestazione csv"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/hub.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer__source_data__file
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.hub_importer_view_search
+#, python-format
+msgid "File"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__source_filename
+msgid "Filename"
+msgstr "Nome file"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__firstname
+msgid "First Name"
+msgstr "Nome"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__fiscalcode
+#, python-format
+msgid "Fiscal Code"
+msgstr "Codice fiscale"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_res_partner_form
+msgid "Fleet Addresses"
+msgstr "Indirizzi"
+
+#. module: bloomup_fleet_move
+#: model:ir.actions.act_window,name:bloomup_fleet_move.fleet_attendance_action
+msgid "Fleet Attendaces"
+msgstr "Presenze Veicoli"
+
+#. module: bloomup_fleet_move
+#: model:ir.model,name:bloomup_fleet_move.model_fleet_attendance
+msgid "Fleet Attendance"
+msgstr "Presenza Veicolo"
+
+#. module: bloomup_fleet_move
+#: model:ir.model,name:bloomup_fleet_move.model_fleet_attendance_wizard
+msgid "Fleet Attendance Wizard"
+msgstr "Wizard Presenza Veicolo"
+
+#. module: bloomup_fleet_move
+#: model:ir.model,name:bloomup_fleet_move.model_fleet_location
+msgid "Fleet Location"
+msgstr "Posizione Veicolo"
+
+#. module: bloomup_fleet_move
+#: model:ir.actions.act_window,name:bloomup_fleet_move.fleet_location_action
+msgid "Fleet Locations"
+msgstr "Posizioni Veicoli"
+
+#. module: bloomup_fleet_move
+#: model:ir.actions.act_window,name:bloomup_fleet_move.fleet_move_action
+#: model:ir.model,name:bloomup_fleet_move.model_fleet_move
+#: model:ir.ui.menu,name:bloomup_fleet_move.fleet_move_menu
+#: model:ir.ui.menu,name:bloomup_fleet_move.fleet_move_root
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_search
+msgid "Fleet Move"
+msgstr "Richieste movimentazioni"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.bloomup_portal_my_home
+msgid ""
+"Fleet Move\n"
+"                    <span class=\"badge                      badge-secondary badge-pill badge-owl\" data-model=\"fleet.move\" data-field=\"partner_id\">\n"
+"                        <span class=\"zero\"><i class=\"fa fa-spin fa-spinner\"/></span>\n"
+"                    </span>"
+msgstr ""
+"Movimentazioni\n"
+"                    <span class=\"badge                      badge-secondary badge-pill badge-owl\" data-model=\"fleet.move\" data-field=\"partner_id\">\n"
+"                        <span class=\"zero\"><i class=\"fa fa-spin fa-spinner\"/></span>\n"
+"                    </span>"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_res_partner_form
+msgid "Fleet Move - Csv Configuration"
+msgstr "Movimentazioni - Configurazione Csv"
+
+#. module: bloomup_fleet_move
+#: model:ir.model,name:bloomup_fleet_move.model_fleet_move_event
+msgid "Fleet Move Event"
+msgstr "Evento"
+
+#. module: bloomup_fleet_move
+#: model:ir.actions.act_window,name:bloomup_fleet_move.fleet_group_action
+msgid "Fleet Move Group"
+msgstr "Gruppo movimentazione"
+
+#. module: bloomup_fleet_move
+#: model:ir.actions.act_window,name:bloomup_fleet_move.fleet_move_status_action
+#: model:ir.model,name:bloomup_fleet_move.model_fleet_move_status
+#: model:ir.ui.menu,name:bloomup_fleet_move.fleet_move_status_menu
+msgid "Fleet Move Status"
+msgstr "Fasi Movimentazioni"
+
+#. module: bloomup_fleet_move
+#: model:ir.actions.act_window,name:bloomup_fleet_move.fleet_partner
+#: model:ir.model,name:bloomup_fleet_move.model_fleet_partner
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_res_partner__fleet_partner_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_res_users__fleet_partner_ids
+#: model:ir.ui.menu,name:bloomup_fleet_move.fleet_partner_menu
+msgid "Fleet Partner"
+msgstr "Contatti movimentazioni"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/planner.py:0
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_event__fleet_move_id
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_event__event_type__fleet_move
+#, python-format
+msgid "Fleet move"
+msgstr "Movimentazione"
+
+#. module: bloomup_fleet_move
+#: model:ir.model,name:bloomup_fleet_move.model_fleet_move_group
+msgid "Fleet move Group"
+msgstr "Gruppo movimentazione"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__message_follower_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__message_follower_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__message_follower_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__message_follower_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__message_follower_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__message_follower_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__message_follower_ids
+msgid "Followers"
+msgstr "Follower"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__message_channel_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__message_channel_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__message_channel_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__message_channel_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__message_channel_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__message_channel_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Chi sta seguendo (canali)"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__message_partner_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__message_partner_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__message_partner_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__message_partner_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__message_partner_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__message_partner_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Chi sta seguendo (partner)"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_attendance__activity_type_icon
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_location__activity_type_icon
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_move__activity_type_icon
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_partner__activity_type_icon
+#: model:ir.model.fields,help:bloomup_fleet_move.field_hub_importer__activity_type_icon
+#: model:ir.model.fields,help:bloomup_fleet_move.field_task_typology__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle__Fornitore
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer_config__field_id__fornitore
+msgid "Fornitore"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/vehicles.xml:0
+#, python-format
+msgid "Frame Number"
+msgstr "Numero di telaio"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/vehicles.xml:0
+#, python-format
+msgid "Frames Number"
+msgstr "Numeri di telaio"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_kanban
+msgid "From:"
+msgstr "Da:"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle__fuel_type
+msgid "Fuel"
+msgstr "Carburante"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_event__fleet_group_id
+#: model:ir.ui.menu,name:bloomup_fleet_move.planner_group
+msgid "Group"
+msgstr "Grouppo"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_attendance_view_search
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_location_view_search
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_search
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_partner_view_search
+msgid "Group By"
+msgstr "Raggruppa per"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__row_header
+msgid "Header line number"
+msgstr "Numero riga dell'header"
+
+#. module: bloomup_fleet_move
+#: model:ir.ui.menu,name:bloomup_fleet_move.hub
+msgid "Hub"
+msgstr "Officina"
+
+#. module: bloomup_fleet_move
+#: model:ir.model,name:bloomup_fleet_move.model_hub_importer_config
+msgid "Hub Importer Config"
+msgstr "Configurazione Hub Importer"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_project_project__is_hub
+msgid "Hub Project"
+msgstr "Progetto Officina"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_project_task__is_hub
+msgid "Hub Task"
+msgstr "Attività Officina"
+
+#. module: bloomup_fleet_move
+#: model:ir.model,name:bloomup_fleet_move.model_hub_importer
+msgid "Hub Vehicles Importer"
+msgstr "Importatore Veicoli"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle__hub_importer_ids
+msgid "Hub importer"
+msgstr "Importatore Hub"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_res_partner_form
+msgid "Hub importer - Csv Configuration"
+msgstr "Importatore Hub - Configurazione Csv"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance_wizard__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_config_importer__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_event__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_group__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer_config__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_product_pricelist_item__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_project_project__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_project_task__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_project_task_type__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_res_partner__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__id
+msgid "ID"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#, python-format
+msgid "IT12345678901"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__activity_exception_icon
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__activity_exception_icon
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__activity_exception_icon
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__activity_exception_icon
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__activity_exception_icon
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__activity_exception_icon
+msgid "Icon"
+msgstr "Icona"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_attendance__activity_exception_icon
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_location__activity_exception_icon
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_move__activity_exception_icon
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_partner__activity_exception_icon
+#: model:ir.model.fields,help:bloomup_fleet_move.field_hub_importer__activity_exception_icon
+#: model:ir.model.fields,help:bloomup_fleet_move.field_task_typology__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icona per indicare un'attività di eccezione."
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,help:bloomup_fleet_move.field_project_project__is_hub
+#: model:ir.model.fields,help:bloomup_fleet_move.field_project_task__is_hub
+msgid "Identifica un progetto per la manutenzione in officina"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_attendance__message_needaction
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_attendance__message_unread
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_location__message_needaction
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_location__message_unread
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_move__message_needaction
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_move__message_unread
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_move_status__message_needaction
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_move_status__message_unread
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_partner__message_needaction
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_partner__message_unread
+#: model:ir.model.fields,help:bloomup_fleet_move.field_hub_importer__message_needaction
+#: model:ir.model.fields,help:bloomup_fleet_move.field_hub_importer__message_unread
+#: model:ir.model.fields,help:bloomup_fleet_move.field_task_typology__message_needaction
+#: model:ir.model.fields,help:bloomup_fleet_move.field_task_typology__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Se selezionato, nuovi messaggi richiedono attenzione."
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_attendance__message_has_error
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_attendance__message_has_sms_error
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_location__message_has_error
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_location__message_has_sms_error
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_move__message_has_error
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_move__message_has_sms_error
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_move_status__message_has_error
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_move_status__message_has_sms_error
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_partner__message_has_error
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_partner__message_has_sms_error
+#: model:ir.model.fields,help:bloomup_fleet_move.field_hub_importer__message_has_error
+#: model:ir.model.fields,help:bloomup_fleet_move.field_hub_importer__message_has_sms_error
+#: model:ir.model.fields,help:bloomup_fleet_move.field_task_typology__message_has_error
+#: model:ir.model.fields,help:bloomup_fleet_move.field_task_typology__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Se selezionato, alcuni messaggi presentano un errore di consegna."
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.hub_importer_view_form
+msgid "Import"
+msgstr "Importa"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_res_partner_form
+msgid "Importa"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.actions.act_window,name:bloomup_fleet_move.hub_importer_action
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_project_project__hub_importer_id
+#: model:ir.ui.menu,name:bloomup_fleet_move.hub_importer
+msgid "Importer"
+msgstr "Importatore"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/hub.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_location__type__internal
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer__source_data__internal
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_location_view_search
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.hub_importer_view_search
+#, python-format
+msgid "Internal"
+msgstr "Interno"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__message_is_follower
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__message_is_follower
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__message_is_follower
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__message_is_follower
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__message_is_follower
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__message_is_follower
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__message_is_follower
+msgid "Is Follower"
+msgstr "Sta seguendo"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_project_task_type__is_hub
+msgid "Is Hub"
+msgstr "è un Hub"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_partner__fiscalcode
+msgid "Italian Fiscal Code"
+msgstr "Codice fiscale italiano"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle__LCV
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer_config__field_id__lcv
+msgid "LCV"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer_config__field_id__lotto_di_acquisto
+msgid "LOTTO DI ACQUISTO"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance_wizard____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_config_importer____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_event____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_group____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer_config____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_product_pricelist_item____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_project_project____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_project_task____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_project_task_type____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_res_partner____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__lastname
+msgid "Last Name"
+msgstr "Cognome"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__write_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance_wizard__write_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__write_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__write_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_config_importer__write_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_event__write_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_group__write_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__write_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__write_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__write_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer_config__write_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento di"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__write_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance_wizard__write_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__write_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__write_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_config_importer__write_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_event__write_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_group__write_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__write_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__write_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__write_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer_config__write_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__write_date
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento il"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#, python-format
+msgid "Last name"
+msgstr "Cognome"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__location_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance_wizard__location_id
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_attendance_view_search
+msgid "Location"
+msgstr "Posizione"
+
+#. module: bloomup_fleet_move
+#: model:ir.ui.menu,name:bloomup_fleet_move.fleet_location_menu
+msgid "Locations"
+msgstr "Posizioni"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle__lotto_di_acquisto
+msgid "Lotto di acquisto"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__message_main_attachment_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__message_main_attachment_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__message_main_attachment_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__message_main_attachment_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__message_main_attachment_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__message_main_attachment_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Allegato principale"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer_config__field_id__brand_id
+msgid "Marca"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__message_has_error
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__message_has_error
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__message_has_error
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__message_has_error
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__message_has_error
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__message_has_error
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__message_has_error
+msgid "Message Delivery error"
+msgstr "Errore di consegna messaggio"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__message_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__message_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__message_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__message_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__message_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__message_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__message_ids
+msgid "Messages"
+msgstr "Messaggi"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/vehicles.xml:0
+#, python-format
+msgid "Model"
+msgstr "Modello"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer_config__field_id__model_id
+msgid "Modello"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.bloomup_portal_my_home
+msgid "Moves"
+msgstr "Movimentazioni"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__my_activity_date_deadline
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__my_activity_date_deadline
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__my_activity_date_deadline
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__my_activity_date_deadline
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__my_activity_date_deadline
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle__N_Ordine_Aval
+msgid "N Ordine Aval"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer_config__field_id__n_ordine_aval
+msgid "N_Ordine_Aval"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#: code:addons/bloomup_fleet_move/static/src/xml/move.xml:0
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_event__name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_group__name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__name
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__name
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_location_view_search
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_form
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_partner_form
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.hub_importer_view_search
+#, python-format
+msgid "Name"
+msgstr "Nome"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#, python-format
+msgid "New Address"
+msgstr "Nuovo indirizzo"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/move.xml:0
+#, python-format
+msgid "New Move"
+msgstr "Nuova movimentazione"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__default
+msgid "New Task Default"
+msgstr "Default per nuove attività"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/vehicles.xml:0
+#, python-format
+msgid "New vehicle"
+msgstr "Nuovo veicolo"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__activity_date_deadline
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__activity_date_deadline
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__activity_date_deadline
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__activity_date_deadline
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__activity_date_deadline
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Scadenza prossima attività"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__activity_summary
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__activity_summary
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__activity_summary
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__activity_summary
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__activity_summary
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__activity_summary
+msgid "Next Activity Summary"
+msgstr "Riepilogo prossima attività"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__activity_type_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__activity_type_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__activity_type_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__activity_type_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__activity_type_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__activity_type_id
+msgid "Next Activity Type"
+msgstr "Tipologia prossima attività"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_search
+msgid "Next Month"
+msgstr "Mese seguente"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/planner.xml:0
+#, python-format
+msgid "None"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.view_task_search_form_inherit_project
+msgid "Not Ordered"
+msgstr "Da fatturare"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__note
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_form
+msgid "Note"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#, python-format
+msgid "Number"
+msgstr "Numero"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__message_needaction_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__message_needaction_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__message_needaction_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__message_needaction_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__message_needaction_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__message_needaction_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Numero di azioni"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle__number_attendance
+msgid "Number of Attendances"
+msgstr "Numero di presenze"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_product_pricelist_item__delay_days
+msgid "Number of Days"
+msgstr "Numero di giorni"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle__n_tasks
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__n_tasks
+msgid "Number of Tasks"
+msgstr "Numero di task"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__message_has_error_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__message_has_error_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__message_has_error_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__message_has_error_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__message_has_error_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__message_has_error_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__message_has_error_counter
+msgid "Number of errors"
+msgstr "Numero di Errori"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_attendance__message_needaction_counter
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_location__message_needaction_counter
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_move__message_needaction_counter
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_move_status__message_needaction_counter
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_partner__message_needaction_counter
+#: model:ir.model.fields,help:bloomup_fleet_move.field_hub_importer__message_needaction_counter
+#: model:ir.model.fields,help:bloomup_fleet_move.field_task_typology__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Numero di messaggi che richiedono un'azione"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_attendance__message_has_error_counter
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_location__message_has_error_counter
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_move__message_has_error_counter
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_move_status__message_has_error_counter
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_partner__message_has_error_counter
+#: model:ir.model.fields,help:bloomup_fleet_move.field_hub_importer__message_has_error_counter
+#: model:ir.model.fields,help:bloomup_fleet_move.field_task_typology__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Numero di messaggi con errore di consegna"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_attendance__message_unread_counter
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_location__message_unread_counter
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_move__message_unread_counter
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_move_status__message_unread_counter
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_partner__message_unread_counter
+#: model:ir.model.fields,help:bloomup_fleet_move.field_hub_importer__message_unread_counter
+#: model:ir.model.fields,help:bloomup_fleet_move.field_task_typology__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Numero di messaggi non letti"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle__N_Ordine_Corretto
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer_config__field_id__n_ordine_corretto
+msgid "N° Ordine corretto"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_status_view_tree
+msgid "Open"
+msgstr "Apri"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle__fleet_attendance_id
+msgid "Open Attendance"
+msgstr "Apri presenza"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.view_task_search_form_inherit_project
+msgid "Ordered"
+msgstr "Fatturate"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_partner_form
+msgid "Owner"
+msgstr "Proprietario"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__planner_visible
+msgid "PLanner Visible"
+msgstr "Visibile nel planner"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__parent_id
+msgid "Parent"
+msgstr "Padre"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__parent_path
+msgid "Parent Path"
+msgstr "Percorso Padre"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/hub.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_location__type__parking
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_location_view_search
+#, python-format
+msgid "Parking"
+msgstr "Parcheggio"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__partner_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__owner_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle__owner_id
+msgid "Partner"
+msgstr "Azienda"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/models/fleet_partner.py:0
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_partner__company_type__person
+#, python-format
+msgid "Person"
+msgstr "Privato"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__phone
+#, python-format
+msgid "Phone"
+msgstr "Telefono"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer_config__field_id__piazzale_appoggio
+msgid "Piazzale Appoggio"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle__Piazzale_Appoggio
+msgid "Piazzale_Appoggio"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/move.xml:0
+#, python-format
+msgid "Picking"
+msgstr "Spedizione"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__pickup_address
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__pickup_street
+#, python-format
+msgid "Pickup Address"
+msgstr "Indirizzo di prelievo"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__pickup_city
+#, python-format
+msgid "Pickup Address City"
+msgstr "Indirizzo di prelievo: CITTA'"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__pickup_country_id
+#, python-format
+msgid "Pickup Address Country"
+msgstr "Indirizzo di prelievo: NAZIONE"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__pickup_email
+#, python-format
+msgid "Pickup Address E-mail"
+msgstr "Indirizzo di prelievo: E-MAIL"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__pickup_name
+#, python-format
+msgid "Pickup Address Name"
+msgstr "Indirizzo di prelievo: NOME COMPLETO"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__pickup_street2
+#, python-format
+msgid "Pickup Address Number"
+msgstr "Indirizzo di prelievo: CIVICO"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__pickup_phone
+#, python-format
+msgid "Pickup Address Phone"
+msgstr "Indirizzo di prelievo: TELEFONO"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__pickup_reference
+#, python-format
+msgid "Pickup Address Reference"
+msgstr "Indirizzo di prelievo: REFERENTE"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__pickup_state_id
+#, python-format
+msgid "Pickup Address State"
+msgstr "Indirizzo di prelievo: PROVINCIA"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__pickup_company_type
+#, python-format
+msgid "Pickup Address Type"
+msgstr "Indirizzo di prelievo: TIPO"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__pickup_zip
+#, python-format
+msgid "Pickup Address Zip"
+msgstr "Indirizzo di prelievo: CAP"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__pickup_firstname
+#, python-format
+msgid "Pickup First Name"
+msgstr "Indirizzo di prelievo: NOME"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__pickup_lastname
+#, python-format
+msgid "Pickup Last Name"
+msgstr "Indirizzo di prelievo: COGNOME"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/planner.xml:0
+#: model:ir.actions.client,name:bloomup_fleet_move.backend_action_planner
+#: model:ir.ui.menu,name:bloomup_fleet_move.planner_requests_menu_client
+#, python-format
+msgid "Planner"
+msgstr "Pianificatore"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/vehicles.xml:0
+#, python-format
+msgid "Plate"
+msgstr "Targa"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__portal_name
+msgid "Portal Name"
+msgstr "Nome visualizzato nel portale"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_search
+msgid "Previous Month"
+msgstr "Mese precedente"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.product_pricelist_view_inherit_product_pricelist
+msgid "Price"
+msgstr "Prezzo"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.product_pricelist_view_inherit_product_pricelist
+msgid "Pricelist Items"
+msgstr "Elemento Listino prezzi"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/hub.py:0
+#, python-format
+msgid "Pricelist Line is missing."
+msgstr "Manca il listino prezzi."
+
+#. module: bloomup_fleet_move
+#: model:ir.model,name:bloomup_fleet_move.model_product_pricelist_item
+msgid "Pricelist Rule"
+msgstr "Regola listino prezzi"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/hub.py:0
+#, python-format
+msgid "Pricelist for customer %s is missing."
+msgstr "Manca il listino prezzi per il cliente %s."
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/hub.py:0
+#, python-format
+msgid "Pricelist is missing."
+msgstr "Manca il listino prezzi."
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__product_id
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.product_pricelist_view_inherit_product_pricelist
+msgid "Products"
+msgstr "Prodotti"
+
+#. module: bloomup_fleet_move
+#: model:ir.model,name:bloomup_fleet_move.model_project_project
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__project_id
+msgid "Project"
+msgstr "Progetto"
+
+#. module: bloomup_fleet_move
+#: model:ir.actions.act_window,name:bloomup_fleet_move.project_hub_action
+#: model:ir.ui.menu,name:bloomup_fleet_move.project_hub_menu
+#: model:ir.ui.menu,name:bloomup_fleet_move.project_hub_root
+msgid "Projects"
+msgstr "Progetti"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__quotechar
+msgid "Quotechar"
+msgstr "Separatore stringhe"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__reference
+msgid "Reference"
+msgstr "Riferimento"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_attendance_wizard_view_form
+msgid "Register Enter"
+msgstr "Registra entrata"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_attendance_view_form
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_attendance_view_tree
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_attendance_wizard_view_form
+msgid "Register Exit"
+msgstr "Registra uscita"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_search
+msgid "Request Date"
+msgstr "Data richiesta"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__request_date
+msgid "Request Datetime"
+msgstr "Data richiesta"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__request_date_copy
+msgid "Request Datetime Copy"
+msgstr "Data richiesta"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__activity_user_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__activity_user_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__activity_user_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__activity_user_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__activity_user_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__activity_user_id
+msgid "Responsible User"
+msgstr "Utente responsabile"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.bloomup_portal_my_home
+msgid "Richieste Movimentazioni"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__message_has_sms_error
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__message_has_sms_error
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__message_has_sms_error
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__message_has_sms_error
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__message_has_sms_error
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__message_has_sms_error
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Errore spedizione SMS"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#: code:addons/bloomup_fleet_move/static/src/xml/move.xml:0
+#: code:addons/bloomup_fleet_move/static/src/xml/vehicles.xml:0
+#, python-format
+msgid "Save"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__sequence
+msgid "Sequence"
+msgstr "Sequenza"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__action_server_id
+msgid "Server Actions"
+msgstr "Azione Server"
+
+#. module: bloomup_fleet_move
+#: model:ir.ui.menu,name:bloomup_fleet_move.fleet_move_configuration_menu
+#: model:ir.ui.menu,name:bloomup_fleet_move.fleet_settigs_menu
+msgid "Settings"
+msgstr "Impostazioni"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__source_data
+msgid "Source Datas"
+msgstr "Sorgente Dati"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__source_file
+msgid "Source File"
+msgstr "File sorgente"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#: code:addons/bloomup_fleet_move/static/src/xml/move.xml:0
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_group__state
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__state_id
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_partner_form
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_partner_view_search
+#, python-format
+msgid "State"
+msgstr "Provincia"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__state
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__state
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_search
+msgid "Status"
+msgstr "Stato"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_attendance__activity_state
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_location__activity_state
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_move__activity_state
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_partner__activity_state
+#: model:ir.model.fields,help:bloomup_fleet_move.field_hub_importer__activity_state
+#: model:ir.model.fields,help:bloomup_fleet_move.field_task_typology__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Stato basato sulle attività\n"
+"In ritardo: data di scadenza già superata\n"
+"Oggi: attività in data odierna\n"
+"Pianificato: attività future."
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__street
+msgid "Street"
+msgstr "Indirizzo"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__street2
+msgid "Street 2"
+msgstr "Indirizzo 2"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_partner_form
+msgid "Street 2..."
+msgstr "Indirizzo 2..."
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_partner_form
+msgid "Street..."
+msgstr "Indirizzo..."
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer_config__field_id__license_plate
+msgid "Targa"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model,name:bloomup_fleet_move.model_project_task
+msgid "Task"
+msgstr "Lavoro"
+
+#. module: bloomup_fleet_move
+#: model:ir.model,name:bloomup_fleet_move.model_project_task_type
+msgid "Task Stage"
+msgstr "Fase lavoro"
+
+#. module: bloomup_fleet_move
+#: model:ir.actions.act_window,name:bloomup_fleet_move.task_typology_action
+msgid "Task Typologies"
+msgstr "Tipologie Attività"
+
+#. module: bloomup_fleet_move
+#: model:ir.model,name:bloomup_fleet_move.model_task_typology
+#: model:ir.ui.menu,name:bloomup_fleet_move.task_typology_menu
+msgid "Task Typology"
+msgstr "Tipologia Attività"
+
+#. module: bloomup_fleet_move
+#: model:ir.actions.act_window,name:bloomup_fleet_move.task_hub_action
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__tasks
+#: model:ir.ui.menu,name:bloomup_fleet_move.project_task_menu
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_vehicle_view_form_inherit_fleet
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.hub_importer_view_form
+msgid "Tasks"
+msgstr "Attività"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/hub.py:0
+#, python-format
+msgid "Tasks for %s"
+msgstr "Attività per %s"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer_config__field_id__vin_sn
+msgid "Telaio"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/hub.py:0
+#, python-format
+msgid "The exit date must be greater than the entrance date."
+msgstr "L'uscita deve essere maggiore dell'entrata"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/fleet_partner.py:0
+#, python-format
+msgid "The fiscal code doesn't seem to be correct."
+msgstr "Il codice fiscale non sembra corretto"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_vehicle__Tipo
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__hub_importer_config__field_id__tipo
+msgid "Tipo"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_kanban
+msgid "To:"
+msgstr "A:"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/planner.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_event__event_type__transport
+#, python-format
+msgid "Transport"
+msgstr "Trasporto pubblico"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/fleet_move.py:0
+#, python-format
+msgid "Two or more states cannot exists with cancel_user flag."
+msgstr "Non possono esistere due o più stato con il flag default a True."
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/fleet_move.py:0
+#, python-format
+msgid "Two or more states cannot exists with default flag."
+msgstr "Non possono esistere due o più stato con il flag default a True."
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__type
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_event__event_type
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__company_type
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_location_view_search
+#, python-format
+msgid "Type"
+msgstr "Tipo"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_attendance__activity_exception_decoration
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_location__activity_exception_decoration
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_move__activity_exception_decoration
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_partner__activity_exception_decoration
+#: model:ir.model.fields,help:bloomup_fleet_move.field_hub_importer__activity_exception_decoration
+#: model:ir.model.fields,help:bloomup_fleet_move.field_task_typology__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo di attività di eccezione nel record. "
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_project_task__task_typology_id
+msgid "Typology"
+msgstr "Tipologia"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__message_unread
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__message_unread
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__message_unread
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__message_unread
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__message_unread
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__message_unread
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__message_unread
+msgid "Unread Messages"
+msgstr "Messaggi non letti"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__message_unread_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__message_unread_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__message_unread_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__message_unread_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__message_unread_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__message_unread_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Numero messaggi non letti"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__user_id
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_search
+msgid "User"
+msgstr "Richiedente"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_group_view_form
+msgid "Vai al calendario"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.product_pricelist_view_inherit_product_pricelist
+msgid "Variants"
+msgstr "Varianti"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__vat
+#, python-format
+msgid "Vat"
+msgstr "P.Iva"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/move.xml:0
+#: model:ir.model,name:bloomup_fleet_move.model_fleet_vehicle
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__vehicle_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance_wizard__vehicle_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__vehicle_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_project_task__vehicle_id
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_attendance_view_search
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_move_view_search
+#, python-format
+msgid "Vehicle"
+msgstr "Veicolo"
+
+#. module: bloomup_fleet_move
+#: model:ir.actions.act_window,name:bloomup_fleet_move.fleet_attendance_vehicle_action
+msgid "Vehicle Attendances"
+msgstr "Presenze Veicoli"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__vehicle_brand
+#, python-format
+msgid "Vehicle Brand"
+msgstr "Marca Veicolo"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__vehicle_model
+#, python-format
+msgid "Vehicle Model"
+msgstr "Modello Veicolo"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__vehicle_plate
+#, python-format
+msgid "Vehicle Plate"
+msgstr "Targa Veicolo"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/importer.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_move_config_importer__field_id__vehicle_vin_sn
+#, python-format
+msgid "Vehicle SN"
+msgstr "Telaio Veicolo"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__internal_vehicle_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__vehicle_ids
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.hub_importer_view_form
+msgid "Vehicles"
+msgstr "Veicoli"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.bloomup_portal_my_home
+msgid ""
+"Vehicles\n"
+"                    <span class=\"badge                      badge-secondary badge-pill badge-owl\" data-model=\"fleet.vehicle\" data-field=\"owner_id\">\n"
+"                        <span class=\"zero\"><i class=\"fa fa-spin fa-spinner\"/></span>\n"
+"                    </span>"
+msgstr ""
+"Veicoli\n"
+"                    <span class=\"badge                      badge-secondary badge-pill badge-owl\" data-model=\"fleet.vehicle\" data-field=\"owner_id\">\n"
+"                        <span class=\"zero\"><i class=\"fa fa-spin fa-spinner\"/></span>\n"
+"                    </span>"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.hub_importer_view_form
+msgid "Vehicles from file"
+msgstr "Veicoli da file"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.bloomup_portal_my_home
+msgid "Veicoli"
+msgstr ""
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance_wizard__view_attendance
+msgid "View attendance"
+msgstr "Vedi presenza"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_attendance__website_message_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_location__website_message_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move__website_message_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_status__website_message_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__website_message_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_hub_importer__website_message_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_task_typology__website_message_ids
+msgid "Website Messages"
+msgstr "Messaggi sito web"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_attendance__website_message_ids
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_location__website_message_ids
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_move__website_message_ids
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_move_status__website_message_ids
+#: model:ir.model.fields,help:bloomup_fleet_move.field_fleet_partner__website_message_ids
+#: model:ir.model.fields,help:bloomup_fleet_move.field_hub_importer__website_message_ids
+#: model:ir.model.fields,help:bloomup_fleet_move.field_task_typology__website_message_ids
+msgid "Website communication history"
+msgstr "Cronologia comunicazioni sito web"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_location_view_search
+msgid "With Attendance"
+msgstr "Con presenza"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/hub.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move.selection__fleet_location__type__workshop
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_location_view_search
+#, python-format
+msgid "Workshop"
+msgstr "Officina"
+
+#. module: bloomup_fleet_move
+#: code:addons/bloomup_fleet_move/models/hub.py:0
+#, python-format
+msgid "You can't create task without project"
+msgstr "Non puoi creare attività senza progetto."
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_partner_form
+msgid "ZIP"
+msgstr "CAP"
+
+#. module: bloomup_fleet_move
+#. openerp-web
+#: code:addons/bloomup_fleet_move/static/src/xml/addresses.xml:0
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_partner__zip
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_partner_view_search
+#, python-format
+msgid "Zip"
+msgstr "Cap"
+
+#. module: bloomup_fleet_move
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move.fleet_partner_form
+msgid "e.g. BE0477472701"
+msgstr "e.s. BE0477472701"
+
+#. module: bloomup_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move.field_fleet_move_group__user_id
+msgid "user"
+msgstr "Utente"

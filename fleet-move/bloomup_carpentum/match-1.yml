@@ -1,0 +1,194 @@
+{
+    "Result": "OK",
+    "ErrorCode": null,
+    "ErrorMessage": null,
+    "GUID": "fc83d0ac-3241-4099-ab25-60da864cae83",
+    "Incarichi": [
+        {
+            
+            "code_tipo_incarico": "NUOVO",#no
+            "tipo_Incarico": "NUOVO",#no
+            "tipo_entrata_veicolo": "Gate In",#no
+            
+            "delivery_Type_Code": null,#no
+            "delivery_Type_Desc": null,#no
+            
+            "Supplier": "ARS SERVICE SRL",#no
+            
+            "cliente_Winter_Mandatory": "Cliente Mandatory",#no
+            
+            
+            "lease_Id": "1607662",#no
+            
+            
+
+            "caratteristiche_Della_Consegna": null,#no
+            
+            "progetto_Inclusione": "SI",#in hub
+            "flag_Personal": "N",#no
+            "dealer_Di_Acquisto_Id": "300293",#no
+            "dealer_Di_Acquisto": "MERCEDES-BENZ ROMA SPA",#no
+            "dealer_Di_Acquisto_Referente": null,#no
+            "dealer_Di_Acquisto_Email": null,#no
+            "dealer_Di_Acquisto_Telefono": null,#no
+            "assicurazione_Privata": "N",#no
+            "caricamento_Certificato_Ass_Privato": false,#no
+            "data_Decorrenza_Ass_Privata": null,#no
+            "data_Decorrenza_Polizza": null,#no
+            "check_Stato_Ass": "N",#no
+            "luogo_Disp_Veicolo": "",#no
+            
+
+            "Veicolo": {
+                "Codice_Jato": "160760",#no
+                "Cig": null,#no
+                
+                "Installatore_BlackBox": "ESCARGO S.R.L.",#in hub
+                "Box_Car_Sharing": null,#no
+                "installatore_BlackBox_Car_Sharing": null,#no
+                
+                "Telepass": "NO",# telepass
+                "km_Blackbox": null, #no
+                "Lojack": null,#in hub
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                "Certificato_ATP": "NO",# certificato atp
+                
+                
+                
+            },
+            "veicoloUsato": {
+                "Telaio": null,
+                "Targa": null,
+                "Num_Contratto": null,
+                "Marca": null,
+                "Tipo": null,
+                "Modello": null,
+                "Antifurto_Sat": null,
+                "telepass": null,
+                "Alimentazione": null,
+                "Data_Ritiro": null,
+                "Scadenza_Revisione": null,
+                "Data_UltimaRilevazioneKM": null,
+                "Colore_Esterni": null,
+                "Colore_Interni": null,
+                "Numero_Porte": null,
+                "Massa_Veicolo": null,
+                "Non_Marciante": "NO",
+                "Certificato_Di_Collaudo": "NO",
+                "Blackbox_Usato": null,
+                "Pre_Consumer_Index": null,
+                "Data_Immatricolazione": null
+            }, #no
+            "GateIn": {
+                "caricamentoDDT": false,
+                "caricamentoPdfGateIn": false,
+                "CheckDanniGuasti": null,
+                "CheckDriveCase": null,
+                "CheckMancanze": null,
+                "DataGateIn": null,
+                "Note": null,
+                "piazzaleFornitore": "ARS12 - ARS ALTMANN |Via della industrie 7 |26034 |Piadena |CR",
+                
+                "verificaConformitaMotivazione": null,
+                "CodeMotivazione": null,
+                "verificaConformitaResponsabile": null,
+                "CodeResponsabile": null
+            }, 
+            "pneumatici": {
+                "servizio_Pneumatici": "WINTER KIT", #in hub
+                
+                "MarcaPneumaticiWinter": null,#no
+                "ModelloPneumaticiWinter": null,#no
+                "MisureAnterioriPneumaticiWinter": null,#no
+                "MisurePosterioriPneumaticiWinter": null,#no
+                
+                
+                
+                "CheckAllSeasonPneumaticiPrimoImpianto": null,#no
+
+                "DataArrivoPneumaticiWinter": null,#no
+                "DataMontaggioPneumaticiWinter": null,#no
+                "DataOrdinePneumaticiWinter": null #no
+            },
+            "inclusioneAssicurativa": {
+                "codice_IMEI_Box": null,
+                "data_Attivazione_Box": "13/04/2023",
+                "data_Attivazione_LoJack": "n\\d",
+                "data_Immatricolazione": "2023-03-15T00:00:00",
+                "data_Richiesta_Inclusione": null,
+                "data_Inclusione_Modificata": null
+            },# no 
+            "appuntamento": {
+                "concessionario_Id": null,#no
+                "concessionario": "ARS ALTMANN",#no
+                "concessionario_Referente": null,#no
+                "concessionario_Ind_Via": "Via Prova, 1",#no
+                "concessionario_Ind_Cap": "26034",#no
+                "concessionario_Ind_Localita": "Piadena",#no
+                
+                "concessionario_Telefono": null,#no
+                
+                
+                
+                
+                
+                
+                "NomeIncaricatoClienteRitiro": "Nicolo",#no
+                "CognomeIncaricatoClienteRitiro": "Toti",#no
+                
+                
+                
+                "cliente_Driver_Cognome": null,
+                "TelefonoDriverUtilizzatore": null,
+                "EmailDriverUtilizzatore": null,
+                "cliente_Piva": "13454210157",
+                "delegato_Cliente": null,
+                "nominativo_Delegato": null,
+                "nominativo_Delegato_Cognome": null,
+                "email_Delegato": null,
+                "telefono_Delegato": null,
+                "AltriContattiEmailIncaricatoClienteRitiro": null,
+                "DataProposta": null,
+                "DataConcordata": null,
+                "FasciaOraria": null,
+                "FasciaKm": null,
+                "DataModificata": null,
+                "CodeResponsabile": null,
+                "CodeMotivazione": null,
+                "Note": null,
+                "DataConcordataDealer": null,
+                "NomeGommista": null,
+                "CodiceGommista": null,
+                "SitoPartenzaGommista": null,
+                "SitoDestinazioneGommista": null,
+                "CodeVettoreLogistico": null,
+                "dataProntoRitiroDealer": null,
+                "dataDisponibilitaInstallazioneBox": null
+            }, 
+            "preQuality": {
+                "caricamentoPdfPQC": false,
+                "CheckVeicoloConforme": null,
+                "CodeResponsabile": null,
+                "CodeMotivazione": null,
+                "check_ass": null,
+                "preQualityCheckMotivazione": null,
+                "preQualityCheckResponsabile": null,
+                "Note": null
+            },
+            "ownerConsegna": {
+                "DescOwnerConsegna": null,
+                "NoteOwnerConsegna": null
+            }
+        },
+    ]
+}

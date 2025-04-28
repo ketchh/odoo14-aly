@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="fleet_move_view_form__tyre" model="ir.ui.view">
+        <field name="name">fleet.move.view.form.tyre</field>
+        <field name="model">fleet.move</field>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="google_maps" widget="google_maps_field" nolabel="1"/>
+                    </group>
+                    <field name="delivery_address" invisible="1"/>
+                    <field name="customer_id" invisible="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="fleet_move_view_form_inherit_tyre" model="ir.ui.view">
+        <field name="name">fleet.move.view.form.inherit</field>
+        <field name="model">fleet.move</field>
+        <field name="inherit_id" ref="bloomup_fleet_move.fleet_move_view_form"/>
+        <field name="arch" type="xml">
+            <header position="inside">
+                <button type="object" name="find_tyre_repairer" class="btn-primary" string="Find Tyre Repairer"/>
+            </header>
+            <xpath expr="//field[@name='durata_contratto']" position="after">
+                <field name="tyre_order_id"/>
+            </xpath>
+            
+        </field>
+    </record>
+    <record id="fleet_move_view_form_arval_inherit_tyre" model="ir.ui.view">
+        <field name="name">fleet.move.view.form.arval.inherit</field>
+        <field name="model">fleet.move</field>
+        <field name="inherit_id" ref="bloomup_fleet_move_arval.fleet_move_view_form_inherit_addons"/>
+        <field name="arch" type="xml">
+            <header>
+                <button type="object" name="send_repairer_selection_mail" class="btn-primary" string="Invia Mail al Gommista"/>
+                <button type="object" name="create_tyre_team_order" class="btn-primary" string="Create Tyre Team Order" attrs="{'invisible': ['|','|',('is_queueing','=',True),('tyre_order_id', '!=', False),('pneumatici_servizio', '!=', 'WINTER KIT')]}"/>
+                <button type="object" name="confirm_driver_delivery" class="btn-primary" string="Conferma Consegna" attrs="{'invisible': [('tyre_order_id', '=', False)]}"/>
+                <button type="object" name="confirm_repairer" class="btn-primary" string="Conferma Gommista" attrs="{'invisible': [('tyre_order_id', '=', False)]}"/>
+            </header>
+            <group name="gommista" position="replace">
+                <group name="gommista" string="Gommista">
+                    <field name="selected_tyre_repairer" />
+                </group>
+            </group>
+            <xpath expr="//field[@name='km_sottoscritti']" position="after" >
+                <field name="is_queueing" groups="base.group_no_one" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="fleet_vehicle_view_form_inherit" model="ir.ui.view">
+        <field name="name">fleet_vehicle_view_form_inherit</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+        <field name="arch" type="xml">
+            <field name="tag_ids" position="after">
+                <br/>
+                <label for="owner_id" class="oe_edit_only"/>
+                <field name="owner_id" options="{'no_create':True, 'no_create_edit': True}"/>
+            </field>
+            <field name="acquisition_date" position="before">
+                <field name="cancel_from_user" />
+            </field>
+        </field>
+    </record>
+
+</odoo>

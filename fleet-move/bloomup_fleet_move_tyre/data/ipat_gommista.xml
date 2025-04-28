@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="gommista_provincia" model="bloomup.ipat">
+            <field name="name">GOMMISTA PROVINCIA</field>
+            <field name="model" ref="base.model_res_country_state"/>
+            <field name="line_ids" eval="[
+            (0,0,{'column_name':'CUSTOMER_CENTRE','field':False,'to_search':False,'fixed':False,'code':False}),
+            (0,0,{'column_name':'LATITUDINE','field':False,'to_search':False,'fixed':False,'code':False}),
+            (0,0,{'column_name':'LONGITUDINE','field':False,'to_search':False,'fixed':False,'code':False}),
+            (0,0,{'column_name':'TAX_REGISTRATION_NUMBER','field':False,'to_search':False,'fixed':False,'code':False}),
+            (0,0,{'column_name':'COMPANY_NAME','field':False,'to_search':False,'fixed':False,'code':False}),
+            (0,0,{'column_name':'ADDRESS','field':False,'to_search':False,'fixed':False,'code':False}),
+            (0,0,{'column_name':'POST_CODE','field':False,'to_search':False,'fixed':False,'code':False}),
+            (0,0,{'column_name':'TOWN','field':False,'to_search':False,'fixed':False,'code':False}),
+            (0,0,{'column_name':'PROVINCE_CODE','field':ref('base.field_res_country_state__code'),'to_search':True,'fixed':False,'code':False}),
+            (0,0,{'column_name':'REGION','field':False,'to_search':False,'fixed':False,'code':False}),
+            (0,0,{'column_name':'TELEPHONE','field':False,'to_search':False,'fixed':False,'code':False}),
+            (0,0,{'column_name':'E_MAIL','field':False,'to_search':False,'fixed':False,'code':False}),
+            (0,0,{'column_name':'STATUS_DESCRIPTION','field':False,'to_search':False,'fixed':False,'code':False}),
+            (0,0,{'column_name':'STATUS_DATE','field':False,'to_search':False,'fixed':False,'code':False}),
+            (0,0,{'column_name':'GOMME','field':False,'to_search':False,'fixed':False,'code':False}),
+            (0,0,{'column_name':'ADESIONE PW TOTALI','field':False,'to_search':False,'fixed':False,'code':False}),
+            (0,0,{'column_name':'add-nazione','field':ref('base.field_res_country_state__country_id'),'to_search':True,'fixed':True,'code':ref('base.it')})]"/>
+        </record>
+
+        <record id="gommista" model="bloomup.ipat">
+            <field name="name">GOMMISTA</field>
+            <field name="model" ref="model_tyre_repairer"/>
+            <field name="line_ids" eval="[
+            (0,0,{'column_name':'CUSTOMER_CENTRE','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer__customer_center'),'to_search':True,'fixed':False,'code':False, 'no_create':False}),
+            (0,0,{'column_name':'LATITUDINE','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer__latitude'),'to_search':False,'fixed':False,'code':False, 'no_create':False}),
+            (0,0,{'column_name':'LONGITUDINE','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer__longitude'),'to_search':False,'fixed':False,'code':False, 'no_create':False}),
+            (0,0,{'column_name':'TAX_REGISTRATION_NUMBER','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer__vat'),'to_search':False,'fixed':False,'code':False, 'no_create':False}),
+            (0,0,{'column_name':'COMPANY_NAME','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer__name'),'to_search':False,'fixed':False,'code':False, 'no_create':False}),
+            (0,0,{'column_name':'ADDRESS','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer__address'),'to_search':False,'fixed':False,'code':False, 'no_create':False}),
+            (0,0,{'column_name':'POST_CODE','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer__cap'),'to_search':False,'fixed':False,'code':False, 'no_create':False}),
+            (0,0,{'column_name':'TOWN','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer__city'),'to_search':False,'fixed':False,'code':False, 'no_create':False}),
+            (0,0,{'column_name':'PROVINCE_CODE','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer__state_id'),'to_search':False,'fixed':False,'code':False, 'no_create':True, 'ref_ipat':ref('gommista_provincia')}),
+            (0,0,{'column_name':'REGION','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer__region'),'to_search':False,'fixed':False,'code':False, 'no_create':False}),
+            (0,0,{'column_name':'TELEPHONE','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer__phone'),'to_search':False,'fixed':False,'code':False, 'no_create':False}),
+            (0,0,{'column_name':'E_MAIL','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer__email'),'to_search':False,'fixed':False,'code':False, 'no_create':False}),
+            (0,0,{'column_name':'STATUS_DESCRIPTION','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer__status_description'),'to_search':False,'fixed':False,'code':False, 'no_create':False}),
+            (0,0,{'column_name':'STATUS_DATE','field':False,'to_search':False,'fixed':False,'code':False, 'no_create':False}),
+            (0,0,{'column_name':'GOMME','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer__network'),'to_search':False,'fixed':False,'code':False, 'no_create':False}),
+            (0,0,{'column_name':'ADESIONE PW TOTALI','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer__adesione_pw_totali'),'to_search':False,'fixed':False,'code':False, 'no_create':False})]"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        name="I.P.A.T."
+        id="ipat_root"
+        sequence="99"
+        parent="base.menu_custom"
+        groups="base.group_system"
+    />
+
+    <record id="ipat_action" model="ir.actions.act_window">
+        <field name="name">I.P.A.T.</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bloomup.ipat</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        name="I.p.a.t."
+        parent="ipat_root"
+        action="ipat_action"
+        id="ipat_menu"
+        sequence="1"
+        groups="base.group_system"
+    />
+
+    <record id="ipat_tree" model="ir.ui.view">
+        <field name="name">ipat.tree</field>
+        <field name="model">bloomup.ipat</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name='name'/>
+                <field name='model'/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ipat_form" model="ir.ui.view">
+        <field name="name">ipat.form</field>
+        <field name="model">bloomup.ipat</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button type="object" name="load_file" string="Load File" class="btn-primary"/>
+                    <button type="object" name="load_datas" string="Load Datas" class="btn-dark"/>
+                    <button type="object" name="clear_datas" string="Clear Datas" class="btn-warning"/>
+                    <button type="object" name="change_file" string="Clear File" class="btn-danger"/>
+                    <button type="object" name="start_import" string="Import" class="btn-success"/>
+                </header>
+                <sheet>
+                    <group class="border-bottom">
+                        <h2><field name="name" nolabel="1" placeholder="Name"/></h2>
+                    </group>
+                    <group>
+                        <group>
+                            <field name='model' />
+                        </group>
+                        <group>
+                            <field name="file" />
+                        </group>
+                    </group>
+                    
+                    <group>
+                        <field name="message" />
+                    </group>
+                    <group>
+                        <field name="refused" />
+                    </group>
+                    <group string="Lines">
+                        <field name="line_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="column_name" />
+                                <field name="ipat_id" invisible="1"/>
+                                <field name="model_id" />
+                                <field name="field" domain="[['model_id','=',model_id]]"/>
+                                <field name="field_type" />
+                                <field name="to_search" />
+                                <field name="fixed" />
+                                <field name="no_create" />
+                                <field name="required" />
+                                <field name="ref_ipat" />
+                                <field name="code" />
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

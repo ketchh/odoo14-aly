@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_netcheck" model="ir.ui.view">
+        <field name="name">res.config.netcheck</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="5"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block " data-string="Netcheck" 
+                string="Netcheck" data-key="netchcek_2">
+                    <h2>Netcheck</h2>
+                    <div class="row mt16 o_settings_container netchcek_2">
+                        <div class="col-12 col-lg-6 o_setting_box"
+                            title="Ability to associate checklists with models">
+                            <div class="o_setting_left_pane">
+                                <field name="group_allow_checklist_association"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="group_allow_checklist_association"/>
+                                <div class="text-muted">
+                                    ability to associate checklists with models
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-group">
+                            <div class="mt8" 
+                            attrs="{'invisible': 
+                            [('group_allow_checklist_association', '=', False)]}">
+                                <button 
+                                    name="base.action_model_model" 
+                                    icon="fa-arrow-right" 
+                                    type="action" 
+                                    string="Go to Models" 
+                                    class="btn-link"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="netcheck_config_settings_action" model="ir.actions.act_window">
+        <field name="name">Netcheck</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_id" ref="res_config_netcheck"/>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'netcheck_2'}</field>
+    </record>
+</odoo>

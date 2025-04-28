@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="backend_action_planner" model="ir.actions.client">
+        <field name="name">Planner</field>
+        <field name="tag">planner_action_client</field>
+    </record>
+    <menuitem
+        id="planner_requests_menu_client"
+        name="Planner"
+        action="backend_action_planner"
+        parent="bloomup_fleet_move.fleet_move_root"
+        sequence="90"/>
+
+    <record id="fleet_group_action" model="ir.actions.act_window">
+        <field name="name" >Fleet Move Group</field>
+        <field name="res_model">fleet.move.group</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="planner_group"
+        name="Group"
+        action="fleet_group_action"
+        parent="bloomup_fleet_move.fleet_move_root"
+        sequence="91"/>
+    
+    <record id="fleet_move_group_view_form" model="ir.ui.view">
+        <field name="name">fleet.move.group.view.form</field>
+        <field name="model">fleet.move.group</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="employee_id" />
+                            <field name="user_id"/>
+                        </group>
+                        
+                    </group>
+                    <notebook>
+                        <page name="events" string="Events">
+                            <button name="go_to_calendar" type="object" string="Vai al calendario"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="fleet_move_event_view_calendar" model="ir.ui.view">
+        <field name="name">fleet.move.event.view.calendar</field>
+        <field name="model">fleet.move.event</field>
+        <field name="arch" type="xml">
+            <calendar date_start="event_datetime" date_stop="event_datetime_end" mode="day" event_open_popup="true">
+                <field name="name" />
+            </calendar>
+        </field>
+    </record>
+    
+    <data noupdate="1">
+        <record id="seq_planner_group" model="ir.sequence">
+            <field name="name">Planner Group</field>
+            <field name="code">fleet.move.group.sequence</field>
+            <field name="prefix">GROUP</field>
+            <field name="padding">5</field>
+        </record>
+    </data>
+</odoo>

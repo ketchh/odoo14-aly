@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="PlannerApp" owl="1">
+        <div t-transition="fade" class="h-100 container-flex">
+        <div class="o_control_panel">
+            <div class="o_cp_top">
+                <div class="o_cp_top_left row">
+                    <ol role="navigation" class="breadcrumb col-4">
+                        <li class="breadcrumb-item active">Planner</li>
+                    </ol>
+                    <div class="col-4">
+                        <input readonly="readonly" type="text" id="datepicker" class="border-0 breadcrumb-item active"/>
+                    </div>
+                </div>
+                <div class="o_cp_top_right text-right">
+                    <button type="button" class="btn btn-link breadcrumb-item active" t-on-click="add_group">
+                        <i class="fa fa-plus"></i> <span>Add Group</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row row95">
+                <div class="col-12 col-md-8 left-block h-100">
+                    <div class="internal">
+                        <FleetMove t-transition="fade"/>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 right-block h-100">
+                    <Groups t-transition="fade"/>
+                </div>
+            </div>
+            <div t-if="state.loading">
+                <Loader t-transition="fade"/>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="PlannerGroup" owl="1">
+        <div class="row">
+            <t t-foreach="state.groups" t-as="group">
+                <div class="group col-12 border-bottom bg-secondary p-2" t-att-data-id="group.id">
+                    <span class="text-uppercase font-weight-bold"><t t-esc="group.name"/></span>
+                    <div class="state btn-group" role="group" >
+                        <div class="btn-group" role="group">
+                            <button t-if="group.employee_id" id="btnGroupDrop1" type="button" class="border-top-0 rounded-0 btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <t t-esc="group.employee_id[1]"/>
+                            </button>
+                            <button t-else="" id="btnGroupDrop1" type="button" class="border-top-0 rounded-0 btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <u style="text-decoration: none;">Choose Employee</u>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <t t-foreach="state.users" t-as="user">
+                                <span class="dropdown-item" t-on-click="select_employee(user.id, group.id)" style="cursor:pointer"><t t-esc="user.name" /></span>
+                            </t>
+                            <span class="dropdown-item" t-on-click="select_employee(false, group.id)" style="cursor:pointer">None</span>
+                            </div>
+                        </div>
+                        <button type="button" class="
+                            btn btn-success 
+                            rounded-0 
+                            border-top-0" t-on-click="complete_group(group.id)">
+                            <u style="text-decoration: none;">Complete</u></button>
+                        <button type="button" class="
+                            btn btn-dark 
+                            rounded-0 
+                            border-top-0" t-on-click="open_calendar(group.id)">
+                            <i class="fa fa-calendar"></i></button>
+                        <button type="button" class="
+                            btn btn-danger 
+                            rounded-0 
+                            border-top-0" t-on-click="delete_group(group.id)">
+                            <i class="fa fa-times"></i></button>
+                    </div>
+                    <span class="pt-2">
+                        <t t-foreach="group.event_ids" t-as="event">
+                            <div class="mini-event bg-dark p-2 text-capitalize">
+                                <span style="padding-right:13px"><t t-esc="event.name"/></span>
+                                <div class="btn-group-vertical cancel-event p-0">
+                                    <button type="button" class="rounded-0 btn btn-danger
+                                    " t-on-click="cancel(event.id, event.obj.id)"><i class="fa fa-times"></i></button>
+                                <button type="button" class="rounded-0 btn btn-info"
+                                t-on-click="open(event.id)" 
+                                t-att-id="'info'+event.id">
+                                    <i class="fa fa-info"></i>
+                                </button>
+                                </div>
+                                
+                            </div>
+                        </t>
+                    </span>
+                </div>
+            </t>
+        </div>
+    </t>
+
+    <t t-name="PlannerFleetMove" owl="1">
+        <div class="row">
+            <t t-foreach="state.records" t-as="record">
+                <FleetMoveCard record="record"/>
+            </t>
+        </div>
+    </t>
+
+    <t t-name="PlannerFleetMoveCard" owl="1">
+        <div t-att-class="'draggable card '+current_state.bg " style="padding:0;cursor:grab">
+            <div class="card-header row">
+                <span class="col-10 p-0 text-truncate text-uppercase">
+                    <t t-esc="record.partner_id[1]"/>
+                </span>
+                <div class="col-1 p-0">
+                    <span style="cursor:pointer; padding:5px" t-on-click="open(record.id)"><i class="fa fa-info"></i></span>
+                </div>
+                <ChangeColor class="col-1 p-0" id="record.id"/>
+            </div>
+            <div class="card-body text-capitalize" >
+                <b>Da: </b><t t-raw="record.pickup_address[1]"/>
+                <br/>
+                <b>A: </b><t t-raw="record.delivery_address[1]"/>
+            </div>
+        </div>
+    </t>
+
+</templates>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="fleet_move_create_checklist_action_server" model="ir.actions.server">
+        <field name="name">Create Auto Checklist</field>
+        <field name="model_id" ref="model_fleet_move"/>
+        <field name="binding_model_id" ref="model_fleet_move"/>
+        <field name="state">code</field>
+        <field name="code">
+        record.create_auto_checklist(record.white_label)
+        </field>
+    </record>
+</odoo>

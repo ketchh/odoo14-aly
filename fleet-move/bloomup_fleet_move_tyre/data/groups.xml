@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_api_user" model="res.groups">
+        <field name="name">API User</field>
+        <!-- <field name="category_id" ref="bloomup_fleet_move_tyre.module_category_group_api_user"/> -->
+        <!-- <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/> -->
+        <field name="comment">The user by which the API will perform various actions on tires and project tasks.</field>
+    </record>
+    <!-- ONLY TASKS WITH FLAG SET -->
+    <record id="group_api_rule" model="ir.rule">
+        <field name="name">API only sees mounting tasks</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="groups" eval="[(4, ref('bloomup_fleet_move_tyre.group_api_user'))]"/>
+        <field name="domain_force">[('task_typology_id.is_montaggio','=',True)]</field>
+    </record>
+</odoo>

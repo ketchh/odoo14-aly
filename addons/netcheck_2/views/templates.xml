@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="checklist_portal_breadcrumb" name="Portal breadcrumb" inherit_id="portal.portal_breadcrumbs" priority="30">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li class="breadcrumb-item active" t-if="checklist_name">
+               <b><t t-esc="checklist_name"/></b>
+            </li>
+        </xpath>
+    </template> 
+    <template id="my_checklist" name="My Checklist">
+        <t t-call="portal.portal_layout">
+            <t t-set="no_breadcrumbs" t-value="True"/>
+            
+            <nav t-attf-class="navbar navbar-light navbar-expand-lg border py-0 mb-2 o_portal_navbar mt-3 rounded">
+                <div class="col-10">
+                    <t t-call="portal.portal_breadcrumbs">
+                        <t t-set="checklist_name" t-value="name"/>
+                    </t>
+                </div>
+            </nav>
+
+            <div class="o_portal_my_home" contenteditable="false">
+                    <div class="accordion" id="accordionExample">
+                        <t t-foreach="datas" t-as="data">
+                            <div class="card" t-if="datas[data]">
+                                <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left" type="button" 
+                                        data-toggle="collapse" t-attf-data-target="#collapse{{data.replace(' ', '')}}" aria-expanded="true" t-attf-aria-controls="collapse{{data.replace(' ', '')}}">
+                                            <t t-esc="data"/>
+                                        </button>
+                                    </h2>
+                                </div>
+
+                                <div t-attf-id="collapse{{data.replace(' ', '')}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <t t-foreach="datas[data]" t-as="obj">
+                                                <div class="col-6 card border-0">
+                                                    <div class="card-body">
+                                                        <h6><t t-esc="obj['name']"/></h6> 
+                                                        <t t-raw="obj['value']"/>
+                                                    </div>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+            </div>
+        </t>
+    </template>
+</odoo>

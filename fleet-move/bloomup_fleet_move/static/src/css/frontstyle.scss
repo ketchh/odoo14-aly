@@ -1,0 +1,203 @@
+#my_vehicle .pagination,
+#my_addresses .pagination{
+  margin:0;
+}
+.form-control{
+  color: black !important;
+}
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #D3D3D3 !important;
+  opacity: 1; /* Firefox */
+}
+.table-button-top{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+}
+.table-button-bottom{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+}
+.app-table-mobile .page-link{
+  border-top:none !important;
+  border-bottom: none !important;
+}
+.app-table-mobile .navigation-page{
+  background-color: white !important;
+  border-top: 1px solid #DEE2E6;
+  border-bottom: 1px solid #DEE2E6;
+}
+.app-table-mobile{
+  min-height: 615px;
+  position: relative;
+}
+#container-owl-notification{
+  position: fixed;
+  min-height: 200px;
+  top: 0;
+  right: 0;
+  width: 300px;
+  z-index: 99999;
+  display:none ;
+  padding:10px;
+}
+
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+@media (min-width: 768px) { 
+  .o_portal_navbar .closest-app-add-button{
+    position: absolute;
+    background: none;
+    border: none;
+    color: black;
+    top: 0;
+    right: 80px;
+    height: 100%;
+    padding: 0;
+  }
+  .o_portal_navbar .app-add-button:hover,
+  .o_portal_navbar .app-add-button:active{
+    background:none !important;
+    color: black !important;
+  }
+  .navbar-app{
+    position: relative;
+  }
+  .o_portal_navbar .app-pagination{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 1rem;
+  }
+  #bottom-bar{
+    display: none;
+  }
+  #my_vehicle .app-add-button,
+  #my_addresses .app-add-button{
+    display: none;
+  }
+  .o_portal_navbar .b-page{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .app-actions button{
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  
+}
+
+
+
+@media (max-width: 767.98px){
+  
+  .app-table-mobile .navigation-page{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left:0;
+    background-color: #ECECEC;
+    z-index:10
+  }
+  .app-table-mobile .page-link{
+    height: 60px;
+    line-height: 60px;
+  }
+  #my_vehicle, #my_addresses, #my_move{
+    margin-top: 60px;
+  }
+  #bottom-bar{
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #F7F7F7;
+    left: 0;
+  }
+  #bottom-bar .app-pagination{
+    height: 100%;
+    width: 60%;
+    float: right;
+  }
+  #bottom-bar button{
+    height: 100%;
+  }
+  #bottom-bar .b-right, 
+  #bottom-bar .b-left, 
+  #bottom-bar .b-page{
+    width: 33.3% !important;
+  }
+  .top-mobile{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    z-index: 9;
+  }
+  .top-mobile .navbar{
+    height: 55px;
+  }
+  .app-table-mobile{
+    min-height: 100%;
+    position: relative;
+  }
+  .closest-app-add-button{
+    width: 20%;
+    height: 100%;
+    float: left;
+  }
+  .app-search{
+    width: 20%;
+    height: 100%;
+    float: left;
+  }
+  #bottom-bar .dropdown-search{
+    position: fixed !important;
+    bottom:57px !important;
+    left:0px !important;
+    width: 100% !important;
+    top: unset !important;
+    border-radius: 0;
+    transform: unset !important;
+    will-change: unset !important;
+  }
+  .app-add-button{
+    width: 100%;
+  }
+  #container-owl-notification{
+    position: fixed;
+    min-height: 200px;
+    top: unset;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 99999;
+    padding:10px;
+  }
+  .toast:not(:last-child) {
+    margin-top: 0.75rem;
+    margin-bottom: unset;
+  }
+  .toast{
+    max-width: 100%;;
+  }
+
+  .modal-dialog-full{
+    height: 98%;
+  }
+  .modal-content-full{
+    max-height: 100%;
+  }
+  .modal-body-full{
+    overflow-y: auto;
+  }
+
+ 
+
+}

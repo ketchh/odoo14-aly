@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--ATTENZIONE: non prende il noupdate quindi va messo manualmente
+    nell'azione server quando viene modificato il messaggio
+    altrimenti ad ogni aggiornamento viene sovrascritto
+    usare record.qualcosa dove record nell'action è la movimentazione
+    -->
+    <data noupdate="1">
+        <record id="arval_send_sms_action" model="ir.actions.server">
+            <field name="name">Arval Send SMS</field>
+            <field name="model_id" ref="model_fleet_move"/>
+            <field name="binding_model_id" ref="model_fleet_move"/>
+            <field name="state">code</field>
+            <field name="code">
+msg = "Personalizzare questo sms"
+record.invia_sms(msg)
+            </field>
+        </record>
+    </data>
+</odoo>

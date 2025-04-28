@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <record model="ir.rule" id="netcheck_2_my_checklist_damage_user">
+            <field name="name">USER: My Checklist Damage</field>
+            <field name="model_id" ref="model_checklist_damage"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('netcheck_2.checklist_group_user'))]"/>
+        </record>
+
+        <record model="ir.rule" id="netcheck_2_all_checklist__damage_manager">
+            <field name="name">MANAGER: All Checklist Damage</field>
+            <field name="model_id" ref="model_checklist_damage"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('netcheck_2.checklist_group_manager'))]"/>
+        </record>
+
+        <record model="ir.rule" id="netcheck_2_my_checklist_damage_image_user">
+            <field name="name">USER: My Checklist Damage Image</field>
+            <field name="model_id" ref="model_checklist_damage_image"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('netcheck_2.checklist_group_user'))]"/>
+        </record>
+
+        <record model="ir.rule" id="netcheck_2_all_checklist__damage_image_manager">
+            <field name="name">MANAGER: All Checklist Damage Image</field>
+            <field name="model_id" ref="model_checklist_damage_image"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('netcheck_2.checklist_group_manager'))]"/>
+        </record>
+    </data>
+</odoo>

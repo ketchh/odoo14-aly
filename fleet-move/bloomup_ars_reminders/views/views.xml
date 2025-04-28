@@ -1,0 +1,55 @@
+<odoo>
+    <data>
+        <record id="fleet_move_status_view_tree" model="ir.ui.view">
+        <field name="name">fleet_move_status_view_tree_inh</field>
+        <field name="model">fleet.move.status</field>
+        <field name="inherit_id" ref="bloomup_fleet_move.fleet_move_status_view_tree"/>
+        <field name="arch" type="xml">
+           
+            <field name="active" position="before">
+                <field name="is_agreed" widget="boolean_toggle"/>
+            </field>
+        </field>
+        </record>
+        <record id="fleet_move_view_form_inh" model="ir.ui.view">
+            <field name="name">fleet_move_view_form_inh</field>
+            <field name="model">fleet.move</field>
+            <field name="inherit_id" ref="bloomup_fleet_move.fleet_move_view_form"/>
+            <field name="arch" type="xml">
+               
+                <field name="confirmed_date" position="before">
+                    <field name="reminder_sent" widget="boolean_toggle"/>
+                </field>
+            </field>
+            </record>
+
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">Add days before reminder email setting</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base_setup.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='emails']" position='after'>
+                    <div id="reminder_settings">
+                        <h2>ARS Reminders Settings</h2>
+                        <div class="row mt16 o_settings_container" name="reminder_setting_container">
+                            <div class="o_setting_right_pane" id="reminder_settings">
+
+                                <div class="o_form_label">
+                                    Number of days for reminder
+                                </div>
+
+                                <field name="days_before_reminder" />
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo> 

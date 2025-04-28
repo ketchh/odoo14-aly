@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ipat,access_ipat,model_bloomup_ipat,base.group_system,1,1,1,1
+access_ipat_lines,access_ipat_lines,model_bloomup_ipat_lines,base.group_system,1,1,1,1

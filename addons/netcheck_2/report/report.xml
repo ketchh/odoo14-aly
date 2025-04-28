@@ -1,0 +1,69 @@
+<odoo>
+    <data>
+        <!-- QWeb Reports -->
+        <record id="netcheck_report" model="ir.actions.report">
+            <field name="name">Generic Checklist Report</field>
+            <field name="model">checklist.checklist</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">netcheck_2.report_checklist</field>
+            <field name="report_file">netcheck_2.report_checklist</field>
+            <field name="paperformat_id" ref="base.paperformat_euro"/>
+        </record>
+
+        <template id="report_checklist">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="netcheck_2.report_generic"/>
+                </t>
+            </t>
+        </template>
+
+        <template id="report_generic">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <div class="row m-0 mt-1 p-0 ">
+                            <div class="col-12 text-center"><h3 t-field="o.name"/></div>
+                        </div>
+                        <t t-foreach="attributes[o.id]" t-as="section">
+                            <!--<div class="col-12 p-1 bg-primary" t-if="section!=0">
+                                <h6 class="m-0 font-weight-bold"><t t-esc="section"/></h6>
+                            </div>
+                            <div class="row m-0 p-0 mb-1">
+                                <t t-foreach="attributes[o.id][section]" t-as="registration">
+                                    <div class="col-3 m-0 p-1 font-weight-bold border-bottom border-secondary">
+                                        <t t-raw="registration['name']"/>
+                                    </div>
+                                    <div class="col-3 m-0 p-1 text-right" t-if="registration_last">
+                                        <t t-raw="registration['value']"/>
+                                    </div>
+                                    <div class="col-3 m-0 p-1 text-right border-bottom border-secondary" t-else="">
+                                        <t t-raw="registration['value']"/>
+                                    </div>
+                                </t>
+                            </div>-->
+                            <table class="table">
+                                <thead t-if="section!=0">
+                                    <tr>
+                                        <th colspan="2"><t t-esc="section"/></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="attributes[o.id][section]" t-as="registration">
+                                        <tr >
+                                            <td class="font-weight-bold" style="width:50% !important">
+                                                <t t-raw="registration['name']"/>
+                                            </td>
+                                            <td class="text-right"><t t-raw="registration['value']"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

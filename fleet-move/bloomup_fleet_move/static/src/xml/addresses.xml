@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="Addresses" owl="1">
+        <div t-transition="fade">
+            <div t-if="state.loading">
+                <Loader t-transition="fade"/>
+            </div>
+            
+            <Table/>
+            
+            <div id="bottom-bar"></div>
+            <div id="container-owl-notification"
+            aria-live="polite" aria-atomic="true">
+                
+            </div>
+        </div>
+    </t>
+
+    <t t-name="AddressesTable" owl="1">
+        <div class="vehicles_table app-table-mobile" t-transition="fade">
+            <div class="row g-0">
+                <div class="col-12 d-none d-md-block">
+                    <div class="card text-dark bg-light">
+                        <div class="card-body row">
+                            <div class="col-md-2 col-12"><b>Name</b></div>
+                            <div class="col-md-2 col-12"><b>Address</b></div>
+                            <div class="col-md-2 col-12"><b>City</b></div>
+                            <div class="col-md-2 col-12"><b>State</b></div>
+                            <div class="col-md-2 col-12"><b>Zip</b></div>
+                            <div class="col-md-2 col-12"><b>Action</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <t t-foreach="state.records" t-as="record">
+                <div class="row g-0">
+                    <div class="col-12">
+                        <div class="card text-dark">
+                            <div class="card-body row">
+                                <div class="col-md-2 col-10">
+                                    <b class="d-md-none"><span>Name</span>: </b>
+                                    <span class="text-uppercase">
+                                        <t t-esc="record.name"/>
+                                    </span>
+                                </div>
+                                <div class="col-md-2 col-10">
+                                    <b class="d-md-none"><span>Address</span>: </b>
+                                    <span class="text-uppercase">
+                                        <t t-esc="record.street + ' ' + record.street2"/>
+                                    </span>
+                                </div>
+                                <div class="col-md-2 col-10">
+                                    <b class="d-md-none"><span>City</span>: </b>
+                                    <span class="text-uppercase">
+                                        <t t-esc="record.city"/>
+                                    </span>
+                                </div>
+                                <div class="col-md-2 col-10">
+                                    <b class="d-md-none"><span>State</span>: </b>
+                                    <span class="text-uppercase">
+                                        <t t-esc="record.state_id[1]"/>
+                                    </span>
+                                </div>
+                                <div class="col-md-2 col-10">
+                                    <b class="d-md-none"><span>Zip</span>: </b>
+                                    <span class="text-uppercase">
+                                        <t t-esc="record.zip"/>
+                                    </span>
+                                </div>
+                                <div class="col-md-2 col-10 d-md-block d-none app-actions">
+                                    <button class="btn p-0" t-on-click="edit(record.id)">
+                                        <i class="fa fa-edit" style="
+                                            font-size: 20px;
+                                        "></i>
+                                    </button>
+                                    <button class="btn p-0 text-danger" t-on-click="cancel(record.id)">
+                                        <i class="fa fa-times" style="
+                                            font-size: 20px; 
+                                        "></i>
+                                    </button>
+                                </div>
+                                <div class="col-2 d-md-none table-button-top">
+                                    <button class="btn p-0" t-on-click="edit(record.id)">
+                                        <i class="fa fa-edit" style="
+                                            font-size: 20px;
+                                        "></i>
+                                    </button>
+                                </div>
+                                <div class="col-2 d-md-none table-button-bottom">
+                                    <button class="btn p-0 text-danger" t-on-click="cancel(record.id)">
+                                        <i class="fa fa-times" style="
+                                            font-size: 20px; 
+                                        "></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+            
+            <CancelDialog
+                title="env.qweb.translateFn('Are you sure you want to delete the address?')"
+                body="env.qweb.translateFn('By deleting the address you will no longer be able to access your data, but you will continue to see all the movements in which it appears.')"
+            />
+            <AddressEdit/>
+        </div>
+    </t>
+
+    <t t-name="AddressEdit" owl="1">
+        <div id="edit_address" class="modal modal-fullscreen  fade " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-full">
+                <div class="modal-content modal-content-full">
+                    <div class="modal-header">
+                        <h5 class="modal-title" t-if="state.record_id">Edit Address</h5>
+                        <h5 class="modal-title" t-else="">New Address</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Chiudi">
+                            <i class="fa fa-times text-danger" style="
+                                font-size: 20px; 
+                            "></i>
+                        </button>
+                    </div>
+                    <div class="modal-body modal-body-full">
+                        <form class="address_edit" t-if="state.record_id">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <label for="company_type" 
+                                        class="col-form-label">Type</label>
+                                    <select class="form-control text-uppercase" 
+                                    name="company_type" t-on-change="change">
+                                        <option value="company" selected="selected"
+                                        t-if="state.record_id.company_type == 'company'">
+                                            <span>Company</span>
+                                        </option>
+                                        <option value="company" t-else=""><span>Company</span></option>
+                                        <option value="person" selected="selected"
+                                        t-if="state.record_id.company_type == 'person'">
+                                            <span>Person</span>
+                                        </option>
+                                        <option value="person" t-else=""><span>Person</span></option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-md-6" 
+                                    t-if="state.record_id.company_type == 'company'">
+                                    <label for="name" class="col-form-label"><span>Company name</span> *</label>
+                                    <input type="text" class="form-control text-uppercase" 
+                                        t-att-placeholder="env.qweb.translateFn('Company name')" 
+                                        name="name"
+                                        t-att-value="state.record_id.name"
+                                        t-on-change="change"/>
+                                </div>
+                                <div class="col-12 col-md-6" 
+                                    t-if="state.record_id.company_type == 'person'">
+                                    <label for="firstname" class="col-form-label"><span>Name</span> *</label>
+                                    <input type="text" class="form-control text-uppercase" 
+                                        t-att-placeholder="env.qweb.translateFn('Name')" 
+                                        name="firstname"
+                                        t-att-value="state.record_id.firstname"
+                                        t-on-change="change"/>
+                                </div>
+                                <div class="col-12 col-md-6" 
+                                    t-if="state.record_id.company_type == 'person'">
+                                    <label for="lastname" class="col-form-label"><span>Last name</span> *</label>
+                                    <input type="text" class="form-control text-uppercase" 
+                                        t-att-placeholder="env.qweb.translateFn('Last name')" 
+                                        name="lastname"
+                                        t-att-value="state.record_id.lastname"
+                                        t-on-change="change"/>
+                                </div>
+                                <div class="col-12 col-md-6" >
+                                    <label for="country_id" class="col-form-label"><span>Country</span> *</label>
+                                    <Autocomplete 
+                                    placeholder="env.qweb.translateFn('Country')"
+                                    model="'res.country'"
+                                    value="state.record_id.country_id[1]"
+                                    name="'country_id'"
+                                    t-on-change="change"/>
+                                </div>
+                                <div class="col-12 col-md-6" >
+                                    <label for="state_id" class="col-form-label"><span>State</span> *</label>
+                                    <Autocomplete 
+                                    placeholder="env.qweb.translateFn('State')"
+                                    model="'res.country.state'"
+                                    value="state.record_id.state_id[1]"
+                                    name="'state_id'"
+                                    depends_name="'country_id'"
+                                    depends_model="'res.country'"
+                                    depends_field="'country_id'"
+                                    t-on-change="change"/>
+                                </div>
+                                <div class="col-12 col-md-6" >
+                                    <label for="city" class="col-form-label"><span>City</span> *</label>
+                                    <input type="text" class="form-control text-uppercase" 
+                                        t-att-placeholder="env.qweb.translateFn('City')" 
+                                        name="city"
+                                        t-att-value="state.record_id.city"
+                                        t-on-change="change"/>
+                                </div>
+                                <div class="col-12 col-md-6" >
+                                    <label for="zip" class="col-form-label"><span>Zip</span> *</label>
+                                    <input type="text" class="form-control text-uppercase" 
+                                        t-att-placeholder="env.qweb.translateFn('Zip')" 
+                                        name="zip"
+                                        t-att-value="state.record_id.zip"
+                                        t-on-change="change"/>
+                                </div>
+                                <div class="col-12 col-md-6" >
+                                    <label for="street" class="col-form-label"><span>Address</span> *</label>
+                                    <input type="text" class="form-control text-uppercase" 
+                                        t-att-placeholder="env.qweb.translateFn('Street/square')" 
+                                        name="street"
+                                        t-att-value="state.record_id.street"
+                                        t-on-change="change"/>
+                                </div>
+                                <div class="col-12 col-md-6" >
+                                    <label for="street2" class="col-form-label"><span>Number</span> *</label>
+                                    <input type="text" class="form-control text-uppercase" 
+                                        t-att-placeholder="env.qweb.translateFn('Number')" 
+                                        name="street2"
+                                        t-att-value="state.record_id.street2"
+                                        t-on-change="change"/>
+                                </div>
+                                <div class="col-12 col-md-6" >
+                                    <label for="email" class="col-form-label">E-Mail</label>
+                                    <input type="text" class="form-control text-uppercase" 
+                                        placeholder="E-Mail" 
+                                        name="email"
+                                        t-att-value="state.record_id.email"
+                                        t-on-change="change"/>
+                                </div>
+                                <div class="col-12 col-md-6" >
+                                    <label for="phone" class="col-form-label"><span>Phone</span></label>
+                                    <input type="text" class="form-control text-uppercase" 
+                                        t-att-placeholder="env.qweb.translateFn('Phone')" 
+                                        name="phone"
+                                        t-att-value="state.record_id.phone"
+                                        t-on-change="change"/>
+                                </div>
+                                <div class="col-12 col-md-6" 
+                                    t-if="state.record_id.company_type == 'company'">
+                                    <label for="reference" class="col-form-label">Contact Person</label>
+                                    <input type="text" class="form-control text-uppercase" 
+                                        t-att-placeholder="env.qweb.translateFn('Contact Person')" 
+                                        name="reference"
+                                        t-att-value="state.record_id.reference"
+                                        t-on-change="change"/>
+                                </div>
+                                <div class="col-12 col-md-6" 
+                                    t-if="state.record_id.company_type == 'company'">
+                                    <label for="vat" class="col-form-label"><span>Vat</span></label>
+                                    <input type="text" class="form-control text-uppercase" 
+                                        placeholder="IT12345678901" 
+                                        name="vat"
+                                        t-att-value="state.record_id.vat"
+                                        t-on-change="change"/>
+                                </div>
+                                <div class="col-12 col-md-6" 
+                                    t-if="state.record_id.company_type == 'person'">
+                                    <label for="fiscalcode" class="col-form-label"><span>Fiscal Code</span></label>
+                                    <input type="text" class="form-control text-uppercase" 
+                                        t-att-placeholder="env.qweb.translateFn('Fiscal Code')" 
+                                        name="fiscalcode"
+                                        t-att-value="state.record_id.fiscalcode"
+                                        t-on-change="dispatch('change')"/>
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-12 p-0" >
+                            <button type="submit" 
+                            class="btn btn-primary 
+                            float-md-right d-none d-md-block" t-on-click="save"><span>Save</span></button>
+
+                            <button type="submit" 
+                            class="btn btn-primary btn-block 
+                             d-md-none " t-on-click="save"><span>Save</span></button>
+
+                            <button type="button" 
+                            class="btn float-md-left d-none d-md-block btn-danger" 
+                            data-dismiss="modal" ><span>Cancel</span></button>
+
+                            <button type="button" 
+                            class="btn btn-block 
+                             d-md-none btn-danger" 
+                            data-dismiss="modal" style="margin-top:10px"><span>Cancel</span></button>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

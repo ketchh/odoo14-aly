@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_carrier_planner" model="res.groups">
+        <field name="name">Carrier Planner</field>
+        <field name="category_id" ref="base.module_category_fleet_move_planner"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="comment">The user will be able to manage own carrier capcity.</field>
+    </record>
+    <record id="group_carrier_manager_planner" model="res.groups">
+        <field name="name">Carrier Manager Planner</field>
+        <field name="category_id" ref="base.module_category_fleet_move_planner"/>
+        <field name="implied_ids" eval="[(4, ref('group_carrier_planner'))]"/>
+        <field name="comment">The user will be able to manage all carrier capacity.</field>
+    </record>
+</odoo>

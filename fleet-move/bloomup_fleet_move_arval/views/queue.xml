@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="arval_mail_queue_action" model="ir.actions.act_window">
+        <field name="name">Mail Queue</field>
+        <field name="res_model">arval.queue.mail</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="arval_mail_queue_menu"
+        name="Mail Queue"
+        action="arval_mail_queue_action"
+        parent="bloomup_fleet_move.fleet_move_configuration_menu"
+        sequence="90"/>
+
+    <record id="arval_mail_queue_view_tree" model="ir.ui.view">
+        <field name="name">arval.queue.mail.view.tree</field>
+        <field name="model">arval.queue.mail</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" />
+                <field name="alias_value" />
+                <field name="company_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="arval_mail_queue_view_form" model="ir.ui.view">
+        <field name="name">arval.queue.mail.view.form</field>
+        <field name="model">arval.queue.mail</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="queue_line_tree" type="object" icon="fa-file-text-o">
+                            <field string="Incoming Mail" name="queue_line_count" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <field name="active" invisible="1"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" 
+                    attrs="{'invisible': [('active', '=', True)]}"/>
+                    <h1>
+                        <field id="name" class="text-break" name="name" default_focus="1"/>
+                    </h1>
+                    <group >
+                        <group name="group_alias">
+                            <label for="alias_name" string="Email Alias"/>
+                            <div name="alias_def">
+                                <field name="alias_id" class="oe_read_only oe_inline"
+                                        string="Email Alias" required="0"/>
+                                <div class="oe_edit_only oe_inline" name="edit_alias"
+                                    style="display: inline;" >
+                                    <field name="alias_name" class="oe_inline"/>
+                                    @
+                                    <field name="alias_domain" class="oe_inline" readonly="1"/>
+                                </div>
+                            </div>
+                            <field name="alias_contact" class="oe_inline"
+                                    string="Accept Emails From"/>
+                        </group>
+                        <group>
+                            <field name="company_id" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="Settings" name="settings">
+                        <group>
+                            <field name="partner_id" />
+                            <field name="project_id" />
+                            <field name="fleet_move" />
+                        </group>
+                        <group>
+                            <field name="filename" />
+                            <field name="hub" />
+                        </group>
+                    </group>
+                    <group>
+                        <field name="partners_send_mail" />
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="arval_queue_mail_line_view_tree" model="ir.ui.view">
+        <field name="name">arval_queue_mail_line.view.tree</field>
+        <field name="model">arval.queue.mail.line</field>
+        <field name="arch" type="xml">
+            <tree default_order="create_date desc"
+            decoration-danger="error">
+                <field name="create_date" />
+                <field name="mail_from" />
+                <field name="name" />
+                <field name="processed" />
+                <field name="error" />
+                <field name="company_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="arval_queue_mail_line_view_form" model="ir.ui.view">
+        <field name="name">arval.queue.mail.line.view.form</field>
+        <field name="model">arval.queue.mail.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button string="Import" name="create_fleet_move" type="object"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box"/>
+                    
+                    <h1>
+                        <field id="name" name="name" default_focus="1" readonly="1"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="mail_from" readonly="1"/>
+                            <field name="processed" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="company_id" readonly="1"/>
+                            <field name="error" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="body" string="Body">
+                            <field name="body" nolabel="1" readonly="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+</odoo>

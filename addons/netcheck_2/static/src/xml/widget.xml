@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="RvR" owl="1">
+        <div style="width:100%">
+            <t t-raw="html_value"/>
+        </div>
+    </t>
+</templates>

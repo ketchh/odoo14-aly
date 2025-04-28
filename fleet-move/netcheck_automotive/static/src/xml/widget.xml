@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="DamageWidget" owl="1">
+        <div>
+            <img t-att-src="props.image" 
+            class="img-fluid rounded mx-auto d-block" usemap="#workmap"/>
+            <map name="workmap">
+                <t t-foreach="props.damages" t-as="damage">
+                    <area shape="circle" t-att-coords="damage.coordinate_x + ',' + damage.coordinate_y + ',' + '10'" 
+                    alt="Damage" t-on-click="open_damage(damage.id)" style="cursor:pointer"/>
+                </t>
+            </map>
+            <br/>
+            <center>
+                <h4><t t-esc="props.number_of_damages"/></h4>
+            </center>
+        </div>
+    </t>
+    <t t-name="DamageDetail" owl="1">
+        <div class="container-fluid">
+            <div class=" rounded border p-2" >
+                    <h5 class="mt-0 mb-1"><t t-esc="props.damage.type"/></h5>
+                    <p t-if="props.damage.note"><t t-esc="props.damage.note"/></p>
+                
+                <div class="mt-2 col-12 d-flex justify-content-center flex-wrap">
+                    <t t-foreach="props.images" t-as="image">
+                        <div class="img-damage-container border rounded">
+                            <img t-att-src="image.raw_value" class="m-1" t-on-click="open_damage_image(image.id)"/>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

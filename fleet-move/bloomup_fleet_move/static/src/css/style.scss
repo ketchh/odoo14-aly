@@ -1,0 +1,143 @@
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #F2F2F2;
+}
+.container-flex{
+    display:flex;
+    flex-flow: column;
+}
+.o_web_planner .row{
+    margin-left: 0;
+    margin-right: 0
+}
+.left-block{
+    padding:1%;
+    
+}
+.right-block{
+    padding:0;
+    z-index:0;
+}
+.o_web_planner .o_menu_brand{
+    margin: 0
+}
+.o_web_planner .o_main_navbar a{
+    padding:0;
+}
+.o_web_planner .group{
+    min-height:100px;
+}
+.chosen{
+    border: 1px solid red !important;
+}
+/*.o_web_planner .card{
+    z-index: 9 !important;
+}*/
+.o_web_planner #datepicker{
+    font-size:18px;
+}
+.o_web_planner .group span{
+    width: 100%;
+    display: block;
+}
+.mini-event{
+    width: 24% !important;
+    float: left;
+    margin: 0.5%;
+    position: relative;
+}
+.cancel-event {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.cancel-event button {
+    font-size: 13px;
+    padding:2px;
+    line-height: 9px;
+}
+.o_web_planner .right-block .group{
+    position:relative;
+}
+.o_web_planner .right-block .state{
+    position:absolute;
+    top:0;
+    right: 0;
+}
+@media (min-width: 768px) {  
+
+    .row95{
+        height: 100%;
+    }
+    .o_web_planner .left-block{
+        border-right: 1px solid #ccc;
+    }
+    .o_web_planner .card{
+        width: 49%;
+        margin: 0.5%;
+        font-size: 13px;
+    }
+    .o_web_planner .group span{
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 992px) {
+    .o_web_planner .card{
+        width: 32%;
+        margin: 0.66%;
+    }
+}
+@media (min-width: 1200px) {
+    .o_web_planner .card{
+        width: 32%;
+        margin: 0.66%;
+        font-size: 14px;
+    }
+    .o_web_planner .group span{
+        font-size: 14px;
+    }
+}
+@media (min-width: 1400px) {
+    .o_web_planner .card{
+        width: 24%;
+        margin: 0.5%;
+    }
+}
+@media (min-width: 2359px) {
+    .o_web_planner .card {
+        width: 16%;
+        margin: 0.33%;
+        font-size: 17px;
+    }
+    .o_web_planner .group span{
+        font-size: 17px;
+    }
+    .o_web_planner .o_control_panel .breadcrumb,
+    .o_web_planner .o_control_panel button,
+    .o_web_planner #datepicker {
+        font-size: 23px;
+    }
+}
+@media (min-width: 3639px) {
+    .o_web_planner .card {
+        width: 14%;
+        margin: 0.14%;
+        font-size: 23px;
+    }
+    .o_web_planner .group span{
+        font-size: 23px;
+    }
+    .o_web_planner .o_control_panel .breadcrumb,
+    .o_web_planner .o_control_panel button,
+    .o_web_planner #datepicker {
+        font-size: 35px;
+    }
+}
+@media (max-width: 768px) { 
+    .o_web_planner .left-block{
+        border-bottom: 1px solid #ccc;
+    } 
+    .o_web_planner .card{
+        width: 100%;
+    }
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="fleet_move_status_view_tree_carpentum" model="ir.ui.view">
+        <field name="name">fleet_move_status_view_tree_carpentum</field>
+        <field name="model">fleet.move.status</field>
+        <field name="inherit_id" ref="bloomup_fleet_move.fleet_move_status_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="active" position="before">
+                <field name="move_type" widget="many2many_tags"/>
+            </field>
+        </field>
+    </record>
+</odoo>

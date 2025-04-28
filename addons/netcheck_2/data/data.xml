@@ -1,0 +1,147 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!--GROUPS-->
+    <record id="module_checklist_category" model="ir.module.category">
+        <field name="name">Checklist</field>
+        <field name="sequence">18</field>
+    </record>
+    <record id="checklist_group_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="netcheck_2.module_checklist_category"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+    <record id="checklist_group_manager" model="res.groups">
+        <field name="name">Administrator</field>
+        <field name="implied_ids" eval="[(4, ref('checklist_group_user'))]"/>
+        <field name="category_id" ref="netcheck_2.module_checklist_category"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+    <record id="group_allow_checklist_association" model="res.groups">
+        <field name="name">Allow Checklist Association</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+
+    <!--RECORD RULES-->
+    <data>
+        <record model="ir.rule" id="netcheck_2_my_checklist_user">
+            <field name="name">USER: My Checklist</field>
+            <field name="model_id" ref="model_checklist_checklist"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('checklist_group_user'))]"/>
+        </record>
+
+        <record model="ir.rule" id="netcheck_2_all_checklist_manager">
+            <field name="name">MANAGER: All Checklist</field>
+            <field name="model_id" ref="model_checklist_checklist"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('checklist_group_manager'))]"/>
+        </record>
+
+        <record model="ir.rule" id="netcheck_2_my_checklist_line_user">
+            <field name="name">USER: My Checklist line</field>
+            <field name="model_id" ref="model_checklist_line"/>
+            <field name="domain_force">[('checklist_id.user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('checklist_group_user'))]"/>
+        </record>
+
+        <record model="ir.rule" id="netcheck_2_all_checklist_line_manager">
+            <field name="name">MANAGER: All Checklist line</field>
+            <field name="model_id" ref="model_checklist_line"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('checklist_group_manager'))]"/>
+        </record>
+
+        <record model="ir.rule" id="netcheck_2_my_checklist_registrations_user">
+            <field name="name">USER: My Checklist Registrations</field>
+            <field name="model_id" ref="model_checklist_registration"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('checklist_group_user'))]"/>
+        </record>
+
+        <record model="ir.rule" id="netcheck_2_all_checklist__registrations_manager">
+            <field name="name">MANAGER: All Checklist Registrations</field>
+            <field name="model_id" ref="model_checklist_registration"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('checklist_group_manager'))]"/>
+        </record>
+
+        <record model="ir.rule" id="checklist_company_rule">
+            <field name="name">Checklist: multi-company</field>
+            <field name="model_id" ref="model_checklist_checklist"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                ['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]
+            </field>
+        </record>
+    </data>
+    
+    <!--LINE OPTION DATA-->
+    <data>
+        <record model="checklist.line.option" id="option_style_title">
+            <field name="name">Style Title</field>
+            <field name="code">option_style_title</field>
+            <field name="available_types">string</field>
+        </record>
+        <record model="checklist.line.option" id="option_style_body">
+            <field name="name">Style Body</field>
+            <field name="code">option_style_body</field>
+            <field name="available_types">string</field>
+        </record>
+        <record model="checklist.line.option" id="option_required">
+            <field name="name">Required</field>
+            <field name="code">option_required</field>
+            <field name="available_types">string,integer,float,boolean,video,photo,audio,datetime,date,time,signature,selection</field>
+        </record>
+        <record model="checklist.line.option" id="option_selection_string">
+            <field name="name">Selection String</field>
+            <field name="code">option_selection</field>
+            <field name="available_types">selection</field>
+        </record>
+        <record model="checklist.line.option" id="option_selection_model">
+            <field name="name">Selection Model</field>
+            <field name="code">option_selection_model</field>
+            <field name="available_types">selection</field>
+        </record>
+        <record model="checklist.line.option" id="option_selection_multi">
+            <field name="name">Multi selection</field>
+            <field name="code">option_selection_multi</field>
+            <field name="available_types">selection</field>
+        </record>
+        <record model="checklist.line.option" id="option_multi_data">
+            <field name="name">Multi data</field>
+            <field name="code">option_multi_data</field>
+            <field name="available_types">photo,video,audio</field>
+        </record>
+        <record model="checklist.line.option" id="option_min_char">
+            <field name="name">Min Char</field>
+            <field name="code">option_min_char</field>
+            <field name="available_types">string</field>
+        </record>
+        <record model="checklist.line.option" id="option_max_char">
+            <field name="name">Max Char</field>
+            <field name="code">option_max_char</field>
+            <field name="available_types">string</field>
+        </record>
+        <record model="checklist.line.option" id="option_readonly">
+            <field name="name">Readonly</field>
+            <field name="code">option_readonly</field>
+            <field name="available_types">string,integer,float,boolean,video,photo,audio,datetime,date,time,signature,selection,precompiled,section</field>
+        </record>
+        <record model="checklist.line.option" id="option_report_hidden">
+            <field name="name">Report hidden</field>
+            <field name="code">option_report_hidden</field>
+            <field name="available_types">string,integer,float,boolean,video,photo,audio,datetime,date,time,signature,selection,precompiled,section</field>
+        </record>
+        <record model="checklist.line.option" id="option_selection_single">
+            <field name="name">Single selection</field>
+            <field name="code">option_selection_single</field>
+            <field name="available_types">selection</field>
+        </record>
+        <record model="checklist.line.option" id="option_selection_autocomplete">
+            <field name="name">Selection autocomplete</field>
+            <field name="code">option_selection_autocomplete</field>
+            <field name="available_types">selection</field>
+        </record>
+    </data>
+    
+</odoo>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="fleet_move_view_form_inherit_addons_carpentum" model="ir.ui.view">
+        <field name="name">fleet.move.view.form.inherit.addons.carpentum</field>
+        <field name="model">fleet.move</field>
+        <field name="inherit_id" ref="bloomup_fleet_move.fleet_move_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']/.." position="before">
+               <div class="oe_button_box" name="button_box">
+                    <button name="open_tasks" type="object" class="oe_stat_button" icon="fa-list">
+                        <field name="n_tasks" widget="statinfo" string="Tasks"/>
+                    </button>
+                </div>
+            </xpath>
+            <field name="num_dossier_arval" position="before">
+                <field name="codice_incarico" /> 
+                <field name="move_type" readonly="1"/>
+            </field>
+            <field name="num_contratto" position="before">
+                <field name="code_tipo_entrata_veicolo" invisible="1"/><!--serve per la bloomupstatusbar, se deve essere tolto va invisible="1"-->
+                <field name="stato_incarico" invisible="1"/><!--serve per la bloomupstatusbar, se deve essere tolto va invisible="1"-->
+                <field name="date_dealer_availability" attrs="{
+                    'invisible':[('move_type','!=',%(arval_rit_dea)d)]
+                }"/>
+            </field>
+            <field name="state" position="replace">
+                <!--widget statusbar modificato per la ripologia corrispondente-->
+                <field name="state" widget="bloomupstatusbar" options="{'clickable': '1'}"/>
+            </field>
+            <field name="active" position="after">
+                <field name="assigned_to" options="{'no_create_edit': True}"/>
+                <field name="cert_insurance" />
+            </field>
+            <header position="inside">
+                <button type="object" name="assign_to_me" class="btn-primary" string="Assegna a me"/>
+            </header>
+        </field>
+       
+    </record>
+
+    <record id="fleet_move_view_kanban_inherit_carpentum" model="ir.ui.view">
+        <field name="name">fleet_move_view_kanban_inherit_carpentum</field>
+        <field name="model">fleet.move</field>
+        <field name="inherit_id" ref="bloomup_fleet_move.fleet_move_view_kanban"/>
+        <field name="arch" type="xml">
+            <field name="delivery_address" position="after">
+                <field name="date_dealer_availability" />
+            </field>
+            <xpath expr="//table" position="before">
+                <div class="row text-info" style="margin-top:5px;margin-bottom:5px" t-if="record.date_dealer_availability.value">
+                    <div class="col-12 " >
+                        <b>Data disponibilità dealer: </b><b class="text-info"><field name="date_dealer_availability" /></b>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+     <record id="fleet_move_gatein_action" model="ir.actions.act_window">
+        <field name="name" >GATE IN</field>
+        <field name="res_model">fleet.move</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain" eval="[('move_type','=',ref('arval_gate_in'))]" />
+        <field name="context">
+            {
+                'type':'bloomup_carpentum.arval_gate_in'
+            }
+        </field>
+    </record>
+
+    <menuitem
+        id="fleet_move_gatein_menu"
+        name="Gate in"
+        action="fleet_move_gatein_action"
+        parent="bloomup_fleet_move.fleet_move_menu"
+        sequence="1"/>
+    
+    <record id="fleet_move_ritdea_action" model="ir.actions.act_window">
+        <field name="name" >RIT-DEA</field>
+        <field name="res_model">fleet.move</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain" eval="[('move_type','=',ref('arval_rit_dea'))]" />
+        <field name="context">
+            {
+                'type':'bloomup_carpentum.arval_rit_dea'
+            }
+        </field>
+    </record>
+
+    <menuitem
+        id="fleet_move_ritdea_menu"
+        name="Rit-Dea"
+        action="fleet_move_ritdea_action"
+        parent="bloomup_fleet_move.fleet_move_menu"
+        sequence="2"/>
+    
+    <record id="fleet_move_fasezero_action" model="ir.actions.act_window">
+        <field name="name" >FASE 0</field>
+        <field name="res_model">fleet.move</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain" eval="[('move_type','=',ref('arval_fase_zero'))]" />
+        <field name="context">
+            {
+                'type':'bloomup_carpentum.arval_fase_zero'
+            }
+        </field>
+    </record>
+
+    <menuitem
+        id="fleet_move_fasezero_menu"
+        name="Fase zero"
+        action="fleet_move_fasezero_action"
+        parent="bloomup_fleet_move.fleet_move_menu"
+        sequence="3"/>
+</odoo>

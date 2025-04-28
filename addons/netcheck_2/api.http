@@ -1,0 +1,97 @@
+# @name login
+# ritorna in result l'uid dell'utente
+# che serve nelle chiamate successive
+post {{base_url}}/jsonrpc
+Content-Type: application/json
+
+{
+	"params":{
+        "service":"common",
+        "method": "login", 
+        "args":[
+            "{{db}}", 
+            "{{user}}",
+            "{{psw}}"
+        ] 
+    }
+}
+
+###
+post {{base_url}}/jsonrpc
+Content-Type: application/json
+
+{
+	"params":{
+        "service":"object",
+        "method": "execute_kw", 
+        "args":[
+            "{{db}}", 
+            "{{uid}}",
+            "{{psw}}",
+            "model",
+            "function",
+            [params],
+            {
+                "context": {
+                    "lang": "it_IT", 
+                    "tz": "Europe/Rome"
+                }
+            }
+        ] 
+    }
+}
+
+###
+post {{base_url}}/jsonrpc
+Content-Type: application/json
+
+{
+	"params":{
+        "service":"object",
+        "method": "execute_kw", 
+        "args":[
+            "{{db}}", 
+            "{{uid}}",
+            "{{psw}}",
+            "checklist.registration",
+            "create",
+            [{
+                campi
+            }],
+            {
+                "context": {
+                    "lang": "it_IT", 
+                    "tz": "Europe/Rome"
+                }
+            }
+        ] 
+    }
+}
+
+### 
+post {{base_url}}/jsonrpc
+Content-Type: application/json
+
+{
+	"params":{
+        "service":"object",
+        "method": "execute_kw", 
+        "args":[
+            "{{db}}", 
+            "{{uid}}",
+            "{{psw}}",
+            "checklist.registration",
+            "write",
+            [5,
+            {
+               campi
+            }],
+            {
+                "context": {
+                    "lang": "it_IT", 
+                    "tz": "Europe/Rome"
+                }
+            }
+        ] 
+    }
+}

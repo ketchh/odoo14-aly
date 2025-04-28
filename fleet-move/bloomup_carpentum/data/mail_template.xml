@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="email_template_ritdea_dealer_appointment_bbox" model="mail.template">
+            <field name="name">E-mail Black Box Dealer</field>
+            <field name="email_to">${(object.email) | safe}</field>
+            <field name="subject">Montaggio black box ${ctx.get('bbox_date')}</field>
+            <field name="model_id" ref="bloomup_fleet_move.model_fleet_partner"/>
+            <field name="body_html" type="html">
+<div style="margin: 0px; padding: 0px;">
+    Questa è la mail per l'invio 48h prima del montaggio della black box.
+    Attività:<br/>
+    ${ctx.get('activity_bbox') | safe}
+</div></field>
+        </record>
+    </data>
+</odoo>

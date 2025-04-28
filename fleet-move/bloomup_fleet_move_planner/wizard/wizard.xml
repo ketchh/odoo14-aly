@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="choose_carrier_view_form" model="ir.ui.view">
+        <field name="name">choose.carrier.view.form</field>
+        <field name="model">choose.carrier</field>
+        <field name="arch" type="xml">
+            <form >
+                <sheet>
+                    <field name="alert" invisible="1"/>
+                    <div class="alert alert-danger" role="alert" attrs="{'invisible':[('alert','=',False)]}">
+                        You are looking for availability before 5 working days
+                    </div>
+                    <group>
+                        <group>
+                            <field name="fleet_move_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="suggested_date" />
+                        </group>
+                    </group>
+                    <group>
+                        
+                        <group>
+                            <button type="object" name="prev_capacities" class="btn-primary" string="Prev"/>
+                        </group>
+                        <group>
+                            <button type="object" name="next_capacities" class="btn-primary" string="Next"/>
+                        </group>
+                    </group>
+                    <group string="Carriers">
+                        <field name="carrier_capacity_ids" nolabel="1" readonly="1"
+                        context="{'fleet_move_id': fleet_move_id}">
+                            <tree>
+                                <field name="partner_id" />
+                                <field name="date" />
+                                <field name="from_state_id" />
+                                <field name="max_deliveries" />
+                                <field name="remaining_deliveries" />
+                                <button type="object" name="assign_capacity" btn="btn-primary" string="assign"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

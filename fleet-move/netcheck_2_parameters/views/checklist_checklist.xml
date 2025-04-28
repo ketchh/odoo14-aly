@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- FORM RIGHE CHECKLIST -->
+    <record id="checklist_line_view_form_inherit_custom" model="ir.ui.view">
+        <field name="name">checklist_line_view_form_inherit_custom</field>
+        <field name="model">checklist.line</field>
+        <field name="inherit_id" ref="netcheck_2.checklist_line_view_form"/>
+        <field name="arch" type="xml">
+            <field name="option_ids" position="after">
+                <field name="variable" groups="netcheck_2.checklist_group_manager"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- FORM CHECKLIST -->
+    <record id="checklist_checklist_view_form_inherit_custom" model="ir.ui.view">
+        <field name="name">checklist_checklist_view_form_inherit_custom</field>
+        <field name="model">checklist.checklist</field>
+        <field name="inherit_id" ref="netcheck_2.checklist_checklist_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='lines']//tree//field[@name='is_visible']" position="before">
+                <field name="variable" groups="netcheck_2.checklist_group_manager"/>
+            </xpath>
+            <xpath expr="//page[@name='lines2']//tree//field[@name='is_visible']" position="before">
+                <field name="variable" groups="netcheck_2.checklist_group_manager"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

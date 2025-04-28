@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="fleet_move_tree" model="ir.ui.view">
+        <field name="name">fleet.move.tree</field>
+        <field name="model">fleet.move</field>
+        <field name="arch" type="xml">  
+            <tree>
+                <field name="vehicle_plate" />
+                <field name="partner_id" />
+                <field name="order_number" />
+                <field name="employee_id" />
+                <field name="pickup_address" />
+                <field name="delivery_address"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="fleet_move_sla_bracket_tree" model="ir.ui.view">
+        <field name="name">fleet.move.sla.tree</field>
+        <field name="model">sla.bracket</field>
+        <field name="arch" type="xml">  
+            <tree>
+                <field name="partner_id" />
+                <field name="min_dist" />
+                <field name="max_dist" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="fleet_move_view_form" model="ir.ui.view">
+        <field name="name">fleet.move.view.form</field>
+        <field name="model">fleet.move</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <div class="oe_title" style="text-align: center">
+                        <h1>
+                            <field name="partner_id" placeholder="Company" options='{"no_create": True, "no_create_edit": True}'/>
+                        </h1>
+                    </div>
+                    <group col="2" style="padding: 0; margin: 0;">
+                        <group name="left">
+                            <separator string="Informazioni generali" colspan="2"/>
+                                <field name="contract_code"/>
+                                <field name="order_number"/>
+                                <field name="move_typology"/>
+                            <separator string="Dettagli veicolo" colspan="2"/>
+                                <field name="vehicle_id"
+                                    options='{"no_quick_create": True}' 
+                                    context="{'owner_id': partner_id, 'default_owner_id': partner_id}"
+                                    domain="[('owner_id','=',partner_id)]"
+                                />
+                                <field name="contextual_vehicle_id"
+                                    options='{"no_quick_create": True}' 
+                                    context="{'owner_id': partner_id, 'default_owner_id': partner_id}"
+                                    domain="[('owner_id','=',partner_id)]"
+                                />
+                                <field name="contextual_move_id"/>
+                            <separator string="Dettagli prenotazione" colspan="2"/>
+                                <field name="confirmed_date"/>
+                                <field name="op_sent_date"/>
+                                <field name="request_date"/>
+                                <field name="sla_date" style="color: red"/>
+                                <field name="timeslot" placeholder="HH:MM - HH:MM"/>
+                                <field name="upload_date" 
+                                    readonly="1"
+                                    invisible="1"
+                                />
+                                <field name="employee_id"/>
+                                <field name="user_id"/>
+                        </group>
+
+                        <group name="right">
+                            <separator string="Dettagli Consegna" colspan="2"/>
+                                <field name="pickup_address" 
+                                    options='{"no_quick_create": True}' 
+                                    context="{'owner_id': partner_id, 'default_owner_id': partner_id}"
+                                    domain="[('owner_id','=',partner_id)]"
+                                />
+                                <field name="pickup_address_copy"/>
+                                <field name="delivery_address" 
+                                    options='{"no_quick_create": True}' 
+                                    context="{'owner_id': partner_id, 'default_owner_id': partner_id}"
+                                    domain="[('owner_id','=',partner_id)]"
+                                />
+                                <field name="delivery_address_copy"/>
+                                <field name="distance"/>
+                            <separator string="Contatti Fleet Manager" colspan="2"/>
+                                <field name="email_fleetmanager" widget="field_char_highlight"/>
+                                <field name="phone_fleetmanager" widget="field_char_highlight"/>
+                                <field name="name_fleetmanager" widget="field_char_highlight"/>
+                            <separator string="Contatti Cliente" colspan="2"/>
+                                <field name="email_customer"/>
+                                <field name="phone_customer"/>
+                                <field name="name_customer"/>
+                        </group>
+
+                    </group>
+                        <group string="Note">
+                            <field name="note" nolabel="1"/>
+                        </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="fleet_move_view_kanban" model="ir.ui.view">
+        <field name="name">fleet.move.view.kanban</field>
+        <field name="model">fleet.move</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" 
+                    quick_create="false"
+                    group_create="false"
+                    group_delete="false"
+                    archivable="false"
+                    default_order="request_date desc,confirmed_date desc"> 
+                <field name="name"/>
+                <field name="request_date" />
+                <field name="confirmed_date" />
+                <field name="user_id" />
+                <field name="partner_id" />
+                <field name="vehicle_id" />
+                <field name="employee_id" />
+                <field name="primary_color" />
+                <field name="pickup_address" />
+                <field name="delivery_address" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="row">
+                                <div class="col-6" t-attf-style="padding-top:5px;background-color:#{record.primary_color.raw_value}; color:white">
+                                    <h3><field name="vehicle_plate"/></h3>
+                                </div>
+                                <div class="col-6 text-right" style="padding-top:5px">
+                                    <a t-if="! read_only_mode" type="delete" 
+                                    class="text-danger"
+                                    style="position: absolute; right: 20px; diplay: inline-block">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px;margin-bottom:5px">
+                                <div class="col-12 text-primary" t-if="record.confirmed_date.value">
+                                    <b><field name="confirmed_date" /> (<field name="timeslot"/>) </b>
+                                </div>
+                                <div class="col-12" t-else="">
+                                    <b>Non concordata</b>
+                                </div>
+                            </div>
+                            <table class="table table-striped table-borderless">
+                                <tr>
+                                    <td class="text-right">Company:</td>
+                                    <td><b><field name="partner_id"/></b></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right">Ordine №:</td>
+                                    <td><b><field name="order_number"/></b></td>
+                        
+                                </tr>
+                                <tr t-if="record.employee_id.value">
+                                    <td class="text-right">Carrier:</td>
+                                    <td><b><field name="employee_id"/></b></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right">From:</td>
+                                    <td><b><field name="pickup_address_city"/> (<field name="pickup_address_code"/>)</b></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right">To:</td>
+                                    <td><b><field name="delivery_address_city"/> (<field name="delivery_address_code"/>)</b></td>
+                                </tr>
+                            </table>
+                            
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="fleet_move_action" model="ir.actions.act_window">
+        <field name="name" >Fleet Move</field>
+        <field name="res_model">fleet.move</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context" >
+            {
+                'search_default_current_month': 1
+            }
+        </field>
+    </record>
+
+    <record id="fleet_move_sla_action" model="ir.actions.act_window">
+        <field name="name" >Fasce SLA</field>
+        <field name="res_model">sla.bracket</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="fleet_move_status_action" model="ir.actions.act_window">
+        <field name="name">Fleet Move Status</field>
+        <field name="res_model">fleet.move.status</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="fleet_move_status_view_tree" model="ir.ui.view">
+        <field name="name">fleet.move.status.view.tree</field>
+        <field name="model">fleet.move.status</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom" default_order="sequence,name desc">
+                <field name="sequence" widget="handle"/>
+                <field name="primary_color" widget="color"/>
+                <field name="name" />
+                <field name="portal_name" />
+                <field name="default" widget="boolean_toggle"/>
+                <field name="done" widget="boolean_toggle"/>
+                <field name="cancel" widget="boolean_toggle"/>
+                <field name="cancel_user" widget="boolean_toggle"/>
+                <field name="planner_visible" widget="boolean_toggle"/>
+                <field name="action_server_id" />
+                <field name="active" widget="boolean_toggle"/>
+                <button name="open" string="Open" type="object" icon="fa-external-link" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="fleet_move_status_view_form" model="ir.ui.view">
+        <field name="name">fleet.move.status.view.form</field>
+        <field name="model">fleet.move.status</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="portal_name" />
+                            <field name="primary_color" widget="color"/>
+                            <field name="action_server_id" />
+                        </group>
+                        <group>
+                            <field name="active" widget="boolean_toggle"/>
+                            <field name="default" widget="boolean_toggle"/>
+                            <field name="done" widget="boolean_toggle"/>
+                            <field name="cancel" widget="boolean_toggle"/>
+                            <field name="cancel_user" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    
+    <record id="fleet_move_sla_view_form" model="ir.ui.view">
+        <field name="name">fleet.move.sla.view.form</field>
+        <field name="model">sla.bracket</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="partner_id" />
+                            <field name="min_dist" />
+                            <field name="max_dist"/>
+                            <field name="SLA_days" />
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="fleet_move_view_search" model="ir.ui.view">
+        <field name="name">fleet.move.view.search</field>
+        <field name="model">fleet.move</field>
+        <field name="arch" type="xml">
+            <search string="Fleet Move">
+                <field name="vehicle_id" />
+                <field name="name" />
+                <field name="partner_id" />
+                <field name="employee_id" />
+                <field name="pickup_address" />
+                <field name="delivery_address" /> 
+                <filter name="active" string="Active" domain="[('active', '=', True)]" />
+                <filter name="archived" string="Archived" domain="[('active', '=', False)]" />
+                <separator/>
+                <field name="confirmed_date" invisible="1"/>
+                <field name="request_date" invisible="1"/>
+                <filter name="prev_month" string="Previous Month" domain="['|', '&amp;',
+                    ('request_date', '&gt;=', (context_today() - relativedelta(months=1)).strftime('%Y-%m-01')),
+                    ('request_date', '&lt;', (context_today()).strftime('%Y-%m-01')),
+                    '&amp;',('confirmed_date', '&gt;=', (context_today() - relativedelta(months=1)).strftime('%Y-%m-01')),
+                    ('confirmed_date', '&lt;', (context_today()).strftime('%Y-%m-01'))]"/>
+                <filter name="current_month" string="Current Month" domain="['|', '&amp;',
+                    ('request_date', '&gt;=', (context_today()).strftime('%Y-%m-01')),
+                    ('request_date', '&lt;', (context_today() + relativedelta(months=1)).strftime('%Y-%m-01')),
+                    '&amp;',('confirmed_date', '&gt;=', (context_today()).strftime('%Y-%m-01')),
+                    ('confirmed_date', '&lt;', (context_today() + relativedelta(months=1)).strftime('%Y-%m-01'))]"/>
+                <filter name="next_month" string="Next Month" domain="['|', '&amp;',
+                    ('request_date', '&gt;=', (context_today() + relativedelta(months=1)).strftime('%Y-%m-01')),
+                    ('request_date', '&lt;', (context_today() + relativedelta(months=2)).strftime('%Y-%m-01')),
+                    '&amp;',('confirmed_date', '&gt;=', (context_today() + relativedelta(months=1)).strftime('%Y-%m-01')),
+                    ('confirmed_date', '&lt;', (context_today() + relativedelta(months=2)).strftime('%Y-%m-01'))]"/>
+                <separator/>
+                <filter name="filter_request_date" date="request_date" string="Request Date" default_period="this_month"/>
+                <separator/>
+                <filter name="filter_confirmed_date" date="confirmed_date" string="Confirmed Date" default_period="this_month"/>
+                <group string="Group By">
+                    <filter string="Company" name="company" domain="[]" context="{'group_by':'partner_id'}"/>
+                    <filter string="Status" name="status" domain="[]" context="{'group_by':'state'}"/>
+                    <filter string="User" name="user" domain="[]" context="{'group_by':'user_id'}"/>
+                    <filter string="Carrier" name="carrier" domain="[]" context="{'group_by':'employee_id'}"/>
+                    <filter string="Vehicle" name="vehicle" domain="[]" context="{'group_by':'vehicle_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <menuitem
+        id="fleet_move_menu"
+        name="Fleet Move"
+        action="fleet_move_action"
+        parent="bloomup_fleet_move.fleet_move_root"
+        sequence="1"/>
+    
+    <menuitem
+        id="fleet_move_sla_menu"
+        name="Fasce SLA"
+        action="fleet_move_sla_action"
+        parent="bloomup_fleet_move.fleet_move_configuration_menu"
+        sequence="2"/>
+
+    <menuitem
+        id="fleet_move_configuration_menu"
+        name="Settings"
+        parent="bloomup_fleet_move.fleet_move_root"
+        sequence="3"/>
+    <menuitem
+        id="fleet_move_status_menu"
+        name="Fleet Move Status"
+        action="fleet_move_status_action"
+        parent="bloomup_fleet_move.fleet_move_configuration_menu"
+        sequence="1"/>
+
+    <data noupdate="1">
+        <record id="seq_fleet_move" model="ir.sequence">
+            <field name="name">Fleet Move</field>
+            <field name="code">fleet.move.sequence</field>
+            <field name="prefix">FM</field>
+            <field name="padding">5</field>
+        </record>
+    </data>
+</odoo>

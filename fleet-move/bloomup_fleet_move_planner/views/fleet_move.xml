@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="fleet_move_view_form_planner" model="ir.ui.view">
+        <field name="name">fleet.move.view.form.planner</field>
+        <field name="model">fleet.move</field>
+        <field name="inherit_id" ref="bloomup_fleet_move.fleet_move_view_form"/>
+        <field name="arch" type="xml">
+            <field name="request_date" position="after">
+                <field name="suggested_date" />
+            </field>
+            <field name="distance_time" position="after">
+                <field name="carrier_capacity_id" />
+            </field>
+            <header position="inside">
+                <button type="object" name="find_carrier_capacity" string="Find Carrier"
+                class="btn-primary"/>
+            </header>
+        </field>
+    </record>
+</odoo>

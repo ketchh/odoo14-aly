@@ -1,0 +1,26 @@
+<odoo>
+    <record id="ir_cron_get_bbox_and_delivery" model="ir.cron">
+        <field name="name">Carpentum: get_bbox_and_delivery</field>
+        <field name="model_id" ref="model_carpentum_api"/>
+        <field name="state">code</field>
+        <field name="code">
+token = model._login() 
+model._get_bbox_and_delivery(token)
+        </field>
+        <field name="interval_number">2</field>
+        <field name="interval_type">hours</field>
+        <field name="numbercall">-1</field>
+    </record>
+
+    <record id="ir_cron_send_48h_mail_bbox" model="ir.cron">
+        <field name="name">Carpentum: invio mail dealer 48h per black box</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="state">code</field>
+        <field name="code">
+model._cron_48h(2)
+        </field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+    </record>
+</odoo>

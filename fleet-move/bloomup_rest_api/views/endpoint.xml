@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record model="ir.ui.view" id="fastapi_endpoint_demo_form_view">
+        <field name="name">fastapi.endpoint.demo.form</field>
+        <field name="model">fastapi.endpoint</field>
+        <field name="inherit_id" ref="fastapi.fastapi_endpoint_form_view" />
+        <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="bloomup_tyre_auth_method" attrs="{'invisible': [('app', '!=', 'bloomup_tyre')]}"/>
+                </field>
+                <group name="resoures" position="before">
+                    <group>
+                        <field name="bloomup_tyre_show_docs" widget="boolean_toggle"/>
+                        <field name="bloomup_tyre_show_redoc" widget="boolean_toggle"/>
+                    </group>
+                </group>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="tyre_repairer_radius_action" model="ir.actions.act_window">
+        <field name="name">Tyre repairer Radius</field>
+        <field name="res_model">tyre.repairer.radius</field>
+        <field name="view_mode">tree</field>
+    </record>
+    <menuitem
+        id="tyre_repairer_radius_menu"
+        name="Tyre repairer Radius"
+        action="tyre_repairer_radius_action"
+        parent="bloomup_fleet_move.fleet_settigs_menu"
+        sequence="11"/>
+
+    <record id="tyre_repairer_radius_view_tree" model="ir.ui.view">
+        <field name="name">tyre.repairer.radius.view.tree</field>
+        <field name="model">tyre.repairer.radius</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="cap" />
+                <field name="radius" />
+            </tree>
+        </field>
+    </record>
+</odoo>

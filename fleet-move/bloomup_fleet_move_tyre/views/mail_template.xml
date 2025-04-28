@@ -1,0 +1,69 @@
+<odoo>
+
+    <data noupdate="0">
+
+        <!-- TEMPLATE PER INVIO MAIL ALLA CONSEGNA DEI PNEUMATICI -->
+        <record id="tyre_repairer_delivery_mail" model="mail.template">
+
+            <field name="name">Mail Consegna Pneumatici</field>
+            <field name="email_from">${ (user.email_formatted) }</field>
+            <field name="email_to">${ (object.selected_tyre_repairer.email )}</field>
+            <field name="subject">Consegna pneumatici per conto Arval ${(object.vehicle_id.license_plate)}</field>
+            <field name="lang">${ (object.partner_id.lang) }</field>
+            <field name="model_id" ref="bloomup_fleet_move_tyre.model_fleet_move"/>
+            <field name="body_html" type="html">
+                <t t-set="front_wheel" t-value="object.vehicle_id.front_wheel"/>
+                <t t-set="rear_wheel" t-value="object.vehicle_id.rear_wheel"/>
+                <div style="border-color: #1e3a51 ;border-left: 1px; border-right: 1px; border-bottom: 5px ;border-top: 30px; padding: 20px;">
+                    <div class="row" style="text-align:center">
+                        <strong>
+                            Consegna pneumatici 
+                            % if (object.vehicle_id.front_wheel.season == 'E'):
+                                estivi 
+                            % else:
+                                invernali 
+                            % endif
+                            per conto Arval<br/>
+                        </strong>
+                    </div>
+                        % if object.customer_id:
+                        <p>
+                        Spettabile ${(object.customer_id.name)},<br/>
+                        ${(object.customer_id.zip)}<br/>
+                        ${(object.customer_id.city)}<br/>
+                        (${(object.customer_id.state_id.name)})<br/><br/>
+                        </p>
+                        % else:
+                        <p>Salve,<br/><br/></p>
+                        % endif
+                    <p>
+                        Vi informiamo che entro pochi giorni vi verranno consegnati gli pneumatici 
+                        % if (object.vehicle_id.front_wheel.season == 'E'):
+                            estivi 
+                        % else:
+                            invernali 
+                        % endif
+                        di un veicolo di proprietà <strong>Arval</strong>.<br/>
+                        Di seguito i dati della spedizione:<br/><br/>
+                    </p>
+                    <p>
+                        ${(object.vehicle_id.license_plate)} - ${(object.vehicle_id.name)} - ${(object.vehicle_id.vin_sn)}
+                    </p><br/><br/>
+                    <p>
+                        Pneumatici Anteriori: <br/>
+                        ${(object.vehicle_id.front_wheel.name)} Quantità: 2<br/>
+                        Pneumatici Posteriori: <br/>
+                        ${(object.vehicle_id.rear_wheel.name)} Quantità: 2<br/>
+                    </p>
+                    <br/>
+                    <br/>
+                    <p>Rimaniamo a disposizione.</p>
+                    <br/>
+                    <br/>
+                </div>
+            </field>
+            <field name="auto_delete" eval="False"/>
+        </record>
+    </data>
+
+</odoo>

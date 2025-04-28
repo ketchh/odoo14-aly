@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_read_tyre_repairer,access_read_tyre_repairer,model_tyre_repairer,fleet.fleet_group_user,1,0,0,0
+access_all_tyre_repairer,access_all_tyre_repairer,model_tyre_repairer,fleet.fleet_group_manager,1,1,1,1
+access_read_tyre_repairer_radius,access_read_tyre_repairer_radius,model_tyre_repairer_radius,fleet.fleet_group_user,1,0,0,0
+access_all_tyre_repairer_radius,access_all_tyre_repairer_radius,model_tyre_repairer_radius,fleet.fleet_group_manager,1,1,1,1
+access_read_tyre_repairer_favorite,access_read_tyre_repairer_favorite,model_tyre_repairer_favorite,fleet.fleet_group_user,1,0,0,0
+access_all_tyre_repairer_favorite,access_all_tyre_repairer_favorite,model_tyre_repairer_favorite,fleet.fleet_group_manager,1,1,1,1
+access_read_tyre_tire,access_read_tyre_tire,model_tyre_tire,fleet.fleet_group_user,1,0,0,0
+access_all_tyre_tire,access_all_tyre_tire,model_tyre_tire,fleet.fleet_group_manager,1,1,1,1
+access_api_tyre_tire,access_api_tyre_tire,model_tyre_tire,bloomup_fleet_move_tyre.group_api_user,1,0,1,0

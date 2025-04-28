@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="tyre_repairer_radius" model="bloomup.ipat">
+            <field name="name">RADIUS</field>
+            <field name="model" ref="bloomup_fleet_move_tyre.model_tyre_repairer_radius"/>
+            <field name="line_ids" eval="[
+            (0,0,{'column_name':'postal_code','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer_radius__cap'),'to_search':True}),
+            (0,0,{'column_name':'radius','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer_radius__radius'),'to_search':False})]"/>
+        </record>
+    </data>
+</odoo>

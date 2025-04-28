@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="tyre_task_extension_view_form" model="ir.ui.view">
+            <field name="name">tyre.task.extension.view.form</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='fleet_move_id']" position="before">
+                    <field name="is_montaggio" invisible='1'/>
+                    <field name="tyre_order_id"></field>
+                </xpath>
+                <xpath expr="//field[@name='date_deadline']" position="before">
+                    <field name="data_prevista_montaggio" attrs="{'invisible':['|',('task_typology_id','=',False),('is_montaggio','=', False)]}"></field>
+                    <field name="data_esecuzione" attrs="{'invisible':['|',('task_typology_id','=',False),('is_montaggio','=', False)]}"></field>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="tyre_task_type_extension_view_form" model="ir.ui.view">
+            <field name="name">tyre.task.type.extension.view.form</field>
+            <field name="model">task.typology</field>
+            <field name="inherit_id" ref="bloomup_fleet_move.task_typology_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='default']" position="after">
+                    <field name="is_montaggio" widget="boolean_toggle"></field>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

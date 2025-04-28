@@ -1,0 +1,60 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* netcheck_2_parameters
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-20 14:09+0000\n"
+"PO-Revision-Date: 2023-09-20 16:09+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.3.2\n"
+
+#. module: netcheck_2_parameters
+#: model:ir.model,name:netcheck_2_parameters.model_checklist_checklist
+msgid "Checklist"
+msgstr "Checklist"
+
+#. module: netcheck_2_parameters
+#: model:ir.model,name:netcheck_2_parameters.model_checklist_line
+msgid "Checklist Line"
+msgstr "Riga Checklist"
+
+#. module: netcheck_2_parameters
+#: model:ir.model.fields,field_description:netcheck_2_parameters.field_checklist_checklist__display_name
+#: model:ir.model.fields,field_description:netcheck_2_parameters.field_checklist_line__display_name
+#: model:ir.model.fields,field_description:netcheck_2_parameters.field_checklist_registration__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: netcheck_2_parameters
+#: model:ir.model.fields,field_description:netcheck_2_parameters.field_checklist_checklist__id
+#: model:ir.model.fields,field_description:netcheck_2_parameters.field_checklist_line__id
+#: model:ir.model.fields,field_description:netcheck_2_parameters.field_checklist_registration__id
+msgid "ID"
+msgstr ""
+
+#. module: netcheck_2_parameters
+#: model:ir.model.fields,field_description:netcheck_2_parameters.field_checklist_checklist____last_update
+#: model:ir.model.fields,field_description:netcheck_2_parameters.field_checklist_line____last_update
+#: model:ir.model.fields,field_description:netcheck_2_parameters.field_checklist_registration____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: netcheck_2_parameters
+#: model:ir.model,name:netcheck_2_parameters.model_checklist_registration
+msgid "Registration"
+msgstr "Registrazione"
+
+#. module: netcheck_2_parameters
+#: model:ir.model.fields,field_description:netcheck_2_parameters.field_checklist_line__variable
+#: model:ir.model.fields,field_description:netcheck_2_parameters.field_checklist_registration__variable
+msgid "Variable"
+msgstr "Variabile"

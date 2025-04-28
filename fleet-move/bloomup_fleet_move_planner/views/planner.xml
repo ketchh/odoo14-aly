@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem 
+        id="carrier_planner_root" 
+        name="Carrier Planner" 
+        sequence="99" 
+        web_icon="bloomup_fleet_move_planner,static/description/icon.png"/>
+
+    <record id="carrier_capacity_action" model="ir.actions.act_window">
+        <field name="name">Carrier capacity</field>
+        <field name="res_model">carrier.capacity</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="carrier_capacity_menu"
+        name="Capacities"
+        action="carrier_capacity_action"
+        groups="bloomup_fleet_move_planner.group_carrier_planner"
+        parent="carrier_planner_root"
+        sequence="20"/>
+
+    <record id="carrier_capacity_view_tree" model="ir.ui.view">
+        <field name="name">carrier.capacity.view.tree</field>
+        <field name="model">carrier.capacity</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="partner_id" groups="bloomup_fleet_move_planner.group_carrier_manager_planner"/>
+                <field name="date" />
+                <field name="country_id" />
+                <field name="from_state_id" domain="[('country_id','=',country_id)]"/>
+                <field name="max_deliveries" />
+                <field name="remaining_deliveries" />
+                <field name="employee_id" />
+                <button name="open_form" type="object" class="btn-link" icon="fa-external-link" groups="bloomup_fleet_move_planner.group_carrier_manager_planner"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="carrier_capacity_view_form" model="ir.ui.view">
+        <field name="name">carrier.capacity.view.form</field>
+        <field name="model">carrier.capacity</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="partner_id" />
+                            <field name="date" />
+                            <field name="country_id" />
+                        </group>
+                        <group>
+                            <field name="from_state_id" domain="[('country_id','=',country_id)]"/>
+                            <field name="max_deliveries" />
+                            <field name="remaining_deliveries" />
+                        </group>
+                    </group>
+                    <group string="Deliveries">
+                        <field name="fleet_move_ids" readonly="1" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

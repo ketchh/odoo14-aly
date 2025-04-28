@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="checklist_checklist_view_form_inherit_addons" model="ir.ui.view">
+        <field name="name">checklist.checklist.view.form.inherit</field>
+        <field name="model">checklist.checklist</field>
+        <field name="inherit_id" ref="netcheck_2.checklist_checklist_view_form"/>
+        <field name="arch" type="xml">
+            <field name="is_template" position="after">
+                <field name="auto_create" widget="boolean_toggle" 
+                attrs="{'invisible':[('is_template','=',False)]}"/>
+                <field name="auto_create_state" 
+                attrs="{'invisible':[('is_template','=',False)]}"/>
+                <field name="close_model" widget="boolean_toggle" 
+                attrs="{'invisible':[('is_template','=',False)]}"/>
+                <field name="white_label" attrs="{'invisible':[('is_template','=',False)]}"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="fleet_move_view_form_inherit" model="ir.ui.view">
+        <field name="name">fleet.move.view.form.inherit</field>
+        <field name="model">fleet.move</field>
+        <field name="inherit_id" ref="bloomup_fleet_move.fleet_move_view_form"/>
+        <field name="arch" type="xml">
+            <field name="state" position="after">
+                <button name="action_fleet_move_send" type="object" string="Send mail"/>
+                <button name="action_fleet_move_sms" type="object" string="Send sms"/>
+                <!-- <button name="get_distance" type="object" string="Distanza"/> -->
+            </field>
+            <sheet position="inside">
+                <group string="Storico fasi">
+                    <field name="history" nolabel="1" readonly="1">
+                        <tree>
+                            <field name="create_date" />
+                            <field name="create_uid" />
+                            <field name="state_id" />
+                            <field name="days" />
+                        </tree>
+                    </field>
+                </group>
+            </sheet>
+            <field name="employee_id" position="after">
+                <field name="distance" string="Distanza km"/> 
+                <field name="distance_time" widget="float_time"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="fleet_move_history_status_action" model="ir.actions.act_window">
+        <field name="name">Fleet Move Status History</field>
+        <field name="res_model">fleet.move.state.history</field>
+        <field name="view_mode">tree,form,pivot</field>
+    </record>
+
+    <menuitem
+        id="fleet_move_state_history_menu"
+        name="Storico Fasi"
+        action="fleet_move_history_status_action"
+        parent="bloomup_fleet_move.fleet_move_root"
+        sequence="4"/>
+
+    <record id="history_state_view_tree" model="ir.ui.view">
+        <field name="name">history_state.view.tree</field>
+        <field name="model">fleet.move.state.history</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="fleet_move_id" />
+                <field name="create_date" />
+                <field name="create_uid" />
+                <field name="state_id" />
+                <field name="days" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="history_state_view_pivot" model="ir.ui.view">
+        <field name="name">history_state.view.pivot</field>
+        <field name="model">fleet.move.state.history</field>
+        <field name="arch" type="xml">
+            <pivot string="" disable_linking="true">
+                <field name="create_date" type="interval"/>
+                <field name="fleet_move_id" type="row"/>
+                <field name="state_id" type="col"/>
+                <field name="days" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="fleet_move_status_view_tree" model="ir.ui.view">
+        <field name="name">fleet_move_status_view_tree</field>
+        <field name="model">fleet.move.status</field>
+        <field name="inherit_id" ref="bloomup_fleet_move.fleet_move_status_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="done" position="after">
+                <field name="pronto" widget="boolean_toggle"/>
+            </field>
+        </field>
+    </record>
+</odoo>

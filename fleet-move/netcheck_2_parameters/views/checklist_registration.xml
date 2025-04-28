@@ -1,0 +1,15 @@
+<odoo>
+
+    <!-- TREE REGISTRAZIONI CHECKLIST -->
+    <record id="checklist_registration_view_tree_inherit" model="ir.ui.view">
+        <field name="name">checklist.registration.view.tree.inherit</field>
+        <field name="model">checklist.registration</field>
+        <field name="inherit_id" ref="netcheck_2.checklist_registration_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="checklist_line_id" position="after">
+                <field name="variable" groups="netcheck_2.checklist_group_manager"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

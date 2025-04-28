@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--campi aggiuntivi-->
+    <record id="fleet_move_view_form_inherit_addons" model="ir.ui.view">
+        <field name="name">fleet.move.view.form.inherit</field>
+        <field name="model">fleet.move</field>
+        <field name="inherit_id" ref="bloomup_fleet_move.fleet_move_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='note']/.." position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='confirmed_date']" position="after">
+                <field name="postpone"/>
+                <field name="old_date" attrs="{'invisible': [('postpone', '=', False)]}"/>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_title')]" position="after">
+                <div class="alert alert-warning" role="alert">
+                    <group name="note" >
+                        <group string="Note Movimentazione">
+                            <field name="note" nolabel="1"/>
+                        </group>
+                        <group string="Note Importatore">
+                            <field name="note_importer" nolabel="1" readonly="1"/>                
+                        </group>
+                    </group>
+                </div>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_title')]" position="replace">
+                <h3>
+                    <field name="name" default_focus="1" placeholder="Name" readonly="1"/>
+                </h3>
+                <group class="border-bottom">
+                    <group>
+                        <field name="num_dossier_arval" />
+                        <field name="durata_contratto" />
+                    </group>
+                    <group>
+                        <field name="num_contratto" />
+                        <field name="km_sottoscritti" />
+                    </group>
+                </group>
+            </xpath>
+            
+            <sheet position="inside">
+                <group name="other1">
+                    <group name="arval" string="Filiale Arval">
+                        <field name="filiale_arval" />
+                        <field name="referente_arval" />
+                        <field name="referente_arval_phone" />
+                        <field name="referente_arval_mail" />
+                    </group>
+                    <group name="cliente" string="Cliente">
+                        <field name="customer_id" />
+                        <field name="codice_cliente" />
+                        <field name="partita_iva" />
+                        <field name="cliente_referente" />
+                        <field name="cliente_driver" />
+                    </group>
+                </group>
+                <group name="other2">
+                    <group name="allestitore" string="Allestitore">
+                        <field name="allestitore_id" />
+                        <field name="allestitore" />
+                        <field name="referente_allestitore" />
+                    </group>
+                    <group name="available" string="Dettagli consegna">
+                        <field name="from_hour"/> 
+                        <field name="to_hour"/>
+                        <field name="available_from"/>
+                        
+                    </group>
+                </group>
+                <group name="other3">
+                    <group name="gommista" string="Gommista">
+                        <field name="gommista_name" string="Nome"/>
+                        <field name="gommista_luogo" string="Luogo"/>
+                        <field name="gommista_1" />
+                        <field name="gommista_2" />
+                        <field name="gommista_3" />
+                    </group>
+                    <group name="delegato" string="Delegato">
+                        <field name="delegato"  widget="boolean_toggle"/>
+                        <field name="delegato_name" string="Nome"/>
+                        <field name="delegato_lastname" string="Cognome"/>
+                        <field name="delegato_phone" string="Telefono"/>
+                        <field name="delegato_cel" string="Cellulare"/>
+                        <field name="delegato_email" string="E-mail"/>
+                    </group>
+                </group>
+                <group name="other4">
+                    <group name="whitelabel" string="White label">
+                        <field name="white_label" string="White label"/>
+                        <field name="note_whitelabel" string="Note white label"/>
+                 
+                    </group>
+                    <group name="details" string="Altri dettagli">
+                        <field name="others"/>
+                        <field name="incarico" string="Nome"/>
+                        <field name="caratteristiche_consegna"/>
+                        <field name="email_fleet_manager"/>
+                        <field name="segmento_appartenenza"/>
+                    </group>
+                </group>
+                <group>
+                    <field name="pneumatici_servizio" />
+                    <field name="assicurazione_privata" />
+                </group>
+            </sheet>
+            
+            <field name="request_date" position="before">
+                <field name="tipologia_data" />
+            </field>
+        </field>
+    </record>
+
+    <!--veicolo mod-->
+    <record id="arval_fleet_vehicle_form" model="ir.ui.view">
+        <field name="name">arval.fleet.vehicle.form</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+        <field name="arch" type="xml">
+            <group position="attributes">
+                <attribute name="invisible">1</attribute>
+            </group>
+            <field name="tag_ids" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <xpath expr="//label[@for='tag_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_title')]" position="after">
+                <group class="border-bottom">
+                    <group>
+                        <field name="owner_id" string="Proprietario"/>
+                    </group>
+                    <group>
+                        <field name="vin_sn" />
+                    </group>
+                </group>
+                <group>
+                    <group>
+                        <field name="Categoria" />
+                        <field name="Tipo" />
+                        <field name="doors" />
+                        <field name="fuel_type" />
+                        <field name="colore_esterno" />
+                    </group>  
+                    <group>
+                        <field name="antifurto_satellitare" widget="boolean_toggle"/>
+                        <field name="telepass" widget="boolean_toggle"/>
+                        <field name="atp" />
+                        <field name="peso" />
+                        <field name="colore_interno" />
+                        <field name="trasmissione" />
+                    </group>  
+                </group>
+                <group>
+                    <group name="accessori" string="Accessori">
+                        <field name="accessori" nolabel="1"/>
+                    </group>
+                    <group name="optionals" string="Optionals">
+                        <field name="optionals" nolabel="1"/>
+                    </group>
+                    <group name="allestimento" string="Allestimento">
+                        <field name="allestimento" nolabel="1"/> 
+                    </group>
+                    <group name="pneumatici" string="Pneumatici">
+                        <field name="brand_tires" string="Marca"/>
+                        <field name="model_tires" string="Modello"/>
+                        <field name="type_tires" string="Tipologia"/>
+                        <field name="meas_ant" string="Misure Anteriori"/>
+                        <field name="meas_post" string="Misure Posteriori"/>
+                        <field name="antiforature" string="Antiforatora" 
+                        widget="boolean_toggle"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="arval_inehrit_blommup_fleet_move_vehicle" model="ir.ui.view">
+        <field name="name">arval.inehrit.blommup.fleet.move.vehicle</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="bloomup_fleet_move.fleet_vehicle_view_form_inherit"/>
+        <field name="arch" type="xml">
+            <field name="owner_id" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <xpath expr="//label[@for='owner_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <!--Checklist block-->
+    <record id="checklist_checklist_view_form_inherit_arval" model="ir.ui.view">
+        <field name="name">checklist.checklist.view.form.inherit</field>
+        <field name="model">checklist.checklist</field>
+        <field name="inherit_id" ref="netcheck_2.checklist_checklist_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='lines']/field[@name='line_ids']/tree/field[@name='type']" position="after">
+                <field name="report_block" />
+                <field name="is_result" />
+            </xpath>
+            <xpath expr="//page[@name='lines2']/field[@name='line_ids']/tree/field[@name='type']" position="after">
+                <field name="report_block" />
+                <field name="is_result" />
+            </xpath>
+            <field name="ref_doc_id" position="after">
+                <field name="check_hub" widget="boolean_toggle"/>
+            </field>
+        </field>
+    </record>
+    
+    <!--PARTNER-->
+    <record id="arval_fleet_move_partner" model="ir.ui.view">
+        <field name="name">arval.fleet.move.partner</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="bloomup_fleet_move.fleet_res_partner_form"/>
+        <field name="arch" type="xml">
+             <page name="configuration" position="replace">
+                <page name="configuration" string="Fleet Move - Csv Configuration" 
+                groups="fleet.fleet_group_manager" 
+                attrs="{'invisible': [('parent_id','!=',False)]}">
+                    <group>
+                        <group>
+                            <field name="ipat_id" />
+                            <field name="excel_file" />
+                            <field name="ipat_message" />
+                        </group>
+                        <group>
+                            <button type="object" name="import_file_ipat" string="Importa"/>
+                        </group>
+                    </group>
+                </page>
+             </page>
+        </field>
+    </record>
+
+    <!--task  typology-->
+    <record id="arval_task_typology_tree" model="ir.ui.view">
+        <field name="name">arval.task.typology.tree</field>
+        <field name="model">task.typology</field>
+        <field name="inherit_id" ref="bloomup_fleet_move.task_typology_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="default" position="after">
+                <field name="block_state" widget="boolean_toggle" />
+                <field name="code" />
+                <field name="value" />
+            </field>
+        </field>
+    </record>
+
+    <!--location-->
+    <record id="arval_location_form" model="ir.ui.view">
+        <field name="name">arval.location.form</field>
+        <field name="model">fleet.location</field>
+        <field name="inherit_id" ref="bloomup_fleet_move.fleet_location_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_title')]" position="before">
+                <div class="oe_button_box" name="button_box">
+                    
+                    <button class="oe_stat_button" icon="fa-car" >
+                        <field name="count_vehicle" widget="statinfo" string="Veicoli"/>
+                    </button>
+                </div>
+            </xpath>
+            <field name="type" position="after">
+                <field name="assign_to" />
+                <field name="pickup_address" />
+            </field>
+        </field>
+    </record>
+    <record id="arval_location_tree" model="ir.ui.view">
+        <field name="name">arval.location.tree</field>
+        <field name="model">fleet.location</field>
+        <field name="inherit_id" ref="bloomup_fleet_move.fleet_location_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="type" position="after">
+                <field name="assign_to" />
+                <field name="pickup_address" />
+                <field name="count_vehicle" />
+            </field>
+        </field>
+    </record>
+
+    <record id="arval_fleet_partner_form_up" model="ir.ui.view">
+        <field name="name">arval.fleet.partner.form.up</field>
+        <field name="model">fleet.partner</field>
+        <field name="inherit_id" ref="bloomup_fleet_move.fleet_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('o_address_format')]" position="after">
+                <field name="default_code" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="arval_view_task_search_form" model="ir.ui.view">
+        <field name="name">aarval_view_task_search_form</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_search_form"/>
+        <field name="arch" type="xml">
+            <field name="parent_id" position="before">
+                <field name="vehicle_id" string="Telaio" filter_domain="[('vehicle_id.vin_sn','=',self)]"/>
+                <field name="vehicle_id" string="Targa" filter_domain="[('vehicle_id.license_plate','=',self)]"/>
+            </field>
+        </field>
+    </record>
+</odoo>

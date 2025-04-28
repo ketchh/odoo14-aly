@@ -1,0 +1,1206 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bloomup_fleet_move_arval
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-30 10:37+0000\n"
+"PO-Revision-Date: 2023-01-30 11:41+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: it\n"
+"X-Generator: Poedit 2.4.3\n"
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_sr
+msgid "<b>Dettagli raccolti per la consegna</b>"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_sr
+msgid "<b>di seguito i dati relativi al veicolo</b>"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_sr
+msgid "<i class=\"fa fa-car float-left\"/>Il Veicolo"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_sr
+msgid "<i class=\"fa fa-key float-left\"/>La consegna"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_sr
+msgid ""
+"<i class=\"fa fa-paste float-left \"/>\n"
+"                                    Documenti e Dotazioni"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_sr
+msgid "<span class=\"float-right\">Presenti</span>"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail__alias_defaults
+msgid ""
+"A Python dictionary that will be evaluated to provide default values when "
+"creating new records for this alias."
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields.selection,name:bloomup_fleet_move_arval.selection__fleet_move__date_type__a_aprtire_da
+#: model:ir.model.fields.selection,name:bloomup_fleet_move_arval.selection__fleet_move__tipologia_data__a_partire_da
+msgid "A partire da"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields.selection,name:bloomup_fleet_move_arval.selection__fleet_move__date_type__asap
+msgid "ASAP"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_mail_queue_view_form
+msgid "Accept Emails From"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_vehicle__accessori
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_fleet_vehicle_form
+msgid "Accessori"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__message_needaction
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_needaction
+msgid "Action Needed"
+msgstr "Azione Necessaria"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__active
+msgid "Active"
+msgstr "Attivo"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__alias_value
+msgid "Alias"
+msgstr "Alias"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__alias_contact
+msgid "Alias Contact Security"
+msgstr "Contatto sicurezza alias"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__alias_name
+msgid "Alias Name"
+msgstr "Nome alias"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__alias_domain
+msgid "Alias domain"
+msgstr "Dominio alias"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__alias_id
+msgid "Alias ref"
+msgstr "Riferimento alias"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__alias_model_id
+msgid "Aliased Model"
+msgstr "Modello alias"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_vehicle__allestimento
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_fleet_vehicle_form
+msgid "Allestimento"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__allestitore
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.fleet_move_view_form_inherit_addons
+msgid "Allestitore"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__others
+msgid "Altri destinatari"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.fleet_move_view_form_inherit_addons
+msgid "Altri dettagli"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_fleet_vehicle_form
+msgid "Antiforatora"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_vehicle__antifurto_satellitare
+msgid "Antifurto Satelletitare"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_mail_queue_view_form
+msgid "Archived"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model,name:bloomup_fleet_move_arval.model_arval_queue_mail
+msgid "Arval Mail Queue"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.actions.server,name:bloomup_fleet_move_arval.arval_send_sms_action
+msgid "Arval Send SMS"
+msgstr "Arval invia SMS"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model,name:bloomup_fleet_move_arval.model_arval_queue_mail_line
+msgid "Arval mail queue line"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields.selection,name:bloomup_fleet_move_arval.selection__fleet_move__tipologia_data__asap
+msgid "Asap"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__partner_id
+msgid "Assign to"
+msgstr "Assegna a"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__message_attachment_count
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_attachment_count
+msgid "Attachment Count"
+msgstr "Numero allegati"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.actions.server,name:bloomup_fleet_move_arval.ir_cron_auto_fleet_move_ir_actions_server
+#: model:ir.cron,cron_name:bloomup_fleet_move_arval.ir_cron_auto_fleet_move
+#: model:ir.cron,name:bloomup_fleet_move_arval.ir_cron_auto_fleet_move
+msgid "Auto Fleet Move"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__available_from
+msgid "Available from"
+msgstr "Disponibile da"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_task_typology__block_state
+msgid "Blocca aggiornamento stato"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__body
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_queue_mail_line_view_form
+msgid "Body"
+msgstr "Contenuto"
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_sr
+msgid "CONSERVARE ED ESIBIRE SE RICHIESTO DALLE AUTORITA'"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__caratteristiche_consegna
+msgid "Caratteristiche consegna"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.fleet_move_view_form_inherit_addons
+msgid "Cellulare"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__delegato_cel
+msgid "Cellulare Delegato"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_vehicle__atp
+msgid "Certificato ATP"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model,name:bloomup_fleet_move_arval.model_checklist_line
+msgid "Checklist Line"
+msgstr "Riga Checklist"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__customer_id
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.fleet_move_view_form_inherit_addons
+msgid "Cliente"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__cliente_driver
+msgid "Cliente Driver"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__codice_cliente
+msgid "Codice Cliente"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.fleet_move_view_form_inherit_addons
+msgid "Cognome"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__delegato_lastname
+msgid "Cognome Delegato"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_vehicle__colore_esterno
+msgid "Colore Esterno"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_vehicle__colore_interno
+msgid "Colore Interno"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_task_typology__code
+msgid "Column Name"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__company_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__company_id
+msgid "Company"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model,name:bloomup_fleet_move_arval.model_res_partner
+msgid "Contact"
+msgstr "Contatto"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__create_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__create_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__alias_bounced_content
+msgid "Custom Bounced Message"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__alias_defaults
+msgid "Default Values"
+msgstr "Valori default"
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.fleet_move_view_form_inherit_addons
+msgid "Delegato"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__delegato
+msgid "Delegato?"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.fleet_move_view_form_inherit_addons
+msgid "Dettagli consegna"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_bloomup_ipat__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_checklist_line__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_location__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_vehicle__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_hub_importer__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_report_bloomup_fleet_move_arval_report_arval_checklist__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_report_bloomup_fleet_move_arval_report_sr_checklist__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_res_partner__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_task_typology__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__durata_contratto
+msgid "Durata Contratto"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.fleet_move_view_form_inherit_addons
+msgid "E-mail"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__delegato_email
+msgid "E-mail Delegato"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__email_fleet_manager
+msgid "E-mail fleet manager"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__referente_arval_mail
+msgid "E-mail referente Arval"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_mail_queue_view_form
+msgid "Email Alias"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__error
+msgid "Error"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: code:addons/bloomup_fleet_move_arval/models/queue.py:0
+#, python-format
+msgid "Error import fleet move"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: code:addons/bloomup_fleet_move_arval/models/queue.py:0
+#, python-format
+msgid "Error import hub"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_res_partner__excel_file
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_res_users__excel_file
+msgid "Excel"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__filename
+msgid "Filename"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__filiale_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.fleet_move_view_form_inherit_addons
+msgid "Filiale Arval"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model,name:bloomup_fleet_move_arval.model_fleet_location
+msgid "Fleet Location"
+msgstr "Posizione Veicolo"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model,name:bloomup_fleet_move_arval.model_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__fleet_move
+msgid "Fleet Move"
+msgstr "Richieste movimentazioni"
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_fleet_move_partner
+msgid "Fleet Move - Csv Configuration"
+msgstr "Richieste di movimentazione - importer"
+
+#. module: bloomup_fleet_move_arval
+#: code:addons/bloomup_fleet_move_arval/models/queue.py:0
+#, python-format
+msgid "Fleet move import: <br/>%s"
+msgstr "Importazione Incarichi: <br/> %s"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__message_follower_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__message_channel_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__message_partner_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__from_hour
+msgid "From"
+msgstr "Fascia oraria inizio"
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_sr
+msgid "Gentile Cliente"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.fleet_move_view_form_inherit_addons
+msgid "Gommista"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__gommista_1
+msgid "Gommista 1"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__gommista_2
+msgid "Gommista 2"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__gommista_3
+msgid "Gommista 3"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__hub
+msgid "Hub"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model,name:bloomup_fleet_move_arval.model_hub_importer
+msgid "Hub Vehicles Importer"
+msgstr "Importatore Veicoli"
+
+#. module: bloomup_fleet_move_arval
+#: code:addons/bloomup_fleet_move_arval/models/queue.py:0
+#, python-format
+msgid "Hub import: <a href='%s'>%s</a>"
+msgstr "Importazione Hub: <a href='%s'>%s</a>"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_bloomup_ipat__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_checklist_line__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_location__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_vehicle__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_hub_importer__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_report_bloomup_fleet_move_arval_report_arval_checklist__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_report_bloomup_fleet_move_arval_report_sr_checklist__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_res_partner__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_task_typology__id
+msgid "ID"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail__alias_parent_thread_id
+msgid ""
+"ID of the parent record holding the alias (example: project holding the "
+"task creation alias)"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model,name:bloomup_fleet_move_arval.model_bloomup_ipat
+msgid "IPAT Importer"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__allestitore_id
+msgid "Id Allestitore"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail__message_needaction
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail__message_unread
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_needaction
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail__message_has_error
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail__message_has_sms_error
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_has_error
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail__alias_bounced_content
+msgid ""
+"If set, this content will automatically be sent out to unauthorized users "
+"instead of the default message."
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_queue_mail_line_view_form
+msgid "Import"
+msgstr "Importa"
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_fleet_move_partner
+msgid "Importa"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_res_partner__ipat_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_res_users__ipat_id
+msgid "Importer"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_sr
+msgid ""
+"Incaricato cliente al ritiro<br/>\n"
+"                                        <b>EFFETTIVO</b>"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_sr
+msgid ""
+"Incaricato cliente al ritiro<br/>\n"
+"                                        <b>PRE-REGISTRATO</b>"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__incarico
+msgid "Incarico"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_mail_queue_view_form
+msgid "Incoming Mail"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__message_is_follower
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__km_sottoscritti
+msgid "Km Sottoscritti"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_bloomup_ipat____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_checklist_line____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_location____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_vehicle____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_hub_importer____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_report_bloomup_fleet_move_arval_report_arval_checklist____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_report_bloomup_fleet_move_arval_report_sr_checklist____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_res_partner____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_task_typology____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__write_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__write_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__queue_line_count
+msgid "Line count"
+msgstr "Numero righe"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__queue_line_ids
+msgid "Lines"
+msgstr "Righe"
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_sr
+msgid "Logo"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.fleet_move_view_form_inherit_addons
+msgid "Luogo"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__gommista_luogo
+msgid "Luogo Gommista"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: code:addons/bloomup_fleet_move_arval/models/queue.py:0
+#, python-format
+msgid "Mail - %s"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__mail_from
+msgid "Mail From"
+msgstr "Da"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.actions.act_window,name:bloomup_fleet_move_arval.arval_mail_queue_action
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__queue_id
+#: model:ir.ui.menu,name:bloomup_fleet_move_arval.arval_mail_queue_menu
+msgid "Mail Queue"
+msgstr "Coda mail"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__message_main_attachment_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Allegato principale"
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_fleet_vehicle_form
+msgid "Marca"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_vehicle__brand_tires
+msgid "Marca pneumatici"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_res_partner__ipat_message
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_res_users__ipat_message
+msgid "Message"
+msgstr "Messaggio"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__message_has_error
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_has_error
+msgid "Message Delivery error"
+msgstr "Errore di consegna messaggio"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__message_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_ids
+msgid "Messages"
+msgstr "Messaggi"
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_fleet_vehicle_form
+msgid "Misure Anteriori"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_fleet_vehicle_form
+msgid "Misure Posteriori"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_fleet_vehicle_form
+msgid "Modello"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_vehicle__model_tires
+msgid "Modello pneumatici"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__name
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__name
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.fleet_move_view_form_inherit_addons
+msgid "Name"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.fleet_move_view_form_inherit_addons
+msgid "Nome"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__delegato_name
+msgid "Nome Delegato"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__gommista_name
+msgid "Nome Gommista"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_sr
+msgid "Non sono state inserite note durante la compilazione del verbale"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.fleet_move_view_form_inherit_addons
+msgid "Note Importatore"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__note_importer
+msgid "Note Importer"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.fleet_move_view_form_inherit_addons
+msgid "Note Movimentazione"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__note_whitelabel
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.fleet_move_view_form_inherit_addons
+msgid "Note white label"
+msgstr "Etichetta"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__notice_day_before
+msgid "Notified for the day before"
+msgstr "Notificato"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__message_needaction_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Numero di Azioni"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__message_has_error_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_has_error_counter
+msgid "Number of errors"
+msgstr "Numero di Errori"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail__message_needaction_counter
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Numero di messaggi che richiedono un'azione"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail__message_has_error_counter
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Numero di messaggi con errore di consegna"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail__message_unread_counter
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Numero di messaggi non letti"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_location__count_vehicle
+msgid "Numero Veicoli"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__num_contratto
+msgid "N° Contratto"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__num_dossier_arval
+msgid "N° Dossier Arval"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail__alias_force_thread_id
+msgid ""
+"Optional ID of a thread (record) to which all incoming messages will be "
+"attached, even if they did not reply to it. If set, this will disable the "
+"creation of new records completely."
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_vehicle__optionals
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_fleet_vehicle_form
+msgid "Optionals"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__alias_user_id
+msgid "Owner"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__alias_parent_model_id
+msgid "Parent Model"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__alias_parent_thread_id
+msgid "Parent Record Thread ID"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail__alias_parent_model_id
+msgid ""
+"Parent model holding the alias. The model holding the alias reference is "
+"not necessarily the model given by alias_model_id (example: project "
+"(parent_model) and task (model))"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__partners_send_mail
+msgid "Parter to send error mail"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__partita_iva
+msgid "Partita Iva"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_fleet_vehicle__accessori
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_fleet_vehicle__allestimento
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_fleet_vehicle__optionals
+msgid ""
+"Per compatibilità con la stampa è necessario che sia una lista con - "
+"davanti ad ogni riga"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_vehicle__peso
+msgid "Peso"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_fleet_vehicle_form
+msgid "Pneumatici"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_vehicle__antiforature
+msgid "Pneumatici: Antiforatura"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_vehicle__meas_ant
+msgid "Pneumatici: misure anteriori"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_vehicle__meas_post
+msgid "Pneumatici: misure posteriori"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail__alias_contact
+msgid ""
+"Policy to post a message on the document using the mailgateway.\n"
+"- everyone: everyone can post\n"
+"- partners: only authenticated partners\n"
+"- followers: only followers of the related document or members of following "
+"channels\n"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__postpone
+msgid "Postpone"
+msgstr "Posticipato"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__old_date
+msgid "Previous Request Datetime"
+msgstr "Data precedente conferma"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__processed
+msgid "Processed"
+msgstr "Processato"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__project_id
+msgid "Project"
+msgstr "Progetto"
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_fleet_vehicle_form
+msgid "Proprietario"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__alias_force_thread_id
+msgid "Record Thread ID"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__referente_allestitore
+msgid "Referente Allestitore"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__referente_arval
+msgid "Referente Arval"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__cliente_referente
+msgid "Referente Cliente"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.actions.server,name:bloomup_fleet_move_arval.ir_cron_fleet_move_scheduler_action_ir_actions_server
+#: model:ir.cron,cron_name:bloomup_fleet_move_arval.ir_cron_fleet_move_scheduler_action
+#: model:ir.cron,name:bloomup_fleet_move_arval.ir_cron_fleet_move_scheduler_action
+msgid "Reminder 24 hours fleet move"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_checklist_line__report_block
+msgid "Report Block"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__request_date
+msgid "Request Datetime"
+msgstr "Data richiesta"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_checklist_line__is_result
+msgid "Result"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__message_has_sms_error
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__segmento_appartenenza
+msgid "Segmento di appartenenza"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_mail_queue_view_form
+msgid "Settings"
+msgstr "Impostazioni"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields.selection,name:bloomup_fleet_move_arval.selection__fleet_move__white_label__simple
+msgid "Simplerent"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model,name:bloomup_fleet_move_arval.model_task_typology
+msgid "Task Typology"
+msgstr "Tipologia Attività"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields.selection,name:bloomup_fleet_move_arval.selection__fleet_move__date_type__tassativo
+#: model:ir.model.fields.selection,name:bloomup_fleet_move_arval.selection__fleet_move__tipologia_data__tassativo
+msgid "Tassativo"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__tassativo_bisarca
+msgid "Tassativo con bisarca"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.fleet_move_view_form_inherit_addons
+msgid "Telefono"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__delegato_phone
+msgid "Telefono Delegato"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__referente_arval_phone
+msgid "Telefono Referente Arval"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_vehicle__telepass
+msgid "Telepass"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_fleet_move__partita_iva
+msgid ""
+"The Tax Identification Number. Complete it if the contact is subjected to "
+"government taxes. Used in some legal statements."
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail__alias_model_id
+msgid ""
+"The model (Odoo Document Kind) to which this alias corresponds. Any "
+"incoming email that does not reply to an existing record will cause the "
+"creation of a new record of this model (e.g. a Project Task)"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail__alias_name
+msgid ""
+"The name of the email alias, e.g. 'jobs' if you want to catch emails for "
+"<jobs@example.odoo.com>"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail__alias_user_id
+msgid ""
+"The owner of records created upon receiving emails on this alias. If this "
+"field is not set the system will attempt to find the right owner based on "
+"the sender (From) address, or will use the Administrator account if no "
+"system user is found for that address."
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_fleet_vehicle_form
+msgid "Tipologia"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__date_type
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__tipologia_data
+msgid "Tipologia Data"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_vehicle__type_tires
+msgid "Tipologia pneumatici"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__to_hour
+msgid "To"
+msgstr "Fascia oraria fine"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_vehicle__trasmissione
+msgid "Trasmissione"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__message_unread
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__message_unread_counter
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_sr
+msgid "VERBALE DI CONSEGNA <br/>DI VEICOLO IN LOCAZIONE A LUNGO TERMINE"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.report_sr
+msgid "VERBALE DI CONSEGNA DI VEICOLO IN LOCAZIONE A LUNGO TERMINE"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_task_typology__value
+msgid "Value"
+msgstr "Valore"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model,name:bloomup_fleet_move_arval.model_fleet_vehicle
+msgid "Vehicle"
+msgstr "Veicolo"
+
+#. module: bloomup_fleet_move_arval
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.arval_location_form
+msgid "Veicoli"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.actions.report,name:bloomup_fleet_move_arval.netcheck_automotive_report
+msgid "Verbale Arval Lungo Termine"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.actions.report,name:bloomup_fleet_move_arval.netcheck_sr_automotive_report
+msgid "Verbale Simplerent Lungo Termine"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail__website_message_ids
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_arval_queue_mail_line__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail__website_message_ids
+#: model:ir.model.fields,help:bloomup_fleet_move_arval.field_arval_queue_mail_line__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model.fields,field_description:bloomup_fleet_move_arval.field_fleet_move__white_label
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_arval.fleet_move_view_form_inherit_addons
+msgid "White label"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: code:addons/bloomup_fleet_move_arval/models/hub.py:0
+#, python-format
+msgid "You can't create task without project"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: code:addons/bloomup_fleet_move_arval/models/queue.py:0
+#, python-format
+msgid "[Mail Line %s] Error import fleet move: %s<br/> <a href='%s'>%s</a>"
+msgstr ""
+"[Mail Line %s] Errore importazione incarichi: %s<br/> <a href='%s'>%s</a>"
+
+#. module: bloomup_fleet_move_arval
+#: code:addons/bloomup_fleet_move_arval/models/queue.py:0
+#, python-format
+msgid "[Mail Line %s] Error import hub: %s<br/> <a href='%s'>%s</a>"
+msgstr "[Mail Line %s] Errore importazione hub: %s<br/> <a href='%s'>%s</a>"
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model,name:bloomup_fleet_move_arval.model_report_bloomup_fleet_move_arval_report_arval_checklist
+msgid "report.bloomup_fleet_move_arval.report_arval_checklist"
+msgstr ""
+
+#. module: bloomup_fleet_move_arval
+#: model:ir.model,name:bloomup_fleet_move_arval.model_report_bloomup_fleet_move_arval_report_sr_checklist
+msgid "report.bloomup_fleet_move_arval.report_sr_checklist"
+msgstr ""

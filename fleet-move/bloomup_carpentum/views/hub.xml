@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hub_importer_view_form_carpentum" model="ir.ui.view">
+        <field name="name">hub_importer_view_form_carpentum</field>
+        <field name="model">hub.importer</field>
+        <field name="inherit_id" ref="bloomup_fleet_move.hub_importer_view_form"/>
+        <field name="arch" type="xml">
+            <header position="inside">
+                <button type="object" name="save_import_carpentum" string="Import Carpentum" attrs="{'invisible': [('state','=','done')]}"/>
+            </header>
+            <page name="vehicles_imported" position="attributes">
+                <attribute name="attrs">{'invisible': [('source_data', 'not in', ['file', 'carpentum'])]}</attribute>
+            </page>
+        </field>
+    </record>
+</odoo>

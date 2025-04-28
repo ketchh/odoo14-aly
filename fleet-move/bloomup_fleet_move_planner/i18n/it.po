@@ -1,0 +1,510 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bloomup_fleet_move_planner
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-05 14:00+0000\n"
+"PO-Revision-Date: 2023-09-05 16:07+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: it\n"
+"X-Generator: Poedit 2.4.3\n"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__message_needaction
+msgid "Action Needed"
+msgstr "Azione Necessaria"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__activity_ids
+msgid "Activities"
+msgstr "Attività"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decorazione per Eccezione Attività"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__activity_state
+msgid "Activity State"
+msgstr "Stato attività"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Tipo Icona Attività"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_res_partner__type
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_res_users__type
+msgid "Address Type"
+msgstr "Tipologia indirizzo"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_choose_carrier__alert
+msgid "Alert"
+msgstr "Avviso"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__message_attachment_count
+msgid "Attachment Count"
+msgstr "Numero allegati"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_choose_carrier__carrier_capacity_ids
+#: model:ir.ui.menu,name:bloomup_fleet_move_planner.carrier_capacity_menu
+msgid "Capacities"
+msgstr "Capacità"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__partner_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_fleet_move__carrier_id
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_res_partner__company_carrier
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_res_users__company_carrier
+msgid "Carrier"
+msgstr "Vettore"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_fleet_move__carrier_capacity_id
+msgid "Carrier Capacity"
+msgstr "Capacità del vettore"
+
+#. module: bloomup_fleet_move_planner
+#: model:res.groups,name:bloomup_fleet_move_planner.group_carrier_manager_planner
+msgid "Carrier Manager Planner"
+msgstr "Manager"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.ui.menu,name:bloomup_fleet_move_planner.carrier_planner_root
+#: model:res.groups,name:bloomup_fleet_move_planner.group_carrier_planner
+msgid "Carrier Planner"
+msgstr "Pianificatore Vettori"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.actions.act_window,name:bloomup_fleet_move_planner.carrier_capacity_action
+#: model:ir.model,name:bloomup_fleet_move_planner.model_carrier_capacity
+msgid "Carrier capacity"
+msgstr "Capacità vettore"
+
+#. module: bloomup_fleet_move_planner
+#: code:addons/bloomup_fleet_move_planner/models/partner.py:0
+#: model:ir.model.fields.selection,name:bloomup_fleet_move_planner.selection__res_partner__type__carrier
+#, python-format
+msgid "Carrier's Employee"
+msgstr "Dipendente vettore"
+
+#. module: bloomup_fleet_move_planner
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_planner.choose_carrier_view_form
+msgid "Carriers"
+msgstr "Vettori"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_choose_carrier__chosen_cacapacity
+msgid "Chosen Capacity"
+msgstr "Capacità scelta"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model,name:bloomup_fleet_move_planner.model_res_partner
+msgid "Contact"
+msgstr "Contatto"
+
+#. module: bloomup_fleet_move_planner
+#: code:addons/bloomup_fleet_move_planner/models/partner.py:0
+#, python-format
+msgid "Contact <%s> can't be carrier's employee if it's parent is not carrier"
+msgstr ""
+"Il contatto <%s> non può essere un dipendente del vettore se il padre non è "
+"un vettore"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__country_id
+msgid "Country"
+msgstr "Nazione"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__create_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_choose_carrier__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__create_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_choose_carrier__create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__date
+msgid "Date"
+msgstr "Data"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__fleet_move_ids
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_planner.carrier_capacity_view_form
+msgid "Deliveries"
+msgstr "Consegne"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_choose_carrier__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_fleet_move__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_res_partner__display_name
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_res_users__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__employee_id
+msgid "Employee"
+msgstr "Dipendente"
+
+#. module: bloomup_fleet_move_planner
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_planner.fleet_move_view_form_planner
+msgid "Find Carrier"
+msgstr "Cerca un vettore"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model,name:bloomup_fleet_move_planner.model_fleet_move
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_choose_carrier__fleet_move_id
+msgid "Fleet Move"
+msgstr "Richieste movimentazioni"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,help:bloomup_fleet_move_planner.field_carrier_capacity__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_choose_carrier__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_fleet_move__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_res_partner__id
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_res_users__id
+msgid "ID"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,help:bloomup_fleet_move_planner.field_carrier_capacity__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,help:bloomup_fleet_move_planner.field_carrier_capacity__message_needaction
+#: model:ir.model.fields,help:bloomup_fleet_move_planner.field_carrier_capacity__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,help:bloomup_fleet_move_planner.field_carrier_capacity__message_has_error
+#: model:ir.model.fields,help:bloomup_fleet_move_planner.field_carrier_capacity__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,help:bloomup_fleet_move_planner.field_res_partner__type
+#: model:ir.model.fields,help:bloomup_fleet_move_planner.field_res_users__type
+msgid ""
+"Invoice & Delivery addresses are used in sales orders. Private addresses "
+"are only visible by authorized users."
+msgstr ""
+"Gli indirizzi di fatturazione e di consegna vengono usati negli ordini di "
+"vendita. Gli indirizzi privati sono visibili solamente agli utenti "
+"autorizzati."
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_choose_carrier____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_fleet_move____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_res_partner____last_update
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_res_users____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__write_uid
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_choose_carrier__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__write_date
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_choose_carrier__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__max_deliveries
+msgid "Max Deliveries"
+msgstr "Consegne massime"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_planner.choose_carrier_view_form
+msgid "Next"
+msgstr "Disponibilità successiva"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: code:addons/bloomup_fleet_move_planner/models/carrier_capacity.py:0
+#, python-format
+msgid "No delivery address set."
+msgstr "Nessun indirizzo di consegna impostato"
+
+#. module: bloomup_fleet_move_planner
+#: code:addons/bloomup_fleet_move_planner/models/carrier_capacity.py:0
+#, python-format
+msgid "No more deliveries available."
+msgstr "Nessuna disponibilità"
+
+#. module: bloomup_fleet_move_planner
+#: code:addons/bloomup_fleet_move_planner/models/carrier_capacity.py:0
+#, python-format
+msgid "No pickup address set."
+msgstr "Nessun indirizzo di prelievo impostato"
+
+#. module: bloomup_fleet_move_planner
+#: code:addons/bloomup_fleet_move_planner/models/carrier_capacity.py:0
+#, python-format
+msgid "No state_id ser for pickup address."
+msgstr "Provincia non impostata per l'indirizzo di prelievo"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Numero di Azioni"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__message_has_error_counter
+msgid "Number of errors"
+msgstr "Numero di Errori"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,help:bloomup_fleet_move_planner.field_carrier_capacity__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,help:bloomup_fleet_move_planner.field_carrier_capacity__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,help:bloomup_fleet_move_planner.field_carrier_capacity__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: code:addons/bloomup_fleet_move_planner/models/partner.py:0
+#, python-format
+msgid ""
+"Partner <%s> can't be a person because it is a carrier and there are some "
+"contact with type='carrier'"
+msgstr ""
+"Il partner <%s> non può essere una persona perché è un vettore e ha dei "
+"contatti di tipo vettore."
+
+#. module: bloomup_fleet_move_planner
+#: code:addons/bloomup_fleet_move_planner/models/partner.py:0
+#, python-format
+msgid "Partner <%s> can't be carrier's employee if it is a parent partner."
+msgstr ""
+"Il partner <%s>non può essere un dipendente del vettore se non ha un padre."
+
+#. module: bloomup_fleet_move_planner
+#: code:addons/bloomup_fleet_move_planner/models/partner.py:0
+#, python-format
+msgid "Partner <%s> is a person and can't be a carrier"
+msgstr "Il partner <%s> è una persona e non può essere un vettore."
+
+#. module: bloomup_fleet_move_planner
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_planner.choose_carrier_view_form
+msgid "Prev"
+msgstr "Disponbinbilità precedente"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__remaining_deliveries
+msgid "Remaining Deliveries"
+msgstr "Consegne rimanenti"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__activity_user_id
+msgid "Responsible User"
+msgstr "Utente responsabile"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__from_state_id
+msgid "State from"
+msgstr "Provincia di prelievo"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__to_state_id
+msgid "State to"
+msgstr "Provincia di consegna"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,help:bloomup_fleet_move_planner.field_carrier_capacity__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_fleet_move__suggested_date
+msgid "Suggested Date"
+msgstr "Data suggerita"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_choose_carrier__suggested_date
+msgid "Suggested date"
+msgstr "Data suggerita"
+
+#. module: bloomup_fleet_move_planner
+#: model:res.groups,comment:bloomup_fleet_move_planner.group_carrier_manager_planner
+msgid "The user will be able to manage all carrier capacity."
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:res.groups,comment:bloomup_fleet_move_planner.group_carrier_planner
+msgid "The user will be able to manage own carrier capcity."
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: code:addons/bloomup_fleet_move_planner/models/carrier_capacity.py:0
+#, python-format
+msgid "There are more deliveries than the maximum availability set."
+msgstr ""
+"Sono presenti più consegne rispetto alla disponibilità massima impostata."
+
+#. module: bloomup_fleet_move_planner
+#: code:addons/bloomup_fleet_move_planner/models/carrier_capacity.py:0
+#, python-format
+msgid ""
+"There is already a capacity to this day with this carrier and this "
+"\"from_state_id\"."
+msgstr ""
+"Esiste già una capacità con questo operatore e questa provincia di prelievo."
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model,name:bloomup_fleet_move_planner.model_choose_carrier
+msgid "Transient model to find and choose carrier"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,help:bloomup_fleet_move_planner.field_carrier_capacity__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model,name:bloomup_fleet_move_planner.model_res_users
+msgid "Users"
+msgstr "Utenti"
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,field_description:bloomup_fleet_move_planner.field_carrier_capacity__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model:ir.model.fields,help:bloomup_fleet_move_planner.field_carrier_capacity__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: bloomup_fleet_move_planner
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_planner.choose_carrier_view_form
+msgid "You are looking for availability before 5 working days"
+msgstr "Stai cercando una disponibilità prima di 5 giorni lavorativi."
+
+#. module: bloomup_fleet_move_planner
+#: code:addons/bloomup_fleet_move_planner/models/carrier_capacity.py:0
+#, python-format
+msgid "You can't assign capacity. Remaining deliveries is 0."
+msgstr ""
+"Non puoi assegnare questa consegna in quanto la disponibilità è terminata."
+
+#. module: bloomup_fleet_move_planner
+#: model_terms:ir.ui.view,arch_db:bloomup_fleet_move_planner.choose_carrier_view_form
+msgid "assign"
+msgstr "Assegna"

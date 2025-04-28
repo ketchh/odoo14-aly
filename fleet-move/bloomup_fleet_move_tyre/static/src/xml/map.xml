@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="GoogleMapsField" owl="1">
+        <div>
+            <div class="text-center text-primary" t-if="state.loading" style="margin-right:-45px">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <div t-else="">
+                <div  class="text-center text-danger font-weight-bold" t-if="state.error" style="margin-right:-45px">
+                    <span ><t t-esc="state.error_message"/></span>
+                </div>
+            </div>
+            <div class="alert alert-warning alert-dismissible fade show text-center" role="alert" t-if="state.warning" style="margin-right:-45px">
+                <span class="font-weight-bold"><t t-esc="state.warning_message"/></span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div id="fleet_move_tyre_map" style="margin-right:-45px"/>
+            <div id="legend" class="bg-white mr-1 p-2"/>
+        </div>
+    </t>
+</templates>

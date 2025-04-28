@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_backend" name="Backend Assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/bloomup_fleet_move/static/src/css/fleet_move.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/bloomup_fleet_move/static/src/css/style.scss"/>
+            <script type="text/javascript" src="/bloomup_fleet_move/static/src/js/components/opt_required.js"></script>
+            <script type="text/javascript" src="/bloomup_fleet_move/static/src/js/components/planner/fleet_move.js"></script>
+            <script type="text/javascript" src="/bloomup_fleet_move/static/src/js/components/planner/groups.js"></script>
+            <script type="text/javascript" src="/bloomup_fleet_move/static/src/js/components/planner/planner.js"></script>
+        </xpath>
+    </template>
+
+    <template id="assets_frontend" name="account assets" inherit_id="web.assets_frontend">  
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/bloomup_fleet_move/static/src/css/frontstyle.scss"/>
+            <script type="text/javascript" src="/bloomup_fleet_move/static/src/js/components/website/vehicles/vehicle_edit.js"></script>
+            <script type="text/javascript" src="/bloomup_fleet_move/static/src/js/components/website/vehicles/vehicles_table.js"></script>
+            <script type="text/javascript" src="/bloomup_fleet_move/static/src/js/components/website/vehicles/vehicles.js"></script>
+            <script type="text/javascript" src="/bloomup_fleet_move/static/src/js/components/website/addresses/address_edit.js"></script>
+            <script type="text/javascript" src="/bloomup_fleet_move/static/src/js/components/website/addresses/addresses_table.js"></script>
+            <script type="text/javascript" src="/bloomup_fleet_move/static/src/js/components/website/addresses/addresses.js"></script>
+            <script type="text/javascript" src="/bloomup_fleet_move/static/src/js/components/website/moves/moves_edit.js"></script>
+            <script type="text/javascript" src="/bloomup_fleet_move/static/src/js/components/website/moves/moves_table.js"></script>
+            <script type="text/javascript" src="/bloomup_fleet_move/static/src/js/components/website/moves/moves.js"></script>
+        </xpath>
+    </template>
+
+</odoo>

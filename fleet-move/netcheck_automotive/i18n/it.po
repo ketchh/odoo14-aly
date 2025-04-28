@@ -1,0 +1,164 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* netcheck_automotive
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-03 13:26+0000\n"
+"PO-Revision-Date: 2022-01-03 14:29+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: it\n"
+"X-Generator: Poedit 2.4.3\n"
+
+#. module: netcheck_automotive
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage__active
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage_image__active
+msgid "Active"
+msgstr "Attivo"
+
+#. module: netcheck_automotive
+#: model:ir.model,name:netcheck_automotive.model_checklist_line
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage__checklist_line_id
+msgid "Checklist Line"
+msgstr "Riga Checklist"
+
+#. module: netcheck_automotive
+#. openerp-web
+#: code:addons/netcheck_automotive/static/src/js/widget.js:0
+#, python-format
+msgid "Close"
+msgstr "Chiudi"
+
+#. module: netcheck_automotive
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage__coordinate_x
+msgid "Coordinate X"
+msgstr "X"
+
+#. module: netcheck_automotive
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage__coordinate_y
+msgid "Coordinate Y"
+msgstr "Y"
+
+#. module: netcheck_automotive
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage__create_uid
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage_image__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: netcheck_automotive
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage__create_date
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage_image__create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: netcheck_automotive
+#. openerp-web
+#: code:addons/netcheck_automotive/models/models.py:0
+#: code:addons/netcheck_automotive/static/src/js/widget.js:0
+#: code:addons/netcheck_automotive/static/src/xml/widget.xml:0
+#: model:ir.model,name:netcheck_automotive.model_checklist_damage
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage_image__damage_id
+#: model:ir.model.fields.selection,name:netcheck_automotive.selection__checklist_line__type__damage
+#, python-format
+msgid "Damage"
+msgstr "Danno"
+
+#. module: netcheck_automotive
+#: model:ir.model,name:netcheck_automotive.model_checklist_damage_image
+msgid "Damage Image"
+msgstr "Immagine del danno"
+
+#. module: netcheck_automotive
+#. openerp-web
+#: code:addons/netcheck_automotive/static/src/js/widget.js:0
+#, python-format
+msgid "Damages"
+msgstr "Danni"
+
+#. module: netcheck_automotive
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage__display_name
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage_image__display_name
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_line__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: netcheck_automotive
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage_image__field_type
+msgid "Field Type"
+msgstr "Tipo campo"
+
+#. module: netcheck_automotive
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage__id
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage_image__id
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_line__id
+msgid "ID"
+msgstr ""
+
+#. module: netcheck_automotive
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage__images
+msgid "Images"
+msgstr "Immagini"
+
+#. module: netcheck_automotive
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage____last_update
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage_image____last_update
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_line____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: netcheck_automotive
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage__write_uid
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage_image__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento di"
+
+#. module: netcheck_automotive
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage__write_date
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage_image__write_date
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento il"
+
+#. module: netcheck_automotive
+#: code:addons/netcheck_automotive/models/models.py:0
+#, python-format
+msgid "Line_id, type, x or y are missing."
+msgstr "Id riga, tipo, x o y mancanti."
+
+#. module: netcheck_automotive
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage__note
+msgid "Note"
+msgstr "Note"
+
+#. module: netcheck_automotive
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_line__number_of_damages
+msgid "Number of damages"
+msgstr "Numero di danni"
+
+#. module: netcheck_automotive
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage_image__raw_value
+msgid "Raw Value"
+msgstr "Valore grezzo"
+
+#. module: netcheck_automotive
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage__registration_id
+msgid "Registration"
+msgstr "Registrazione"
+
+#. module: netcheck_automotive
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage__type
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_line__type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: netcheck_automotive
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage__user_id
+#: model:ir.model.fields,field_description:netcheck_automotive.field_checklist_damage_image__user_id
+msgid "User"
+msgstr "Utente"

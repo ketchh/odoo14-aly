@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_checklist_damage,access_checklist_damage,model_checklist_damage,netcheck_2.checklist_group_user,1,1,1,0
+access_checklist_damage_image,access_checklist_damage_image,model_checklist_damage_image,netcheck_2.checklist_group_user,1,1,1,0

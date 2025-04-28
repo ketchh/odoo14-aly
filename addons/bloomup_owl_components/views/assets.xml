@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_frontend" name="account assets" inherit_id="web.assets_frontend">  
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/bloomup_owl_components/static/src/css/style.scss"/>
+            <script type="text/javascript" src="/bloomup_owl_components/static/src/js/components/records_store.js"></script>
+            <script type="text/javascript" src="/bloomup_owl_components/static/src/js/components/autocomplete.js"></script>
+            <script type="text/javascript" src="/bloomup_owl_components/static/src/js/components/add_button.js"></script>
+            <script type="text/javascript" src="/bloomup_owl_components/static/src/js/components/badge_owl.js"></script>
+            <script type="text/javascript" src="/bloomup_owl_components/static/src/js/components/cancel_dialog.js"></script>
+            <script type="text/javascript" src="/bloomup_owl_components/static/src/js/components/toast-owl.js"></script>
+            <script type="text/javascript" src="/bloomup_owl_components/static/src/js/components/pagination.js"></script>
+            <script type="text/javascript" src="/bloomup_owl_components/static/src/js/components/loader.js"></script>    
+            <script type="text/javascript" src="/bloomup_owl_components/static/src/js/components/change_color.js"></script> 
+        </xpath>
+    </template>
+    <template id="assets_backend" name="account assets" inherit_id="web.assets_backend">  
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/bloomup_owl_components/static/src/css/style.scss"/>
+            <script type="text/javascript" src="/bloomup_owl_components/static/src/js/components/records_store.js"></script>
+            <script type="text/javascript" src="/bloomup_owl_components/static/src/js/components/autocomplete.js"></script>
+            <script type="text/javascript" src="/bloomup_owl_components/static/src/js/components/add_button.js"></script>
+            <script type="text/javascript" src="/bloomup_owl_components/static/src/js/components/badge_owl.js"></script>
+            <script type="text/javascript" src="/bloomup_owl_components/static/src/js/components/cancel_dialog.js"></script>
+            <script type="text/javascript" src="/bloomup_owl_components/static/src/js/components/toast-owl.js"></script>
+            <script type="text/javascript" src="/bloomup_owl_components/static/src/js/components/pagination.js"></script>
+            <script type="text/javascript" src="/bloomup_owl_components/static/src/js/components/loader.js"></script>
+            <script type="text/javascript" src="/bloomup_owl_components/static/src/js/components/change_color.js"></script> 
+    
+        </xpath>
+    </template>
+</odoo>

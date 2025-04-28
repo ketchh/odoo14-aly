@@ -1,0 +1,45 @@
+<odoo>
+    <!-- Vista del Wizard (TransientModel) -->
+    <record id="view_fleet_vehicle_data_unifier_form" model="ir.ui.view">
+        <field name="name">fleet.vehicle.data.unifier.form</field>
+        <field name="model">fleet.vehicle.data.unifier</field>
+        <field name="arch" type="xml">
+            <form string="Unify Fleet Data">
+                <header>
+                    <!-- Bottone che chiama la funzione unify_brands_and_models_by_case -->
+                    <button name="unify_brands_and_models_by_case"
+                            string="Unify Data" 
+                            type="object" 
+                            class="oe_highlight"/>
+                    <button string="Cancel" special="cancel" class="oe_link"/>
+                </header>
+                <sheet>
+                    <group>
+                        <p>
+                            Cliccando <b>"Unify Data"</b> partirà il processo di unificazione di 
+                            <i>brand</i> e <i>modelli</i> che differiscono solo per maiuscolo/minuscolo.
+                            <br/>
+                            <strong>Attenzione:</strong> esegui un backup prima!
+                        </p>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Azione per aprire il wizard in finestra modal -->
+    <record id="action_fleet_vehicle_data_unifier" model="ir.actions.act_window">
+        <field name="name">Unify Fleet Data</field>
+        <field name="res_model">fleet.vehicle.data.unifier</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_fleet_vehicle_data_unifier_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Menu per richiamare l'azione (puoi metterlo dove preferisci nel menu di Odoo) -->
+    <menuitem id="menu_fleet_vehicle_data_unifier"
+              name="Unify Fleet Data"
+              parent="fleet.menu_root"
+              action="action_fleet_vehicle_data_unifier"
+              sequence="999"/>
+</odoo>

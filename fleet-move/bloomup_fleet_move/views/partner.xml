@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="fleet_res_partner_form" model="ir.ui.view">
+        <field name="name">fleet.res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page name="fleet_partner" string="Fleet Addresses"
+                attrs="{'invisible': [('parent_id','!=',False)]}">
+                    <group>
+                        <field name="fleet_partner_ids" nolabel="1"/>
+                    </group>
+                </page>
+                <page name="configuration" string="Fleet Move - Csv Configuration" 
+                groups="base.group_system" 
+                attrs="{'invisible': [('parent_id','!=',False)]}">
+                    <group>
+                        <group>
+                            <field name="input_file" />
+                            <field name="delimiter" />
+                        </group>
+                        <group>
+                            <button type="object" name="import_file" string="Importa"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="csv_configuration" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="field_id" />
+                                <field name="name" />
+                            </tree>
+                        </field>
+                    </group>
+                    <group>
+                        <field name="message" />
+                    </group>
+                </page>
+                <page name="configuration_hub" string="Hub importer - Csv Configuration" 
+                groups="base.group_system" 
+                attrs="{'invisible': [('parent_id','!=',False)]}">
+                    <field name="csv_hub_configuration" nolabel="1">
+                        <tree editable="bottom">
+                            <field name="field_id" />
+                            <field name="name" />
+                        </tree>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="tyre_repairer_favorite" model="bloomup.ipat">
+            <field name="name">DEDICHE</field>
+            <field name="model" ref="bloomup_fleet_move_tyre.model_tyre_repairer_favorite"/>
+            <field name="line_ids" eval="[
+            (0,0,{'column_name':'Codice Cliente','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer_favorite__customer_code'),'to_search':True}),
+            (0,0,{'column_name':'descrizioneCliente','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer_favorite__customer_name'),'to_search':False}),
+            (0,0,{'column_name':'Codice Fornitore','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer_favorite__tyre_repairer_code'),'to_search':True}),
+            (0,0,{'column_name':'descrizioneFornitore','field':ref('bloomup_fleet_move_tyre.field_tyre_repairer_favorite__tyre_repairer_name'),'to_search':False})]"/>
+        </record>
+    </data>
+</odoo>

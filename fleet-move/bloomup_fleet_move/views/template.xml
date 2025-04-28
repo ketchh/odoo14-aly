@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="portal_breadcrumb" name="Portal breadcrumb" inherit_id="portal.portal_breadcrumbs" priority="30">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="vehicle" class="breadcrumb-item active">
+               <b>Vehicles</b>
+            </li>
+            <li t-if="addresses" class="breadcrumb-item active">
+               <b>Addresses</b>
+            </li>
+            <li t-if="moves" class="breadcrumb-item active">
+               <b>Moves</b>
+            </li>
+        </xpath>
+    </template>
+
+
+    <template id="my_vehicle" name="My Vehicle">
+        <t t-call="portal.portal_layout">
+            <t t-set="no_breadcrumbs" t-value="True"/>
+            
+            <nav t-attf-class="navbar navbar-light navbar-expand-lg border py-0 mb-2 o_portal_navbar mt-3 rounded">
+                <div class="col-10">
+                    <t t-call="portal.portal_breadcrumbs">
+                        <t t-set="vehicle" t-value="True"/>
+                    </t>
+                </div>
+            </nav>
+
+            <div class="o_portal_my_home" >
+                <div id="my_vehicle" class="o_my_vehicle" contenteditable="false">
+                    
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="my_addresses" name="My Addresses">
+        <t t-call="portal.portal_layout">
+            <t t-set="no_breadcrumbs" t-value="True"/>
+            
+            <nav t-attf-class="navbar navbar-light navbar-expand-lg border py-0 mb-2 o_portal_navbar mt-3 rounded">
+                <div class="col-10">
+                    <t t-call="portal.portal_breadcrumbs">
+                        <t t-set="addresses" t-value="True"/>
+                    </t>
+                </div>
+            </nav>
+
+            <div class="o_portal_my_home" >
+                <div id="my_addresses" contenteditable="false">
+                    
+                </div>
+            </div>
+        </t>
+    </template>
+
+     <template id="my_move" name="My Moves">
+        <t t-call="portal.portal_layout">
+            <t t-set="no_breadcrumbs" t-value="True"/>
+            
+            <nav t-attf-class="navbar navbar-light navbar-expand-lg border py-0 mb-2 o_portal_navbar mt-3 rounded">
+                <div class="col-10">
+                    <t t-call="portal.portal_breadcrumbs">
+                        <t t-set="moves" t-value="True"/>
+                    </t>
+                </div>
+            </nav>
+
+            <div class="o_portal_my_home" >
+                <div id="my_move" contenteditable="false">
+                    
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="bloomup_portal_my_home" name="template_name" inherit_id="portal.portal_my_home">
+        <xpath expr="//div[hasclass('o_portal_my_home')]" position="inside">
+            <h3 style="margin-top:10px">Moves</h3>
+            <div class="o_portal_docs list-group">
+                <a class="list-group-item list-group-item-action d-flex 
+                align-items-center justify-content-between " 
+                href="/my/vehicles" title="Veicoli"
+                >
+                    Vehicles
+                    <span class="badge 
+                    badge-secondary badge-pill badge-owl" 
+                    data-model="fleet.vehicle" data-field="owner_id">
+                        <span class="zero"><i class="fa fa-spin fa-spinner"/></span>
+                    </span>
+                </a>
+                <a class="list-group-item list-group-item-action d-flex 
+                align-items-center justify-content-between " 
+                href="/my/fleet-addresses" title="Veicoli"
+                >
+                    Addresses
+                    <span class="badge 
+                    badge-secondary badge-pill badge-owl" 
+                    data-model="fleet.partner" data-field="owner_id">
+                        <span class="zero"><i class="fa fa-spin fa-spinner"/></span>
+                    </span>
+                </a>
+                <a class="list-group-item list-group-item-action d-flex 
+                align-items-center justify-content-between " 
+                href="/my/move-requests" title="Richieste Movimentazioni" 
+                >
+                    Fleet Move
+                    <span class="badge 
+                    badge-secondary badge-pill badge-owl" 
+                    data-model="fleet.move" 
+                    data-field="partner_id">
+                        <span class="zero"><i class="fa fa-spin fa-spinner"/></span>
+                    </span>
+                </a>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

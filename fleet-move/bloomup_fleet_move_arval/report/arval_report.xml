@@ -1,0 +1,638 @@
+<odoo>
+    <data>
+        <!-- Paperformat per header -->
+        <record id="paperformat_lowmargin_custom" model="report.paperformat">
+            <field name="name">A4 low margin</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">4</field>
+            <field name="margin_right">4</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">5</field>
+            <field name="dpi">90</field>
+        </record>
+        <!-- QWeb Reports -->
+        <record id="netcheck_automotive_report" model="ir.actions.report">
+            <field name="name">Verbale Arval Lungo Termine</field>
+            <field name="model">checklist.checklist</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bloomup_fleet_move_arval.report_arval_checklist</field>
+            <field name="report_file">bloomup_fleet_move_arval.report_arval_checklist</field>
+            <field name="paperformat_id" ref="bloomup_fleet_move_arval.paperformat_lowmargin_custom"/>
+        </record>
+
+        <record id="netcheck_sr_automotive_report" model="ir.actions.report">
+            <field name="name">Verbale Simplerent Lungo Termine</field>
+            <field name="model">checklist.checklist</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bloomup_fleet_move_arval.report_sr_checklist</field>
+            <field name="report_file">bloomup_fleet_move_arval.report_sr_checklist</field>
+            <field name="paperformat_id" ref="bloomup_fleet_move_arval.paperformat_lowmargin_custom"/>
+        </record>
+
+        <template id="report_arval_checklist">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="bloomup_fleet_move_arval.report_arval"/>
+                </t>
+            </t>
+        </template>
+
+        <template id="report_sr_checklist">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="bloomup_fleet_move_arval.report_sr"/>
+                </t>
+            </t>
+        </template>
+
+
+        <template id="report_arval">
+            <t t-call="web.basic_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                        .text-arval{ color: #00925b}
+                        .border-top-arval{ border-top: 3px solid #00925b}
+                        .bg-arval{background-color: #00925b !important}
+                        .div-arval{line-height: 17px !important;font-size: 14px;}
+                        </style>
+                        <!-- header color-arval:#00925b-->
+                        <div class="row mt32 mb32">
+                            <t t-set="verbale" t-value="attributes[o.id]"/>
+                            <div class="col-8 align-self-end p-0 border-bottom border-dark" >
+                                <div class="col-12 align-self-start pl-0 pr-0">
+                                    <img src="/bloomup_fleet_move_arval/static/src/img/arval.png"
+                                    alt="Logo" class="img-fluid" style="width: auto; height: auto;max-height: 90px; margin-left: -16px"/>
+                                </div>
+                                <div class="col-12 align-self-end pl-0 pr-0 text-arval" >
+                                    <h5>
+                                    VERBALE DI CONSEGNA <br/>DI VEICOLO IN LOCAZIONE A LUNGO TERMINE
+                                    </h5>
+                                </div>
+                                <div class="col-12 align-self-end pl-0 pr-0 " >
+                                    <h6>
+                                    CONSERVARE ED ESIBIRE SE RICHIESTO DALLE AUTORITA'
+                                    </h6>
+                                </div>
+                            </div>
+                            <div class="div-arval col-4 align-self-end p-0 pl-2" t-if="'top-right' in attributes[o.id]">
+                                <t t-foreach="attributes[o.id]['top-right']['lines']" t-as="line" t-if="'top-right' in attributes[o.id]">
+                                    <div class="col-12 border-bottom border-dark pl-0 pr-0 pt-1 pb-1">
+                                        <span><t t-esc="line['name'].title().replace('-','')"/></span> 
+                                        <b><t t-esc="line['value']"/></b>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                        <!-- fine header-->
+                        <div class="row mt32 mb32">
+                            <div class="col-8 p-0 pt-2 pb-2 " >
+                                <div class="col-12 p-0 div-arval">
+                                    <div class="col-12 pt-1 pb-1 pl-0">
+                                            <b>Gentile Cliente <span t-field="o.ref_doc_id.customer_id" 
+                                            t-if="o.ref_doc_id.customer_id"/></b>
+                                    </div>
+                                    <div class="col-12 pt-1 pb-1 pl-0">
+                                            <b>di seguito i dati relativi al veicolo</b>
+                                    </div>
+                                    <div class="col-12 pt-1 pb-1 pl-0 text-arval" t-if="'vehicle-name' in attributes[o.id]">
+                                        <t t-foreach="attributes[o.id]['vehicle-name']['lines']" t-as="line" >
+                                            <b><t t-esc="line['value']"/></b> 
+                                        </t>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-4  p-0 pt-2 pb-2 pl-2 text-light " >
+                                <div class="col-12 bg-arval p-0 div-arval" t-if="'contract' in attributes[o.id]">
+                                    <t t-foreach="attributes[o.id]['contract']['lines']" t-as="line" >
+                                        <div class="col-12 p-1">
+                                            <t t-esc="line['name'].title().replace('-','')"/> 
+                                            <b><t t-esc="line['value']"/></b>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt32 mb32">
+                            <div class="col-4 align-self-end p-0  " >
+                                <div class="col-12 border-top-arval"/>
+                                <h5 class="mt-3 font-weight-bold text-center mb-3 text-arval">
+                                    <i class="fa fa-car float-left" ></i>Il Veicolo
+                                </h5>
+                                <!--details-->
+                                
+                                <div class="div-arval" t-if="'vehicle-details' in attributes[o.id]">
+                                    <h6 class="bg-secondary p-1"><t t-esc="attributes[o.id]['vehicle-details']['name'].capitalize()"/></h6>
+                                    <t t-foreach="attributes[o.id]['vehicle-details']['lines']" t-as="line" >
+                                        <t t-esc="line['name'].title()"/> <b><t t-raw="line['value']"/></b><br/>
+                                    </t>
+                                </div>
+                                
+                            
+                                <div class="div-arval" t-if="'optional' in attributes[o.id]">
+                                    <h6 class="bg-secondary p-1 mt-2"><t t-esc="attributes[o.id]['optional']['name'].capitalize()"/></h6>
+                                    <t t-foreach="attributes[o.id]['optional']['lines']" t-as="line" >
+                                        <t t-if="line['value']">
+                                            <t t-value="line['value'].split('-')" t-set="acc"/>
+                                            <t t-foreach="acc" t-as="a">
+                                            <span t-if="a"> - <t t-raw="a" /> <br/></span>
+                                            </t>
+                                        </t>
+                                    </t>
+                                </div>
+
+                                <div class="div-arval" t-if="'tyres' in attributes[o.id]">
+                                    <h6 class="bg-secondary p-1 mt-2"><t t-esc="attributes[o.id]['tyres']['name'].capitalize()"/></h6>
+                                    <t t-foreach="attributes[o.id]['tyres']['lines']" t-as="line" >
+                                        <t t-esc="line['name'].title()"/> <b><t t-raw="line['value']"/></b><br/>
+                                    </t>
+                                </div>
+                            </div>
+                            <div class="col-4 align-self-end p-0 pl-2 " >
+                                <div class="col-12 border-top-arval"/>
+                                <h5 class="mt-3 font-weight-bold mb-3 text-center text-arval">
+                                    <i class="fa fa-paste float-left " ></i>
+                                    Documenti e Dotazioni
+                                </h5>
+
+                                <div class="div-arval" t-if="'docs' in attributes[o.id]">
+                                    <h6 class="bg-secondary p-1"><span ><t t-esc="attributes[o.id]['docs']['name'].capitalize()"/></span> <span class="float-right">Presenti</span></h6>
+                                    <t t-foreach="attributes[o.id]['docs']['lines']" t-as="line" >
+                                        <t t-esc="line['name'].title()"/> <b class="float-right"><t t-raw="line['value']"/></b><br/>
+                                    </t>
+                                </div>
+
+                                <div class="div-arval" t-if="'equipment' in attributes[o.id]">
+                                    <h6 class="bg-secondary p-1 mt-2"><span ><t t-esc="attributes[o.id]['equipment']['name'].capitalize()"/></span> <span class="float-right">Presenti</span></h6>
+                                    <t t-foreach="attributes[o.id]['equipment']['lines']" t-as="line" >
+                                        <t t-esc="line['name'].title()"/> <b class="float-right"><t t-raw="line['value']"/></b><br/>
+                                    </t>
+                                </div>
+                            </div>
+                            <div class="col-4 align-self-end p-0 pl-2  " >
+                                <div  class="col-12 border-top-arval"/>
+
+                                <h5 class="mt-3 font-weight-bold mb-3 text-center text-arval">
+                                    <i class="fa fa-key float-left" ></i>La consegna
+                                </h5>
+
+                                <div class="div-arval" t-if="'damage' in attributes[o.id]">
+                                    <h6 class="bg-secondary p-1"><span ><t t-esc="attributes[o.id]['damage']['name'].capitalize()"/></span></h6>
+                                    <t t-foreach="attributes[o.id]['damage']['lines']" t-as="line" >
+                                        <t t-esc="line['name'].title().replace('-','')"/> <b class=""><t t-raw="line['value']"/></b><br/>
+                                    </t>
+                                </div>
+
+                                <div class="div-arval" t-if="'driver' in attributes[o.id]">
+                                    <h6 class="bg-secondary p-1"><span ><t t-esc="attributes[o.id]['driver']['name'].capitalize()"/></span></h6>
+                                    <t t-foreach="attributes[o.id]['driver']['lines']" t-as="line" >
+                                        <t t-esc="line['name'].title().replace('-','')"/> <b class="float-right"><t>NO</t></b>
+                                        <div class="border-bottom border-dark mt-1 mb-1"/>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt32 mb32 mt-2">
+                            <div class="col-4 align-self-end p-0 border-top border-dark " />
+                            <div class="col-4 align-self-end p-0 ml-2 border-top border-dark" />
+                            <div class="col-4 align-self-end p-0 ml-2  border-top border-dark" />
+                        </div>
+                        
+                        <div class="row mt32 mb32 mt-3 div-arval" t-if="'note' in attributes[o.id]">
+                            <h6 ><span ><t t-esc="attributes[o.id]['note']['name'].capitalize()"/>:</span></h6>
+                        </div>
+                        <div class="row mt32 mb32 mt-1 div-arval" t-if="'note' in attributes[o.id]">
+                            <t t-foreach="attributes[o.id]['note']['lines']" t-as="line" >
+                                <t t-if="line['value']">
+                                    <t t-raw="line['value']"/>
+                                </t>
+                                <t t-else="">
+                                    Non sono state inserite note durante la compilazione del verbale
+                                </t>
+                            </t>
+                        </div>
+                    </div>
+                    <p style="page-break-after:always;"/>
+                    <div class="page">
+                        <div class="row mt32 mb32">
+                            <div class="col-6 align-self-end p-0 pr-1" >
+                                <div class="col-12 align-self-start pl-0 pr-0">
+                                    <img src="/bloomup_fleet_move_arval/static/src/img/arval.png"
+                                    alt="Logo" class="img-fluid" style="width: auto; height: auto;max-height: 90px; margin-left: -16px"/>
+                                </div>
+                                <div class="border-bottom border-dark  mb-1"/>
+                            </div>
+                            <div class="col-6 align-self-end p-0 pl-1" >
+                                <div class="col-12 align-self-start pl-0 pr-0" style="padding-top:34px">
+                                    <h5>
+                                        VERBALE DI CONSEGNA DI VEICOLO IN LOCAZIONE A LUNGO TERMINE
+                                    </h5>
+                                </div>
+                                <div class="border-bottom border-dark mb-1"/>
+                            </div>
+                        </div>
+                        <div class="row mt32 mb32">
+                            <div class="col-6 align-self-end p-0 pr-1 mt-4" t-if="'pre-registered' in attributes[o.id]">
+                                <div class="div-arval ">
+                                    <i class="fa fa-key float-left text-arval mr-2" style="font-size:31px" ></i>
+                                    <div class="media-body ">
+                                        <p>Incaricato cliente al ritiro<br/>
+                                        <b>PRE-REGISTRATO</b></p>
+                                        
+                                    </div>
+                                </div>
+                                <div class="div-arval">
+                                    <b>Dettagli raccolti per la consegna</b>
+                                    <div class="border-bottom border-dark mt-1 mb-1"/>
+                                    <t t-foreach="attributes[o.id]['pre-registered']['lines']" t-as="line" >
+                                        <t t-esc="line['name'].title().replace('-','')"/> <b class="float-right"><t t-raw="line['value']"/></b>
+                                        <div class="border-bottom border-dark mt-1 mb-1"/>
+                                    </t>
+                                </div>
+                            </div>
+                            <div class="col-6 align-self-end p-0 pl-1 mt-4" t-if="'real' in attributes[o.id]">
+                                <div class="div-arval ">
+                                    <i class="fa fa-key float-left text-arval mr-2" style="font-size:31px" ></i>
+                                    <div class="media-body ">
+                                        <p>Incaricato cliente al ritiro<br/>
+                                        <b>EFFETTIVO</b></p>
+                                        
+                                    </div>
+                                </div>
+                                <div class="div-arval">
+                                    <b>Dettagli raccolti per la consegna</b>
+                                    <div class="border-bottom border-dark mt-1 mb-1"/>
+                                    <t t-foreach="attributes[o.id]['real']['lines']" t-as="line" >
+                                        <t t-esc="line['name'].title().replace('-','')"/> <b class="float-right"><t t-raw="line['value']"/></b>
+                                        <div class="border-bottom border-dark mt-1 mb-1"/>
+                                    </t>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row mt32 mb32 mt-2" t-if="'customer-note' in attributes[o.id]">
+                            <div class="border col-12 div-arval pt-2 pb-2">
+                                <t t-if="'customer-note' in attributes[o.id]">
+                                    <t t-foreach="attributes[o.id]['customer-note']['lines']" t-as="line" >
+                                        <t t-esc="line['name'].title().replace('-','')"/> 
+                                        <br/><br/><p><t t-raw="line['value']"/></p>
+                                    </t>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="row mt32 mb32 mt-4" t-if="'acceptance' in attributes[o.id]">
+                            <t t-foreach="attributes[o.id]['acceptance']['lines']" t-as="line" >
+                                <t t-if="line['type'] not in ['photo','signature']">
+                                    <t t-if="line_index % 2 == 0">
+                                        <h6 class="bg-secondary p-1 col-6 mr-1" >
+                                            <span ><t t-esc="line['name'].capitalize().replace('-','')"/></span> 
+                                            <b><t t-esc="line['value']"/></b>
+                                        </h6>
+                                    </t>
+                                    <t t-else="">
+                                        <h6 class="bg-secondary p-1 col-6 ml-1" >
+                                            <span ><t t-esc="line['name'].capitalize().replace('-','')"/></span> 
+                                            <b><t t-esc="line['value']"/></b>
+                                        </h6>
+                                    </t>
+                                </t>
+                            </t>
+                        </div>
+                        <div class="row mt32 mb32 mt-4" t-if="'signature' in attributes[o.id]">
+                            <t t-foreach="attributes[o.id]['signature']['lines']" t-as="line" >
+                                <t t-if="line_index % 2 == 0">
+                                    <div class="p-1 col-6 ml-1">
+                                        <h5 ><t t-raw="line['name'].replace('-','').upper()"/></h5>
+                                        <t t-raw="line['value']"/>
+                                    </div>
+                                </t>
+                                <t t-else="">
+                                    <div class="p-1 col-6 mr-1">
+                                        <h5><t t-raw="line['name'].replace('-','').upper()"/></h5>
+                                        <t t-raw="line['value']"/>
+                                    </div>
+                                </t>
+                            </t>
+                        </div>
+
+                        <div class="row mt32 mb32 mt-4 div-arval" t-if="'privacy' in attributes[o.id]">
+                            <t t-foreach="attributes[o.id]['privacy']['lines']" t-as="line" >
+                                <t t-raw="line['value']"/><t t-raw="line['name'].replace(':','').replace('-','')"/><br/><br/>
+                            </t>
+                        </div>
+
+                        <div class="row mt32 mb32 mt-4 div-arval border border-dark p-2" t-if="'auth-arval' in attributes[o.id]">
+                            <b><t t-raw="attributes[o.id]['auth-arval']['name']"/></b><br/>
+                            <t t-foreach="attributes[o.id]['auth-arval']['lines']" t-as="line" >
+                                <br/><t t-raw="line['value']"/><t t-raw="line['name'].replace(':','').replace('-','')"/><br/>
+                            </t>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+
+
+
+        <template id="report_sr">
+            <t t-call="web.basic_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style>
+                        .text-arval{ color:  #4c9d63}
+                        .border-top-arval{ border-top: 3px solid #4c9d63}
+                        .bg-arval{background-color:  #4c9d63 !important}
+                        .div-arval{line-height: 17px !important;font-size: 14px;}
+                        </style>
+                        <!-- header color-arval:#00925b-->
+                        <div class="row mt32 mb32">
+                            <t t-set="verbale" t-value="attributes[o.id]"/>
+                            <div class="col-8 align-self-end p-0 border-bottom border-dark" >
+                                <div class="col-12 align-self-start pl-0 pr-0">
+                                    <img src="/bloomup_fleet_move_arval/static/src/img/logo-simplerent.png"
+                                    alt="Logo" class="img-fluid" style="width: auto; height: auto;max-height: 90px; margin-left: -16px"/>
+                                </div>
+                                <div class="col-12 align-self-end pl-0 pr-0 text-arval" >
+                                    <h5>
+                                    VERBALE DI CONSEGNA <br/>DI VEICOLO IN LOCAZIONE A LUNGO TERMINE
+                                    </h5>
+                                </div>
+                                <div class="col-12 align-self-end pl-0 pr-0 " >
+                                    <h6>
+                                    CONSERVARE ED ESIBIRE SE RICHIESTO DALLE AUTORITA'
+                                    </h6>
+                                </div>
+                            </div>
+                            <div class="div-arval col-4 align-self-end p-0 pl-2" t-if="'top-right' in attributes[o.id]">
+                                <t t-foreach="attributes[o.id]['top-right']['lines']" t-as="line" t-if="'top-right' in attributes[o.id]">
+                                    <div class="col-12 border-bottom border-dark pl-0 pr-0 pt-1 pb-1">
+                                        <span><t t-esc="line['name'].title().replace('-','')"/></span> 
+                                        <b><t t-esc="line['value']"/></b>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                        <!-- fine header-->
+                        <div class="row mt32 mb32">
+                            <div class="col-8 p-0 pt-2 pb-2 " >
+                                <div class="col-12 p-0 div-arval">
+                                    <div class="col-12 pt-1 pb-1 pl-0">
+                                            <b>Gentile Cliente <span t-field="o.ref_doc_id.customer_id" 
+                                            t-if="o.ref_doc_id.customer_id"/></b>
+                                    </div>
+                                    <div class="col-12 pt-1 pb-1 pl-0">
+                                            <b>di seguito i dati relativi al veicolo</b>
+                                    </div>
+                                    <div class="col-12 pt-1 pb-1 pl-0 text-arval" t-if="'vehicle-name' in attributes[o.id]">
+                                        <t t-foreach="attributes[o.id]['vehicle-name']['lines']" t-as="line" >
+                                            <b><t t-esc="line['value']"/></b> 
+                                        </t>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-4  p-0 pt-2 pb-2 pl-2 text-light " >
+                                <div class="col-12 bg-arval p-0 div-arval" t-if="'contract' in attributes[o.id]">
+                                    <t t-foreach="attributes[o.id]['contract']['lines']" t-as="line" >
+                                        <div class="col-12 p-1">
+                                            <t t-esc="line['name'].title().replace('-','')"/> 
+                                            <b><t t-esc="line['value']"/></b>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt32 mb32">
+                            <div class="col-4 align-self-end p-0  " >
+                                <div class="col-12 border-top-arval"/>
+                                <h5 class="mt-3 font-weight-bold text-center mb-3 text-arval">
+                                    <i class="fa fa-car float-left" ></i>Il Veicolo
+                                </h5>
+                                <!--details-->
+                                
+                                <div class="div-arval" t-if="'vehicle-details' in attributes[o.id]">
+                                    <h6 class="bg-secondary p-1"><t t-esc="attributes[o.id]['vehicle-details']['name'].capitalize()"/></h6>
+                                    <t t-foreach="attributes[o.id]['vehicle-details']['lines']" t-as="line" >
+                                        <t t-esc="line['name'].title()"/> <b><t t-raw="line['value']"/></b><br/>
+                                    </t>
+                                </div>
+                                
+                            
+                                <div class="div-arval" t-if="'optional' in attributes[o.id]">
+                                    <h6 class="bg-secondary p-1 mt-2"><t t-esc="attributes[o.id]['optional']['name'].capitalize()"/></h6>
+                                    <t t-foreach="attributes[o.id]['optional']['lines']" t-as="line" >
+                                        <t t-if="line['value']">
+                                            <t t-value="line['value'].split('-')" t-set="acc"/>
+                                            <t t-foreach="acc" t-as="a">
+                                            <span t-if="a"> - <t t-raw="a" /> <br/></span>
+                                            </t>
+                                        </t>
+                                    </t>
+                                </div>
+
+                                <div class="div-arval" t-if="'tyres' in attributes[o.id]">
+                                    <h6 class="bg-secondary p-1 mt-2"><t t-esc="attributes[o.id]['tyres']['name'].capitalize()"/></h6>
+                                    <t t-foreach="attributes[o.id]['tyres']['lines']" t-as="line" >
+                                        <t t-esc="line['name'].title()"/> <b><t t-raw="line['value']"/></b><br/>
+                                    </t>
+                                </div>
+                            </div>
+                            <div class="col-4 align-self-end p-0 pl-2 " >
+                                <div class="col-12 border-top-arval"/>
+                                <h5 class="mt-3 font-weight-bold mb-3 text-center text-arval">
+                                    <i class="fa fa-paste float-left " ></i>
+                                    Documenti e Dotazioni
+                                </h5>
+
+                                <div class="div-arval" t-if="'docs' in attributes[o.id]">
+                                    <h6 class="bg-secondary p-1"><span ><t t-esc="attributes[o.id]['docs']['name'].capitalize()"/></span> <span class="float-right">Presenti</span></h6>
+                                    <t t-foreach="attributes[o.id]['docs']['lines']" t-as="line" >
+                                        <t t-esc="line['name'].title()"/> <b class="float-right"><t t-raw="line['value']"/></b><br/>
+                                    </t>
+                                </div>
+
+                                <div class="div-arval" t-if="'equipment' in attributes[o.id]">
+                                    <h6 class="bg-secondary p-1 mt-2"><span ><t t-esc="attributes[o.id]['equipment']['name'].capitalize()"/></span> <span class="float-right">Presenti</span></h6>
+                                    <t t-foreach="attributes[o.id]['equipment']['lines']" t-as="line" >
+                                        <t t-esc="line['name'].title()"/> <b class="float-right"><t t-raw="line['value']"/></b><br/>
+                                    </t>
+                                </div>
+                            </div>
+                            <div class="col-4 align-self-end p-0 pl-2  " >
+                                <div  class="col-12 border-top-arval"/>
+
+                                <h5 class="mt-3 font-weight-bold mb-3 text-center text-arval">
+                                    <i class="fa fa-key float-left" ></i>La consegna
+                                </h5>
+
+                                <div class="div-arval" t-if="'damage' in attributes[o.id]">
+                                    <h6 class="bg-secondary p-1"><span ><t t-esc="attributes[o.id]['damage']['name'].capitalize()"/></span></h6>
+                                    <t t-foreach="attributes[o.id]['damage']['lines']" t-as="line" >
+                                        <t t-esc="line['name'].title().replace('-','')"/> <b class=""><t t-raw="line['value']"/></b><br/>
+                                    </t>
+                                </div>
+
+                                <div class="div-arval" t-if="'driver' in attributes[o.id]">
+                                    <h6 class="bg-secondary p-1"><span ><t t-esc="attributes[o.id]['driver']['name'].capitalize()"/></span></h6>
+                                    <t t-foreach="attributes[o.id]['driver']['lines']" t-as="line" >
+                                        <t t-esc="line['name'].title().replace('-','')"/> <b class="float-right"><t t-raw="line['value']"/></b>
+                                        <div class="border-bottom border-dark mt-1 mb-1"/>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt32 mb32 mt-2">
+                            <div class="col-4 align-self-end p-0 border-top border-dark " />
+                            <div class="col-4 align-self-end p-0 ml-2 border-top border-dark" />
+                            <div class="col-4 align-self-end p-0 ml-2  border-top border-dark" />
+                        </div>
+                        
+                        <div class="row mt32 mb32 mt-3 div-arval" t-if="'note' in attributes[o.id]">
+                            <h6 ><span ><t t-esc="attributes[o.id]['note']['name'].capitalize()"/>:</span></h6>
+                        </div>
+                        <div class="row mt32 mb32 mt-1 div-arval" t-if="'note' in attributes[o.id]">
+                            <t t-foreach="attributes[o.id]['note']['lines']" t-as="line" >
+                                <t t-if="line['value']">
+                                    <t t-raw="line['value']"/>
+                                </t>
+                                <t t-else="">
+                                    Non sono state inserite note durante la compilazione del verbale
+                                </t>
+                            </t>
+                        </div>
+                    </div>
+                    <p style="page-break-after:always;"/>
+                    <div class="page">
+                        <div class="row mt32 mb32">
+                            <div class="col-6 align-self-end p-0 pr-1" >
+                                <div class="col-12 align-self-start pl-0 pr-0">
+                                    <img src="bloomup_fleet_move_arval/static/src/img/logo-simplerent.png"
+                                    alt="Logo" class="img-fluid" style="width: auto; height: auto;max-height: 90px; margin-left: -16px"/>
+                                </div>
+                                <div class="border-bottom border-dark  mb-1"/>
+                            </div>
+                            <div class="col-6 align-self-end p-0 pl-1" >
+                                <div class="col-12 align-self-start pl-0 pr-0" style="padding-top:34px">
+                                    <h5>
+                                        VERBALE DI CONSEGNA DI VEICOLO IN LOCAZIONE A LUNGO TERMINE
+                                    </h5>
+                                </div>
+                                <div class="border-bottom border-dark mb-1"/>
+                            </div>
+                        </div>
+                        <div class="row mt32 mb32">
+                            <div class="col-6 align-self-end p-0 pr-1 mt-4" t-if="'pre-registered' in attributes[o.id]">
+                                <div class="div-arval ">
+                                    <i class="fa fa-key float-left text-arval mr-2" style="font-size:31px" ></i>
+                                    <div class="media-body ">
+                                        <p>Incaricato cliente al ritiro<br/>
+                                        <b>PRE-REGISTRATO</b></p>
+                                        
+                                    </div>
+                                </div>
+                                <div class="div-arval">
+                                    <b>Dettagli raccolti per la consegna</b>
+                                    <div class="border-bottom border-dark mt-1 mb-1"/>
+                                    <t t-foreach="attributes[o.id]['pre-registered']['lines']" t-as="line" >
+                                        <t t-esc="line['name'].title().replace('-','')"/> <b class="float-right"><t t-raw="line['value']"/></b>
+                                        <div class="border-bottom border-dark mt-1 mb-1"/>
+                                    </t>
+                                </div>
+                            </div>
+                            <div class="col-6 align-self-end p-0 pl-1 mt-4" t-if="'real' in attributes[o.id]">
+                                <div class="div-arval ">
+                                    <i class="fa fa-key float-left text-arval mr-2" style="font-size:31px" ></i>
+                                    <div class="media-body ">
+                                        <p>Incaricato cliente al ritiro<br/>
+                                        <b>EFFETTIVO</b></p>
+                                        
+                                    </div>
+                                </div>
+                                <div class="div-arval">
+                                    <b>Dettagli raccolti per la consegna</b>
+                                    <div class="border-bottom border-dark mt-1 mb-1"/>
+                                    <t t-foreach="attributes[o.id]['real']['lines']" t-as="line" >
+                                        <t t-esc="line['name'].title().replace('-','')"/> <b class="float-right"><t t-raw="line['value']"/></b>
+                                        <div class="border-bottom border-dark mt-1 mb-1"/>
+                                    </t>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row mt32 mb32 mt-2" t-if="'customer-note' in attributes[o.id]">
+                            <div class="border col-12 div-arval pt-2 pb-2">
+                                <t t-if="'customer-note' in attributes[o.id]">
+                                    <t t-foreach="attributes[o.id]['customer-note']['lines']" t-as="line" >
+                                        <t t-esc="line['name'].title().replace('-','')"/> 
+                                        <br/><br/><p><t t-raw="line['value']"/></p>
+                                    </t>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="row mt32 mb32 mt-4" t-if="'acceptance' in attributes[o.id]">
+                            <t t-foreach="attributes[o.id]['acceptance']['lines']" t-as="line" >
+                                <t t-if="line['type'] not in ['photo','signature']">
+                                    <t t-if="line_index % 2 == 0">
+                                        <h6 class="bg-secondary p-1 col-6 mr-1" >
+                                            <span ><t t-esc="line['name'].capitalize().replace('-','')"/></span> 
+                                            <b><t t-esc="line['value']"/></b>
+                                        </h6>
+                                    </t>
+                                    <t t-else="">
+                                        <h6 class="bg-secondary p-1 col-6 ml-1" >
+                                            <span ><t t-esc="line['name'].capitalize().replace('-','')"/></span> 
+                                            <b><t t-esc="line['value']"/></b>
+                                        </h6>
+                                    </t>
+                                </t>
+                            </t>
+                        </div>
+                        <div class="row mt32 mb32 mt-4" t-if="'signature' in attributes[o.id]">
+                            <t t-foreach="attributes[o.id]['signature']['lines']" t-as="line" >
+                                <t t-if="line_index % 2 == 0">
+                                    <div class="p-1 col-6 ml-1">
+                                        <h5 ><t t-raw="line['name'].replace('-','').upper()"/></h5>
+                                        <t t-raw="line['value']"/>
+                                    </div>
+                                </t>
+                                <t t-else="">
+                                    <div class="p-1 col-6 mr-1">
+                                        <h5><t t-raw="line['name'].replace('-','').upper()"/></h5>
+                                        <t t-raw="line['value']"/>
+                                    </div>
+                                </t>
+                            </t>
+                        </div>
+
+                        <div class="row mt32 mb32 mt-4 div-arval" t-if="'privacy' in attributes[o.id]">
+                            <t t-foreach="attributes[o.id]['privacy']['lines']" t-as="line" >
+                                <t t-raw="line['value']"/><t t-raw="line['name'].replace(':','').replace('-','')"/><br/><br/>
+                            </t>
+                        </div>
+
+                        <div class="row mt32 mb32 mt-4 div-arval border border-dark p-2" t-if="'auth-arval' in attributes[o.id]">
+                            <b><t t-raw="attributes[o.id]['auth-arval']['name']"/></b><br/>
+                            <t t-foreach="attributes[o.id]['auth-arval']['lines']" t-as="line" >
+                                <br/><t t-raw="line['value']"/><t t-raw="line['name'].replace(':','').replace('-','')"/><br/>
+                            </t>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+
+    </data>
+</odoo>

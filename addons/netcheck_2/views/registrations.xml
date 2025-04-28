@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="checklist_registration_view_tree" model="ir.ui.view">
+        <field name="name">checklist.registration.view.tree</field>
+        <field name="model">checklist.registration</field>
+        <field name="arch" type="xml">
+            <tree string="" default_order='position checklist_line_id'>
+                <field name="position" invisible="1"/>
+                <field name="checklist_line_id" />
+                <field name="user_id" />
+                <field name="related_type" />
+                <field name="raw_value" 
+                widget="rvr_widget" 
+                attrs="{
+                    'field_type':'related_type'
+                }"
+                />
+            </tree>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="fleet_partner_form_inherit_fleet_move_tyre" model="ir.ui.view">
+        <field name="name">fleet.partner.view.form.inherit.fleet_move_tyre</field>
+        <field name="model">fleet.partner</field>
+        <field name="inherit_id" ref="bloomup_fleet_move.fleet_partner_form" />
+        <field name="arch" type="xml">
+            <sheet position="inside">
+                <group string="Geolocation">
+                    <label for="date_localization" string="Geo Location" />
+                    <div>
+                        <span>Lat : <field name="latitude" nolabel="1" class="oe_inline" /></span>
+                        <br />
+                        <span>Long: <field name="longitude" nolabel="1" class="oe_inline" /></span>
+                        <br />
+                        <span attrs="{'invisible': [('date_localization', '=', False)]}">Updated on: <field
+                                name="date_localization" nolabel="1" readonly="1" class="oe_inline" />
+                            <br />
+                        </span>
+                        <button
+                            attrs="{'invisible': ['|', ('latitude', '!=', 0), ('longitude', '!=', 0)]}"
+                            icon="fa-gear" string="Compute based on address"
+                            title="Compute Localization" name="geo_localize" type="object"
+                            class="btn btn-link p-0" />
+                        <button attrs="{'invisible': [('latitude', '=', 0), ('longitude', '=', 0)]}"
+                            icon="fa-refresh" string="Refresh" title="Refresh Localization"
+                            name="geo_localize" type="object" class="btn btn-link p-0" />
+                    </div>
+                </group>
+            </sheet>
+
+            <field name="default_code" position="after">
+                <field name="parking_id" />
+            </field>
+        </field>
+    </record>
+</odoo>

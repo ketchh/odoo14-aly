@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="arval_rit_dea" model="fleet.move.arval.type">
+            <field name="name" >Rit-Dea</field>
+        </record>
+        <record id="arval_gate_in" model="fleet.move.arval.type">
+            <field name="name" >Gate In</field>
+        </record>
+        <record id="arval_fase_zero" model="fleet.move.arval.type">
+            <field name="name" >Fase zero</field>
+        </record>
+    </data>
+</odoo>

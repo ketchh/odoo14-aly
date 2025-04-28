@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="tyre_tire_action" model="ir.actions.act_window">
+            <field name="name">Pneumatici</field>
+            <field name="res_model">tyre.tire</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="tyre_tire_menu"
+            name="Tires"
+            action="tyre_tire_action"
+            parent="fleet.fleet_configuration"
+            sequence="10"/>
+
+        <record id="fleet_move_tyre_tire_tree" model="ir.ui.view">
+            <field name="name">tyre.tire.view.tree</field>
+            <field name="model">tyre.tire</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="producer_code"/>
+                    <field name="width"/>
+                    <field name="diameter"/>
+                    <field name="section"/>
+                    <field name="load_index"/>
+                    <field name="speed_index"/>
+                    <field name="season"/>
+                    <field name="quality"/>
+                    <field name="technology"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="fleet_move_tyre_tire_form" model="ir.ui.view">
+            <field name="name">tyre.tire.view.form</field>
+            <field name="model">tyre.tire</field>
+            <field name="arch" type="xml">
+                <form string="Tire">
+                    <sheet>
+                        <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="active" invisible="1"/>
+                                <field name="brand"/>
+                                <field name="model"/>
+                            </group>
+                            <group>
+                                <field name="supplier_tire_id"/>
+                                <field name="supplier_code"/>
+                                <field name="producer_code"/>                     
+                            </group>
+                            <group>
+                                <field name="width"/>
+                                <field name="diameter"/>
+                                <field name="section"/>
+                                <field name="speed_index"/>
+                                <field name="load_index"/>
+                            </group>
+                            <group>
+                                <field name="season"/>
+                                <field name="quality"/>
+                                <field name="technology"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

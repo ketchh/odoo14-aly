@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="tyre_repairer_action" model="ir.actions.act_window">
+        <field name="name">Tyre repairer</field>
+        <field name="res_model">tyre.repairer</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        id="tyre_repairer_menu"
+        name="Tyre repairer"
+        action="tyre_repairer_action"
+        parent="bloomup_fleet_move.fleet_settigs_menu"
+        sequence="10"/>
+
+    <record id="tyre_repairer_view_tree" model="ir.ui.view">
+        <field name="name">tyre.repairer.view.tree</field>
+        <field name="model">tyre.repairer</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" />
+                <field name="address" />
+                <field name="cap" />
+                <field name="city" />
+                <field name="state_id" />
+                <field name="region" />
+                <field name="phone" />
+                <field name="email" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="tyre_repairer_view_form" model="ir.ui.view">
+        <field name="name">tyre.repairer.view.form</field>
+        <field name="model">tyre.repairer</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <div class="oe_title">
+                        <h1 >
+                            <field name="name" placeholder="Name" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <span class="o_form_label o_td_label" name="address_name">
+                                <b>Address</b>
+                            </span>
+                            <div class="o_address_format">
+                                <field name="address" placeholder="Street..." class="o_address_street" />
+                                <field name="city" placeholder="City" class="o_address_city" />
+                                <field name="state_id" class="o_address_state" placeholder="State" options="{'no_open': True, 'no_create': True}"  context="{'country_id': country_id, 'default_country_id': country_id, 'zip': cap}"/>
+                                <field name="cap" placeholder="ZIP" class="o_address_zip" />
+                                <field name="country_id" placeholder="Country" class="o_address_country" options="{'no_open': True, 'no_create': True}" />
+                            </div>
+                            <field name="region" />
+                            <field name="network" />
+                            <field name="adesione_pw_totali" />
+                        </group>
+                        <group>
+                            <field name="customer_center" />
+                            <field name="vat" />
+                            <field name="phone" />
+                            <field name="email" />
+                            <field name="status_description" />
+                        </group>
+                    </group>
+                    <group string="Geolocation">
+                        <label for="date_localization" string="Geo Location"/>
+                        <div>
+                            <span>Lat : <field name="latitude" nolabel="1" class="oe_inline"/></span>
+                            <br/>
+                            <span>Long: <field name="longitude" nolabel="1" class="oe_inline"/></span>
+                            <br/>
+                            <span attrs="{'invisible': [('date_localization', '=', False)]}">Updated on:
+                                <field name="date_localization" nolabel="1" readonly="1" class="oe_inline"/>
+                                <br/>
+                            </span>
+                            <button attrs="{'invisible': ['|', ('latitude', '!=', 0), ('longitude', '!=', 0)]}" icon="fa-gear" string="Compute based on address" title="Compute Localization" name="geo_localize" type="object" class="btn btn-link p-0"/>
+                            <button attrs="{'invisible': [('latitude', '=', 0), ('longitude', '=', 0)]}" icon="fa-refresh" string="Refresh" title="Refresh Localization" name="geo_localize" type="object" class="btn btn-link p-0"/>
+                        </div>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+</odoo>

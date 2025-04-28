@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- SEND ORDER REQUEST VIA QUEUE -->
+    	<record id="action_set_tyre_team_order" model="ir.actions.server">
+        	<field name="name">Set Tyre Team Order</field>
+        	<field name="model_id" ref="bloomup_rest_queue.model_external_rest_api_queue"/>
+            <field name="binding_model_id" ref="bloomup_rest_queue.model_external_rest_api_queue"/>
+        	<field name="state">code</field>
+            <field name="code">
+                records.resource_id.action_set_tyre_team_order(records.response)
+            </field>
+    	</record>
+
+		<!-- GENERIC RESET QUEUE FOR FLEET MOVE -->
+		<record id="action_reset_queueing" model="ir.actions.server">
+			<field name="name">Set Tyre Team Order</field>
+			<field name="model_id" ref="bloomup_rest_queue.model_external_rest_api_queue"/>
+			<field name="binding_model_id" ref="bloomup_rest_queue.model_external_rest_api_queue"/>
+			<field name="state">code</field>
+			<field name="code">
+				records.resource_id.action_reset_queueing()
+			</field>
+		</record>
+		
+
+		<!-- RESET VEHICLE QUEUE -->
+		<record id="action_reset_vehicle_queue" model="ir.actions.server">
+        	<field name="name">Reset Vehicle Queue</field>
+        	<field name="model_id" ref="bloomup_rest_queue.model_external_rest_api_queue"/>
+            <field name="binding_model_id" ref="bloomup_rest_queue.model_external_rest_api_queue"/>
+        	<field name="state">code</field>
+            <field name="code">
+                records.resource_id.action_reset_vehicle_queue()
+            </field>
+    	</record>
+
+		<!-- GATE IN -->
+		<record id="action_set_gate_in" model="ir.actions.server">
+        	<field name="name">Gate In</field>
+        	<field name="model_id" ref="netcheck_2.model_checklist_checklist"/>
+            <field name="binding_model_id" ref="netcheck_2.model_checklist_checklist"/>
+        	<field name="state">code</field>
+            <field name="code">
+                if record.ref_doc_id:
+					move_id = record.ref_doc_id
+					move = env['fleet.move'].search([('id','=',move_id.id)])
+					location = env['fleet.location'].sudo().search([('pickup_address','=',move.pickup_address.id)])
+					if location:
+						env['fleet.attendance'].sudo().create({'vehicle_id':move.vehicle_id.id,'location_id':location.id})
+					#cerco i task associati al veicolo
+					tasks = env['project.task'].sudo().search([('vehicle_id','=',move.vehicle_id.id)])
+					tasks.write({'user_id':location.assign_to})
+
+					<!-- check for missing wheels and apply request -->
+					missing_wheels_dict = record.get_registrations_variable_value_dict()
+					if missing_wheels_dict['is_front_wheel_missing'] or missing_wheels_dict['is_rear_wheel_missing']:
+						move.vehicle_id.send_unregistered_wheel_model_info(missing_wheels_dict)
+					else:
+						move.vehicle_id.update_wheels(missing_wheels_dict)
+						move.create_tyre_team_order()
+            </field>
+    	</record>
+	</data>
+</odoo>

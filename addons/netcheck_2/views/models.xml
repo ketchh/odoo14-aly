@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_model_form_inherit_module_name" model="ir.ui.view">
+        <field name="name">ir.model.view.form.inherit.netcheck</field>
+        <field name="model">ir.model</field>
+        <field name="inherit_id" ref="base.view_model_form"/>
+        <field name="arch" type="xml">
+            <field name="modules" position="after">
+                <field name="checklist_access" 
+                groups="netcheck_2.group_allow_checklist_association"/>
+            </field>
+        </field>
+    </record>
+</odoo>

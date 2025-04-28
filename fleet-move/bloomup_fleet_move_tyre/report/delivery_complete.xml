@@ -1,0 +1,69 @@
+<odoo>
+    <data>
+        <!-- <record id="delivery_complete_report" model="ir.actions.report">
+            <field name="name">Delivery Complete</field>
+            <field name="model">fleet.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bloomup_fleet_move_tyre.delivery_complete2</field>
+            <field name="report_file">bloomup_fleet_move_tyre.delivery_complete</field>
+            <field name="print_report_name">('Verbale di Consegna')</field>
+            <field name="binding_model_id" ref="bloomup_fleet_move.model_fleet_move" />
+            <field name="binding_type">report</field>
+        </record> -->
+
+        <template id="delivery_complete">
+            <t t-call="web.external_layout">
+                <!-- <t t-set="doc_company" t-value="o.company_id" /> -->
+                <!-- <t t-set="p" t-value="o.partner_id" />
+                <t t-set="ship" t-value="o.partner_shipping_id" /> -->
+                <!-- <t t-set="doc" t-value="doc.with_context({'lang':doc.lang})"/> -->
+                <style>
+                    .table-bordered td, .table-bordered th{
+                    border-color: black !important;
+                    page-break-inside: avoid;
+                    }
+                    .page{font-size: smaller}
+                </style>
+                <div class="page">
+                    <div class="oe_structure" />
+                    <h2 style="text-align: center">
+                        <strong>
+                            NOTA INFORMATIVA<br/>
+                            - PROCESSO CONSEGNA WINTER TYRES <span></span> - 
+                        </strong>
+                    </h2>
+                    <br />
+                    <br />
+                    <p>
+                        Gentile Cliente,<br/>
+                        Le ricordiamo che il veicolo targato <span t-field="o.vehicle_id.license_plate"/> è stato consegnato con 
+                        <strong>pneumatici invernali già montati.</strong><br/> 
+                        Il <strong>treno di gomme estive è in deposito presso il partner  <span t-field="o.selected_tyre_repairer.name"/></strong><br/>
+                        Di seguito i contatti della struttura:<br/>
+                        <ul>
+                            <li>
+                                <span t-field="o.selected_tyre_repairer.name"/>
+                            </li> 
+                            <li>
+                                <span t-field="o.selected_tyre_repairer.address"/>, <span t-field="o.selected_tyre_repairer.city"/> 
+                                <span t-field="o.selected_tyre_repairer.state_id.name"/>, <span t-field="o.selected_tyre_repairer.cap"/>
+                            </li> 
+                            <li>
+                                Contatti: <span t-field="o.selected_tyre_repairer.phone"/> | <span t-field="o.selected_tyre_repairer.email"/>
+                            </li> 
+                        </ul>
+                    </p>
+                    
+                </div>
+            </t>
+        </template>
+
+        <template id="delivery_complete2">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="bloomup_fleet_move_tyre.delivery_complete" />
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

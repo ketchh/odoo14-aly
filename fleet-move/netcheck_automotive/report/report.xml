@@ -1,0 +1,167 @@
+<odoo>
+    <data>
+        <!-- Paperformat per header -->
+        <record id="paperformat_lowmargin_custom" model="report.paperformat">
+            <field name="name">A4 low margin</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">4</field>
+            <field name="margin_right">4</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">5</field>
+            <field name="dpi">90</field>
+        </record>
+        <!-- QWeb Reports -->
+        <record id="netcheck_automotive_report" model="ir.actions.report">
+            <field name="name">Arval Verbale</field>
+            <field name="model">checklist.checklist</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">netcheck_automotive.report_checklist</field>
+            <field name="report_file">netcheck_automotive.report_checklist</field>
+            <field name="paperformat_id" ref="netcheck_automotive.paperformat_lowmargin_custom"/>
+        </record>
+
+        <template id="report_checklist">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="netcheck_automotive.report_arval"/>
+                </t>
+            </t>
+        </template>
+
+
+        <!-- <template id="report_arval">
+            <t t-call="web.internal_layout">
+                <div class="page">
+                registration_ids
+                </div>
+            </t>
+        </template> -->
+
+
+
+        <template id="report_arval">
+            <t t-call="web.basic_layout">
+                <t t-foreach="docs" t-as="o">
+                    <!-- <div class="article o_report_layout_standard" t-att-data-oe-model="o and o.name" t-att-data-oe-id="o and o.id"> -->
+                    <!-- <t t-call="ethosfarm_reportmanutenzione.custom_header_footer"/> -->
+                    <style>
+                    .section{
+                        border:1px solid green;
+                        background:green;
+                        color:white;
+                    }
+                    .page{
+                        font-size:10px;
+                    }
+                    .spanname{
+                        font-weight:bold;
+                    }
+                    .borderline{
+                        border: 1px solid black !important;
+                    }
+                    .center {
+                        text-align:center;
+                        font-weight: bold;
+                    }
+                    </style>
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <!-- header -->
+                        <div class="row mt32 mb32">
+                            <div class="col-1">
+                                <img src="/netcheck_automotive/static/src/img/arval_logo.png"
+                                style="max-height: 30px;" alt="Logo"/>
+                            </div>
+                            <div class="col-10">
+                                <h6 class="center">VERBALE UNICO<br/>
+                                SCHEDA CONDIZIONI VEICOLO IN NOLEGGIO A MEDIO TERMINE</h6>
+                            </div>
+                            <div class="col-1">
+                                <img src="/netcheck_automotive/static/src/img/1a24.png"
+                                style="max-height: 30px;"/>
+                            </div>
+                        </div>
+                        <!-- fine header-->
+                        <!-- 1 block -->
+                          <div class="row">
+                            <t t-foreach="o.line_ids" t-as="righe">
+                               <t t-if="righe.type in ['section']" >
+                                    <div class="col-12 section p-2 text-uppercase font-weight-bold">
+                                        <t t-esc="righe.name"/>
+                                    </div>
+                               </t>
+                               <t t-else="">
+                                    <div class="col-6">
+                                        <t t-esc="righe.name"/>
+                                        <!-- string -->
+                                        <span t-if="righe.registration_id.related_type in ['string']">
+                                          <span t-esc="righe.registration_id.raw_value"/>
+                                        </span>
+                                        <!-- integer -->
+                                        <span t-elif="righe.registration_id.related_type in ['integer']">
+                                          <span t-esc="righe.registration_id.raw_value"/>
+                                        </span>
+                                        <!-- data -->
+                                        <span t-elif="righe.registration_id.related_type in ['data']">
+                                          <span t-esc="righe.registration_id.raw_value"/>
+                                        </span>
+                                        <!-- signature -->
+                                        <span t-elif="righe.registration_id.related_type in ['signature']">
+                                          <br/>
+                                          <img t-attf-src="data:image/*;base64,{{righe.registration_id.raw_value}}"/>
+                                        </span>
+                                        <!-- damage -->
+                                        <span t-elif="righe.registration_id.related_type in ['damage']">
+                                          <br/>
+                                            <img t-attf-src="data:image/*;base64,{{righe.registration_id.raw_value}}"/>
+                                            <img t-att-src="'data:image/png;base64,'+righe.registration_id.raw_value" />
+                                            <img t-att-src="'data:image/png;base64,%s' % to_text(righe.registration_id.raw_value)"/>
+                                            <img class="image" t-att-src="'data:image/*;base64,%s' % righe.registration_id.raw_value"/>
+                                            <img src="righe.registration_id.raw_value"/>
+                                          <br/>
+                                          <br/>
+                                          <span t-if="righe.number_of_damages">Numero danni:<span t-esc="righe.number_of_damages"/></span>
+                                          <span t-if="righe.number_of_damages == '0'"><input type="checkbox" checked="checked"/></span>
+                                        </span>
+                                        <!-- boolean -->
+                                        <span t-elif="righe.registration_id.related_type in ['boolean']">
+                                          <t t-if="righe.registration_id.raw_value == 'true'">
+                                              <input type="checkbox" checked="checked"/>
+                                          </t>
+                                          <t t-if="righe.registration_id.raw_value == 'false'">
+                                              <input type="checkbox"/>
+                                          </t>
+                                        </span>
+                                        <!-- float-->
+                                        <span t-elif="righe.registration_id.related_type in ['float']">
+                                          <span t-esc="righe.registration_id.raw_value"/>
+                                        </span>
+                                        <!-- datetime -->
+                                        <span t-elif="righe.registration_id.related_type in ['datetime']">
+                                          <span t-esc="righe.registration_id.raw_value"/>
+                                        </span>
+                                        <!-- selection -->
+                                        <span t-elif="righe.registration_id.related_type in ['selection']">
+                                          <span t-esc="righe.registration_id.raw_value"/>
+                                        </span>
+                                        <!-- precompilato -->
+                                        <span t-else="">
+                                          <span class="font-weight-bold" t-esc="righe.option_precompiled_test"/>
+                                        </span>
+                                   </div>
+                                </t>
+                            </t>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

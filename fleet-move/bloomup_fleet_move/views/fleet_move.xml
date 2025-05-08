@@ -10,9 +10,10 @@
                 <field name="vehicle_plate" />
                 <field name="partner_id" />
                 <field name="order_number" />
-                <field name="employee_id" />
+                <field name="confirmed_date" />
                 <field name="pickup_address" />
                 <field name="delivery_address"/>
+                <field name="state"/>
             </tree>
         </field>
     </record>

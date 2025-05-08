@@ -16,15 +16,31 @@
         
             <t t-foreach="docs" t-as="doc">    
                 <t t-call="web.external_layout">
-                <div style="display: flex; vertical-align: center;">
-                    <h1 t-field="doc.vehicle_plate"></h1>
-                    <h2 t-field="doc.partner_id.name"></h2>
-                    <p t-field="doc.move_typology"></p>
-                    <p t-field="doc.order_number"></p>
-                    <!-- <p t-field="doc."></field>
-                    <p t-field="doc."></field>
-                    <p t-field="doc."></field> -->
+                <div style="display: flex; text-align: center;">
+                    <h1 t-field="doc.partner_id.name"></h1>
+                    <h3 t-field="doc.confirmed_date"></h3>
+                    <p t-field="doc.timeslot"></p>
                 </div>
+                
+                <h5>
+                 Ritiro
+                </h5>            
+                <p t-field="doc.pickup_address"></p>
+                <p t-field="doc.pickup_address_copy"></p>
+                <h5>
+                 Consegna
+                </h5>
+                <p t-field="doc.delivery_address"></p>
+                <p t-field="doc.delivery_address_copy"></p>
+                
+                <h5>
+                 Contatti e note
+                </h5>
+                <p t-field="doc.name_fleetmanager"></p>                    
+                <p t-field="doc.email_fleetmanager"></p>
+                <p t-field="doc.phone_fleetmanager"></p>
+                <p t-field="doc.note"></p>
+
                 </t>
             </t>
         </t>

@@ -162,10 +162,13 @@
                                     <td class="text-right">Company:</td>
                                     <td><b><field name="partner_id"/></b></td>
                                 </tr>
-                                <tr>
+                                <tr t-if="record.order_number.value != ''">
                                     <td class="text-right">Ordine №:</td>
                                     <td><b><field name="order_number"/></b></td>
-                        
+                                </tr>
+                                <tr t-if="record.order_number.value == ''">
+                                    <td class="text-right">Codice conratto:</td>
+                                    <td><b><field name="contract_code"/></b></td>
                                 </tr>
                                 <tr t-if="record.employee_id.value">
                                     <td class="text-right">Carrier:</td>

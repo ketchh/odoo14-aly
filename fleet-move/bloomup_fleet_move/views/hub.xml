@@ -455,11 +455,17 @@
                     
                     <group attrs="{'invisible': [('attendance_id','!=', False)]}">
                         <group name="left">
-                            <field name="vehicle_id" required="1"/>
-                            <field name="location_id" required="1"/>
+                            <field name="vehicle_id" required="1"
+                                    options='{"no_create": True}'
+                            />
+                            <field name="location_id" required="1"
+                                    options='{"no_create": True}'
+                            />
                         </group>
                         <group name="right">
-                            <field name="employee_id" required="1"/>
+                            <field  name="employee_id"
+                                    options='{"no_create": True}'
+                            />
                             <field name="note"/>
                         </group>
                     </group>

@@ -337,7 +337,6 @@ class ResPartner(models.Model):
                         'move_typology',
                         'distance_km',
                         'distance_time',
-
                         'op_sent_date',
                         'notes',
                         'sales_request_date',
@@ -366,10 +365,9 @@ class ResPartner(models.Model):
                         'move_typology': additional_fields['move_typology'],
                         'distance': additional_fields['distance_km'],
                         'distance_time': additional_fields['distance_time'],
-                        
-                        'op_sent_date':additonal_fields['op_sent_date'],
-                        'note':additonal_fields['notes'],
-                        'request_date':additonal_fields['sales_request_date'],
+                        'op_sent_date': additional_fields['op_sent_date'],
+                        'note':additional_fields['notes'],
+                        'request_date':additional_fields['sales_request_date'],
                         'upload_date':datetime.now(),
                         'timeslot':additional_fields['timeslot']
 

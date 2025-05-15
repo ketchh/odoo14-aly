@@ -687,7 +687,7 @@ class Checklist(models.Model):
                     val = ""
                 name_to_val[key] = val
             # allinea i valori secondo unique_names
-            row += [ name_to_val.get(n, "") for n in unique_names ]
+            row += [name_to_val.get(n, "") for n in unique_names]
             rows.append(row)
 
         # Genera CSV
@@ -698,11 +698,21 @@ class Checklist(models.Model):
 
         # Ottieni i dati CSV come bytes (con BOM UTF-8)
         csv_data = output.getvalue().encode('utf-8-sig')
-
-        # Restituisci l'azione di download
+        
+        # Crea un attachment temporaneo
+        filename = 'checklist_export.csv'
+        attachment = self.env['ir.attachment'].create({
+            'name': filename,
+            'datas': base64.b64encode(csv_data),
+            'mimetype': 'text/csv',
+            'res_model': 'checklist.checklist',
+            'res_id': self.id if len(self) == 1 else 0,
+        })
+        
+        # Restituisci un'azione per scaricare l'attachment
         return {
             'type': 'ir.actions.act_url',
-            'url': '/web/export/csv_export?model=checklist.checklist&data=%s&filename=checklist_export.csv' % base64.b64encode(csv_data).decode(),
+            'url': '/web/content/%s?download=true' % attachment.id,
             'target': 'self',
         }
 

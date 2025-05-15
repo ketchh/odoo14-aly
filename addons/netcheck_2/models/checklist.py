@@ -649,48 +649,57 @@ class Checklist(models.Model):
         """
         for record in self:
             record.access_url = "/my/checklist/%s" % (record.id)
+    
     def action_export_csv(self):
+        import base64
+        import csv
+        from io import StringIO
+
         # Ottieni tutte le checklist selezionate
         checklists = self.env['checklist.checklist'].browse(self.env.context.get('active_ids', []))
-        
-        # Raccogli tutte le linee univoche da tutte le checklist
+
+        # Raccogli tutte le linee (non section) da tutte le checklist e ottieni i nomi univoci, in ordine di posizione
         all_lines = checklists.mapped('line_ids')
-        unique_lines = all_lines.filtered(lambda l: l.type not in ['section']).sorted(key=lambda l: l.position)
-        
+        # ordino per position e estraggo i nomi
+        names = [l.name.strip() or "Senza Nome" for l in all_lines.sorted(key='position')]
+        # rimuovo duplicati mantenendo l'ordine
+        unique_names = []
+        for n in names:
+            if n not in unique_names:
+                unique_names.append(n)
+
         # Prepara gli header
-        headers = ["ID Checklist", "Nome Checklist"] + [line.name.strip() or "Senza Nome" for line in unique_lines]
-        
+        headers = ["ID Checklist", "Nome Checklist"] + unique_names
+
         # Prepara i dati
         rows = []
         for checklist in checklists:
             row = [str(checklist.id), checklist.name]
-            
-            # Mappa i valori delle linee
-            line_values = {
-                line.id: line.registration_id.raw_value 
-                if line.registration_id 
-                else line.option_precompiled_test 
-                if line.type == 'precompiled' 
-                else "" 
-                for line in checklist.line_ids
-            }
-            
-            # Allinea i valori con l'ordine degli headers
-            row += [line_values.get(line.id, "") for line in unique_lines]
+            # mappa nome_linea -> valore
+            name_to_val = {}
+            for line in checklist.line_ids:
+                key = line.name.strip() or "Senza Nome"
+                if line.registration_id:
+                    val = line.registration_id.raw_value
+                elif line.type == 'precompiled':
+                    val = line.option_precompiled_test
+                else:
+                    val = ""
+                name_to_val[key] = val
+            # allinea i valori secondo unique_names
+            row += [ name_to_val.get(n, "") for n in unique_names ]
             rows.append(row)
-        
+
         # Genera CSV
-        import csv
-        from io import StringIO
         output = StringIO()
         writer = csv.writer(output, delimiter=';', quoting=csv.QUOTE_ALL)
         writer.writerow(headers)
         writer.writerows(rows)
-        
-        # Ottieni i dati CSV come bytes (senza chiamare encode due volte)
-        csv_data = output.getvalue().encode('utf-8-sig')  # Questo restituisce già bytes
-        
-        # Crea l'azione di download
+
+        # Ottieni i dati CSV come bytes (con BOM UTF-8)
+        csv_data = output.getvalue().encode('utf-8-sig')
+
+        # Restituisci l'azione di download
         return {
             'type': 'ir.actions.act_url',
             'url': '/web/export/csv_export?model=checklist.checklist&data=%s&filename=checklist_export.csv' % base64.b64encode(csv_data).decode(),

@@ -6,6 +6,8 @@
     """,
     'description': """
         Movimentazioni veicoli.
+
+        Fork di ketch per lo sviluppo per Aly Service <3
     """,
     'author': "Bloomup",
     'website': "http://bloomup.it",

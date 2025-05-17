@@ -13,34 +13,41 @@
 
     <template id="move_report_view">
         <t t-call="web.html_container">
-        
-            <t t-foreach="docs" t-as="doc">    
-                <t t-call="web.external_layout">
-                <div style="display: flex; text-align: center;">
-                    <h1 t-field="doc.partner_id.name"></h1>
-                    <h3 t-field="doc.confirmed_date"></h3>
-                    <p t-field="doc.timeslot"></p>
-                </div>
-                
-                <h5>
-                 Ritiro
-                </h5>            
-                <p t-field="doc.pickup_address"></p>
-                <p t-field="doc.pickup_address_copy"></p>
-                <h5>
-                 Consegna
-                </h5>
-                <p t-field="doc.delivery_address"></p>
-                <p t-field="doc.delivery_address_copy"></p>
-                
-                <h5>
-                 Contatti e note
-                </h5>
-                <p t-field="doc.name_fleetmanager"></p>                    
-                <p t-field="doc.email_fleetmanager"></p>
-                <p t-field="doc.phone_fleetmanager"></p>
-                <p t-field="doc.note"></p>
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.internal_layout">
+                    <div style="text-align: center;">
+                        <h1 t-field="doc.confirmed_date"></h1>
+                        <h2 t-field="doc.partner_id"></h2>        
+                    </div>
 
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <!-- Left column -->
+                            <td style="width: 70%; text-align: center; padding: 10px; vertical-align: top;">
+                                <h3 style="margin-top: 50px;">Origine</h3>
+                                <h5 t-field="doc.pickup_address"></h5>
+                                <div style="display: inline-block; border: 5px solid black; padding: 5px; float: right">
+                                    <h3 t-field="doc.delivery_address_code" style="margin: 0; text-align: center;"></h3>
+                                </div>
+                                
+                                <h3 style="margin-top: 200px;">Destinazione</h3>
+                                <h5 t-field="doc.delivery_address"></h5>
+                                <div style="display: inline-block; border: 5px solid black; padding: 5px; float: right">
+                                    <h3 t-field="doc.delivery_address_code" style="margin: 0; text-align: center;"></h3>
+                                </div>
+                                
+                                <h3 style="margin-top: 200px;">Contatti e note</h3>
+                                <p t-field="doc.name_fleetmanager"></p>
+                                <p t-field="doc.email_fleetmanager"></p>
+                                <p t-field="doc.phone_fleetmanager"></p>
+                                <h5 t-field="doc.note"></h5>
+                            </td>
+                            <!-- Right column -->
+                            <td style="width: 30%; text-align:center; justify-content: center; padding: 10px; vertical-align: center;">
+                                <h2 style="border: 5px solid black;" t-field="doc.timeslot"></h2>
+                            </td>
+                        </tr>
+                    </table>
                 </t>
             </t>
         </t>

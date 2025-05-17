@@ -115,7 +115,7 @@ class FleetMove(models.Model):
             sla_bracket = self.env['sla.bracket'].search([
                 ('partner_id', '=', record.partner_id.id),
                 ('min_dist', '<=', record.distance),
-                ('max_dist', '>', record.distance)
+                ('max_dist', '>=', record.distance),
             ], limit=1)
 
             if not sla_bracket:

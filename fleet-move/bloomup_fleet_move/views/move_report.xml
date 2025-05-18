@@ -27,7 +27,7 @@
                                 <h3 style="margin-top: 50px;">Origine</h3>
                                 <h5 t-field="doc.pickup_address"></h5>
                                 <div style="display: inline-block; border: 5px solid black; padding: 5px; float: right">
-                                    <h3 t-field="doc.delivery_address_code" style="margin: 0; text-align: center;"></h3>
+                                    <h3 t-field="doc.pickup_address_code" style="margin: 0; text-align: center;"></h3>
                                 </div>
                                 
                                 <h3 style="margin-top: 200px;">Destinazione</h3>

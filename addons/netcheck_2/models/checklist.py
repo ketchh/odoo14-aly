@@ -658,8 +658,8 @@ class Checklist(models.Model):
         # Ottieni tutte le checklist selezionate
         checklists = self.env['checklist.checklist'].browse(self.env.context.get('active_ids', []))
 
-        # Raccogli tutte le linee (non section) da tutte le checklist e ottieni i nomi univoci, in ordine di posizione
-        all_lines = checklists.mapped('line_ids')
+        # Raccogli tutte le linee (non photo) da tutte le checklist e ottieni i nomi univoci, in ordine di posizione
+        all_lines = checklists.mapped('line_ids').filtered(lambda l: l.type != 'photo')
         # ordino per position e estraggo i nomi
         names = [l.name.strip() or "Senza Nome" for l in all_lines.sorted(key='position')]
         # rimuovo duplicati mantenendo l'ordine

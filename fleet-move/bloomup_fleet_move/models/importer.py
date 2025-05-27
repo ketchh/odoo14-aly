@@ -62,6 +62,7 @@ class ConfigImporter(models.Model):
             
             #Altri campi
             ('notes',_('Note')),
+            ('confirmed_date',_('Data di conferma')),
             ('sales_request_date', _('Data Richiesta Sales')),
             ('op_sent_date', _('Data Invio Operatore')),
             ('timeslot', _('Fascia Oraria'))
@@ -340,8 +341,8 @@ class ResPartner(models.Model):
                         'op_sent_date',
                         'notes',
                         'sales_request_date',
-                        'timeslot'
-
+                        'timeslot',
+                        'confirmed_date'
                     ]
 
                     additional_fields = self.return_values(fields, selection, line, header)
@@ -369,10 +370,8 @@ class ResPartner(models.Model):
                         'note':additional_fields['notes'],
                         'request_date':additional_fields['sales_request_date'],
                         'upload_date':datetime.now(),
-                        'timeslot':additional_fields['timeslot']
-
-                        
-
+                        'timeslot':additional_fields['timeslot'],
+                        'confirmed_date':additional_fields['confirmed_date']
                     }
                     self.env['fleet.move'].create(attrs)
             

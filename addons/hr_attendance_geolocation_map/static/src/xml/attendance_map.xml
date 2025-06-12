@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="AttendanceMapTemplate">
+        <div class="o_attendance_map">
+            <div class="o_content">
+                <div class="map-header">
+                    <h3>Attendance Locations</h3>
+                    <p class="text-muted">Check-in and Check-out locations for this attendance record</p>
+                </div>
+                <div class="map-container">
+                    <div class="map-canvas" style="height: 500px; width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_attendance_view_form_map" model="ir.ui.view">
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance_geolocation.hr_attendance_view_form"/>
+        <field name="arch" type="xml">
+            <form position="inside">
+                <header>
+                    <button name="action_show_attendance_map" 
+                            type="object" 
+                            string="Show Map" 
+                            class="oe_highlight"
+                            attrs="{'invisible': [('check_in_latitude', '=', False), ('check_in_longitude', '=', False)]}"
+                            icon="fa-map-marker"/>
+                </header>
+            </form>
+        </field>
+    </record>
+
+    <!-- Alternative: Add button in the locations group -->
+    <record id="hr_attendance_view_form_map_button" model="ir.ui.view">
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance_geolocation.hr_attendance_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='locations']" position="after">
+                <group>
+                    <button name="action_show_attendance_map" 
+                            type="object" 
+                            string="View Locations on Map" 
+                            class="btn-primary"
+                            attrs="{'invisible': ['&amp;', ('check_in_latitude', '=', 0), ('check_in_longitude', '=', 0)]}"
+                            icon="fa-map-marker"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

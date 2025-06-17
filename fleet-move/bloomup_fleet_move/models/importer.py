@@ -258,6 +258,9 @@ class ResPartner(models.Model):
                     #     ('owner_id', '=', record.id)
                     
                     # ])
+                    
+                    pickup_add = False
+
                     if not pickup_add:
                         attrs = {
                             'owner_id': record.id,

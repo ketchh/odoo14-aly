@@ -22,6 +22,7 @@ class ConfigImporter(models.Model):
             ('pickup_street2', _('Pickup Address Number')),
             ('pickup_city', _('Pickup Address City')),
             ('pickup_state_id', _('Pickup Address State')),
+            ('pickup_state_id_code', _('Pickup Address State Code')),
             ('pickup_zip', _('Pickup Address Zip')),
             ('pickup_country_id', _('Pickup Address Country')),
             
@@ -46,6 +47,7 @@ class ConfigImporter(models.Model):
             ('delivery_street2', _('Delivery Address Number')),
             ('delivery_city', _('Delivery Address City')),
             ('delivery_state_id', _('Delivery Address State')),
+            ('delivery_state_id_code', _('Delivery Address State Code')),
             ('delivery_zip', _('Delivery Address Zip')),
             ('delivery_country_id', _('Delivery Address Country')),
             
@@ -212,6 +214,7 @@ class ResPartner(models.Model):
                         'pickup_street2', 
                         'pickup_city',
                         'pickup_state_id',
+                        'pickup_state_id_code',
                         'pickup_zip',
                         'pickup_country_id'
                     ]
@@ -222,6 +225,11 @@ class ResPartner(models.Model):
                     if pickup['pickup_state_id']:
                         state_id = self.env['res.country.state'].with_context({'lang':self.env.user.lang}).sudo().search([
                             ('name', '=ilike', pickup['pickup_state_id']),
+                            ('country_id.code', '=', 'IT')
+                        ])
+                    elif pickup['pickup_state_id_code']:
+                        state_id = self.env['res.country.state'].with_context({'lang':self.env.user.lang}).sudo().search([
+                            ('code', '=ilike', pickup['pickup_state_id_code']),
                             ('country_id.code', '=', 'IT')
                         ])
                         # if not state_id:
@@ -245,11 +253,11 @@ class ResPartner(models.Model):
                     # (serve ad evitare movimentazioni con la stessa partenza
                     #  in piattaforma, perché la società è la stessa ma non la stessa persona)
 
-                    pickup_add = self.env['fleet.partner'].search([
-                        ('street', '=ilike', pickup['pickup_street']),
-                        ('owner_id', '=', record.id)
+                    # pickup_add = self.env['fleet.partner'].search([
+                    #     ('street', '=ilike', pickup['pickup_street']),
+                    #     ('owner_id', '=', record.id)
                     
-                    ])
+                    # ])
                     if not pickup_add:
                         attrs = {
                             'owner_id': record.id,
@@ -282,9 +290,11 @@ class ResPartner(models.Model):
                         'delivery_street2', 
                         'delivery_city',
                         'delivery_state_id',
+                        'delivery_state_id_code',
                         'delivery_zip',
                         'delivery_country_id',
                     ]
+
                     delivery = self.return_values(fields, selection, line, header)
                     if not delivery['delivery_name'] and not delivery['delivery_firstname'] and not delivery['delivery_lastname']:
                         msg.append('Riga %s (errore Indirizzo consegna): Manca il nome dell\'azienda o il nome e cognome' % i)
@@ -292,6 +302,11 @@ class ResPartner(models.Model):
                     if delivery['delivery_state_id']:
                         state_id = self.env['res.country.state'].with_context({'lang':self.env.user.lang}).sudo().search([
                             ('name', '=ilike', delivery['delivery_state_id']),
+                            ('country_id.code', '=', 'IT')
+                        ])
+                    elif delivery['delivery_state_id_code']:
+                        state_id = self.env['res.country.state'].with_context({'lang':self.env.user.lang}).sudo().search([
+                            ('code', '=ilike', delivery['delivery_state_id_code']),
                             ('country_id.code', '=', 'IT')
                         ])
                         # if not state_id:
@@ -302,10 +317,12 @@ class ResPartner(models.Model):
                     #     ('owner_id', '=', record.id)
                     # ])
 
-                    delivery_add = self.env['fleet.partner'].search([
-                        ('street', '=ilike', delivery['delivery_street']),
-                        ('owner_id', '=', record.id)
-                    ])
+                    # delivery_add = self.env['fleet.partner'].search([
+                    #     ('street', '=ilike', delivery['delivery_street']),
+                    #     ('owner_id', '=', record.id)
+                    # ])
+
+                    
                     if not delivery_add:
                         attrs = {
                             'owner_id': record.id,

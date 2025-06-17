@@ -13,59 +13,50 @@
 
     <template id="move_report_view">
         <t t-call="web.html_container">
-            <style>
-                .no-break {
-                    page-break-inside: avoid !important;
-                    page-break-before: avoid !important;
-                    page-break-after: avoid !important;
-                    break-inside: avoid !important;
-                    break-before: avoid !important;
-                    break-after: avoid !important;
-                }
-                .no-break table {
-                    page-break-inside: avoid !important;
-                }
-            </style>
             <t t-foreach="docs" t-as="doc">
                 <t t-call="web.internal_layout">
-                    <div class="no-break" style="page-break-inside: avoid;">
-                        <div style="text-align: center;">
-                            <h1 t-field="doc.confirmed_date"></h1>
-                            <h2 t-field="doc.vehicle_plate"></h2>
-                            <h3 t-field="doc.move_typology"></h3>
-                            <h3 t-field="doc.contract_code"></h3>
-                            <h2 t-field="doc.partner_id"></h2>        
-                        </div>
-
-                        <table style="width: 100%; border-collapse: collapse; page-break-inside: avoid;">
-                            <tr>
-                                <!-- Left column -->
-                                <td style="width: 70%; text-align: center; padding: 10px; vertical-align: top;">
-                                    <h3 style="margin-top: 50px;">Origine</h3>
-                                    <h5 t-field="doc.pickup_address"></h5>
-                                    <div style="display: inline-block; border: 5px solid black; padding: 5px; float: right">
-                                        <h3 t-field="doc.pickup_address_code" style="margin: 0; text-align: center;"></h3>
-                                    </div>
-                                    
-                                    <h3 style="margin-top: 150px;">Destinazione</h3>
-                                    <h5 t-field="doc.delivery_address"></h5>
-                                    <div style="display: inline-block; border: 5px solid black; padding: 5px; float: right">
-                                        <h3 t-field="doc.delivery_address_code" style="margin: 0; text-align: center;"></h3>
-                                    </div>
-                                    
-                                    <h3 style="margin-top: 150px;">Contatti e note</h3>
-                                    <p t-field="doc.name_customer"></p>
-                                    <p t-field="doc.email_customer"></p>
-                                    <p t-field="doc.phone_customer"></p>
-                                    <h5 t-field="doc.note"></h5>
-                                </td>
-                                <!-- Right column -->
-                                <td style="width: 30%; text-align: center; padding: 10px; vertical-align: middle;">
-                                    <h2 style="border: 5px solid black;" t-field="doc.timeslot"></h2>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                    <table style="width: 100%; page-break-inside: avoid; white-space: nowrap;">
+                        <tr>
+                            <td style="text-align: center; width: 70%; white-space: nowrap;">
+                                <h1 t-field="doc.confirmed_date" style="white-space: nowrap;"></h1>
+                                <h3 t-field="doc.move_typology" style="white-space: nowrap;"></h3>
+                                <h3 t-field="doc.contract_code" style="white-space: nowrap;"></h3>
+                            </td>
+                            
+                            <td style="text-align: center; width: 30%; white-space: nowrap;">
+                                <h1 t-field="doc.partner_id" style="white-space: nowrap;"></h1>
+                                <h1 t-field="doc.vehicle_plate" style="white-space: nowrap;"></h1>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="width: 100%; border-collapse: collapse; page-break-inside: avoid;">
+                        <tr>
+                            <!-- Left column -->
+                            <td style="width: 70%; text-align: center; padding: 10px; vertical-align: top;">
+                                <h4 style="margin-top: 50px;">Origine</h4>
+                                <h6 t-field="doc.pickup_address"></h6>
+                                <div style="display: inline-block; border: 5px solid black; padding: 5px; float: right">
+                                    <h3 t-field="doc.pickup_address_code" style="margin: 0; text-align: center;"></h3>
+                                </div>
+                                
+                                <h4 style="margin-top: 70px;">Destinazione</h4>
+                                <h6 t-field="doc.delivery_address"></h6>
+                                <div style="display: inline-block; border: 5px solid black; padding: 5px; float: right">
+                                    <h3 t-field="doc.delivery_address_code" style="margin: 0; text-align: center;"></h3>
+                                </div>
+                                
+                                <h4 style="margin-top: 150px;">Contatti e note</h4>
+                                <p t-field="doc.name_customer"></p>
+                                <p t-field="doc.email_customer"></p>
+                                <p t-field="doc.phone_customer"></p>
+                                <h5 t-field="doc.note"></h5>
+                            </td>
+                            <!-- Right column -->
+                            <td style="width: 30%; text-align: center; padding: 10px; vertical-align: middle;">
+                                <h2 style="border: 5px solid black;" t-field="doc.timeslot"></h2>
+                            </td>
+                        </tr>
+                    </table>
                 </t>
             </t>
         </t>

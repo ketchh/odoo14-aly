@@ -411,7 +411,7 @@ class FleetMove(models.Model):
         """
         for res in self:
             if res.confirmed_date:
-                res.request_date = False
+                pass
             else:
                 res.request_date = res.request_date
     

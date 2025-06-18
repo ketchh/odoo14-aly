@@ -221,17 +221,19 @@ class ResPartner(models.Model):
                     pickup = self.return_values(fields, selection, line, header)
                     if not pickup['pickup_name'] and not pickup['pickup_firstname'] and not pickup['pickup_lastname']:
                         msg.append('Riga %s (errore Indirizzo prelievo): Manca il nome dell\'azienda o il nome e cognome' % i)
+                    
                     state_id = False
+                    
                     if pickup['pickup_state_id']:
                         state_id = self.env['res.country.state'].with_context({'lang':self.env.user.lang}).sudo().search([
                             ('name', '=ilike', pickup['pickup_state_id']),
                             ('country_id.code', '=', 'IT')
-                        ])
+                        ], limit=1)
                     elif pickup['pickup_state_id_code']:
                         state_id = self.env['res.country.state'].with_context({'lang':self.env.user.lang}).sudo().search([
                             ('code', '=ilike', pickup['pickup_state_id_code']),
                             ('country_id.code', '=', 'IT')
-                        ])
+                        ], limit=1)
                         # if not state_id:
                         #     msg.append('Whoops! Alla riga %s manca la provincia' % i)                    
 
@@ -306,12 +308,12 @@ class ResPartner(models.Model):
                         state_id = self.env['res.country.state'].with_context({'lang':self.env.user.lang}).sudo().search([
                             ('name', '=ilike', delivery['delivery_state_id']),
                             ('country_id.code', '=', 'IT')
-                        ])
+                        ], limit=1)
                     elif delivery['delivery_state_id_code']:
                         state_id = self.env['res.country.state'].with_context({'lang':self.env.user.lang}).sudo().search([
                             ('code', '=ilike', delivery['delivery_state_id_code']),
                             ('country_id.code', '=', 'IT')
-                        ])
+                        ], limit=1)
                         # if not state_id:
                         #     msg.append('Riga %s (errore Indirizzo consegna): Manca la provincia' % i)
                             

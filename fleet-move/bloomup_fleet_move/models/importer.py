@@ -324,7 +324,7 @@ class ResPartner(models.Model):
                     #     ('street', '=ilike', delivery['delivery_street']),
                     #     ('owner_id', '=', record.id)
                     # ])
-
+                    delivery_add = False
                     
                     if not delivery_add:
                         attrs = {

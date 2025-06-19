@@ -226,6 +226,88 @@ class Checklist(models.Model):
                 lines.append(attrs)
             checklists_dict['checklists'].append({
                 'id': result.id,
+                'name': line.with_context(lang='it_IT').name if line.name else "[NOME ASSENTE]",
+                'gps_position': int(result.gps_position),
+                'description': result.description,
+                'lines': lines
+            })
+            checklists_dict['anagrafiche'] = anagrafiche
+        return checklists_dict
+
+
+
+    #API PAGINATA FINALMENTE --- MATTEO , il canto del cigno
+    @api.model
+    def get_my_checklist_pagination(self, limit=10, offset=0):
+        """
+        Return ready checklist assigned to current user
+        """
+        counter = self.search_count([
+            ('state', '=', 'ready'),
+            ('user_id', '=', self.env.user.id)
+        ])
+
+        # use the correct record rule
+        results = self.search([
+            ('state', '=', 'ready'),
+            ('user_id', '=', self.env.user.id)
+            # ('user_id','=', self.env.user.id) is
+            # redundant but important for app user experience
+            # an administrator may want to use the app to compile a checklist
+        ],limit=limit,offset=offset)
+        checklists_dict = {
+        }
+        anagrafiche = {}
+        checklists_dict['checklists'] = []
+        checklists_dict['counter'] = counter
+        for result in results:
+            lines=[]
+            #creo un nuovo dizionario con 
+            for line in result.line_ids.sorted(key=lambda r: r.position):
+                selection = []
+                attrs = {
+                    'id': line.id,
+                    'name': line.name if line.name else "[NOME ASSENTE]",
+                    'type': line.type,
+                    'options': [option.code for option in line.option_ids],
+                    'value': line.sudo().option_precompiled_test
+                    if line.type == 'precompiled' else '',
+                    # sudo() because a portal user might not access
+                    # the object field
+                    'min_char': line.option_min_char if line.type == 'string' else '',
+                    'max_char': line.option_max_char if line.type == 'string' else '',
+                }
+                if 'option_selection_model' in attrs['options']:
+                    if not line.name_model:
+                        raise UserError("L'opzione 'selezione su modello' per la linea %s nella checklist %s è attiva ma nessun modello è stato assegnato." % (line.name, result.id))
+                    model_str = line.name_model.model if line.name_model else '[MODELLO_ASSENTE]'
+                    line_key = model_str + str(line.option_selection_model)
+                    attrs['keys'] = line_key
+                    if line.option_selection_model:
+                        values = self.env[line.name_model.model].sudo().search(
+                            safe_eval.safe_eval(line.option_selection_model))
+                    else:
+                        values = self.env[line.name_model.model].sudo().search(
+                            [])
+                    if line_key not in anagrafiche:
+                        anagrafiche[line_key] = []
+                        for value in values:
+                            anagrafiche[line_key].append(
+                                {
+                                    'id': value.id,
+                                    'name': value.display_name if value.display_name else "[NOME ASSENTE]"
+                                }
+                            )
+                if 'option_selection' in attrs['options']:
+                    for value in line.option_selection_string:
+                        selection.append(
+                            {'id': value.id, 
+                             'name': value.display_name if value.display_name else "[NOME ASSENTE]"
+                             })
+                attrs['selection'] = selection
+                lines.append(attrs)
+            checklists_dict['checklists'].append({
+                'id': result.id,
                 'name': result.name if result.name else "[NOME ASSENTE]",
                 'gps_position': int(result.gps_position),
                 'description': result.description,
@@ -523,7 +605,7 @@ class Checklist(models.Model):
                 selection = []
                 attrs = {
                     'id': line.id,
-                    'name': line.name if line.name else "[NOME ASSENTE]",
+                    'name': line.with_context(lang='it_IT').name if line.name else "[NOME ASSENTE]",
                     'type': line.type,
                     'options': [option.code for option in line.option_ids],
                     'value': line.sudo().option_precompiled_test
@@ -594,7 +676,7 @@ class Checklist(models.Model):
                 selection = []
                 attrs = {
                     'id': line.id,
-                    'name': line.name,
+                    'name': line.with_context(lang='it_IT').name,
                     'type': line.type,
                     'options': [option.code for option in line.option_ids],
                     'value': line.sudo().option_precompiled_test

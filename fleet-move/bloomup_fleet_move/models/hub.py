@@ -126,9 +126,14 @@ class FleetAttendance(models.Model):
     note = fields.Text(
         string="Note"
     )
-    
-    employee_id = fields.Many2one(
-        string='Carrier/Employee',
+    entrance_employee_id = fields.Many2one(
+        string='Vettore in ingresso',
+        tracking=True,
+        comodel_name="hr.employee",
+    )
+    exit_employee_id = fields.Many2one(
+        string='Vettore in uscita',
+        tracking=True,
         comodel_name="hr.employee",
     )
     
@@ -194,20 +199,44 @@ class WizardAttendance(models.TransientModel):
 
     view_attendance = fields.Boolean(
         string="View attendance",
-        default=False
+        default=False,
     )
+
+    entrance_employee_id = fields.Many2one(
+        string='Vettore in ingresso',
+        tracking=True,
+        comodel_name="hr.employee",
+    )
+
+    exit_employee_id = fields.Many2one(
+        string='Vettore in uscita',
+        tracking=True,
+        comodel_name="hr.employee",
+    )
+
 
     def save(self):
         # passo base:
         for record in self:
             if record.attendance_id:
                 record.attendance_id.exit_date = datetime.datetime.now()
+                record.attendance_id.exit_employee_id = record.exit_employee_id.id if record.exit_employee_id else False
+                if record.note and record.note.strip():
+                    existing_note = record.attendance_id.note or ''
+                    exit_note = "IN USCITA: " + record.note
+                    if existing_note:
+                        record.attendance_id.note = existing_note + '\n' + exit_note
+                    else:
+                        record.attendance_id.note = exit_note
             else:
+                note_with_prefix = ""
+                if record.note and record.note.strip():
+                    note_with_prefix = "IN INGRESSO: " + record.note
                 attrs = {
                     'vehicle_id': record.vehicle_id.id,
                     'location_id': record.location_id.id,
-                    'note': record.note,
-                    'employee_id': record.employee_id.id,
+                    'note': note_with_prefix,
+                    'entrance_employee_id': record.entrance_employee_id.id if record.entrance_employee_id else False,
                     'entry_date': datetime.datetime.now()
                 }
                 self.env['fleet.attendance'].create(attrs)
@@ -326,6 +355,7 @@ class FleetVehicle(models.Model):
             context['default_attendance_id'] = self.fleet_attendance_id.id
             context['default_location_id'] = self.fleet_attendance_id.location_id.id
             context['default_view_attendance'] = True
+            context['default_entrance_employee_id'] = self.fleet_attendance_id.entrance_employee_id.id if self.fleet_attendance_id.entrance_employee_id else False
         return {
             'type': 'ir.actions.act_window',
             'name': 'Fleet Attendance',

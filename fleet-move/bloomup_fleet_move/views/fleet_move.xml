@@ -12,7 +12,9 @@
                 <field name="order_number" />
                 <field name="confirmed_date" />
                 <field name="pickup_address" />
+                <field name="pickup_address_code" />
                 <field name="delivery_address"/>
+                <field name="delivery_address_code" />
                 <field name="state"/>
             </tree>
         </field>

@@ -283,21 +283,7 @@ class Checklist(models.Model):
                     model_str = line.name_model.model if line.name_model else '[MODELLO_ASSENTE]'
                     line_key = model_str + str(line.option_selection_model)
                     attrs['keys'] = line_key
-                    if line.option_selection_model:
-                        values = self.env[line.name_model.model].sudo().search(
-                            safe_eval.safe_eval(line.option_selection_model))
-                    else:
-                        values = self.env[line.name_model.model].sudo().search(
-                            [])
-                    if line_key not in anagrafiche:
-                        anagrafiche[line_key] = []
-                        for value in values:
-                            anagrafiche[line_key].append(
-                                {
-                                    'id': value.id,
-                                    'name': value.display_name if value.display_name else "[NOME ASSENTE]"
-                                }
-                            )
+                    
                 if 'option_selection' in attrs['options']:
                     for value in line.option_selection_string:
                         selection.append(
@@ -313,9 +299,37 @@ class Checklist(models.Model):
                 'description': result.description,
                 'lines': lines
             })
+            if limit + offset >= counter:
+                        # sono alla fine della chiamata per quell'utente
+                        # prendo tutte le checklist
+                        results = self.search(
+                            [("state", "=", "ready"), ("user_id", "=", self.env.user.id)]
+                        )
+                        for result in results:
+                            # provo a filtrare le righe checklist per prendere quelle che hanno 'Selezione su modello' per evitare di scorrerle tutte
+                            # for line in result.line_ids.filtered(lambda r: 'option_selection_model' in r.option_ids_string):
+                            for line in result.line_ids.filtered(lambda r: 'option_selection_model' in [option.code for option in r.option_ids]):
+                                if not line.name_model:
+                                    raise UserError("L'opzione 'selezione su modello' per la linea %s nella checklist %s è attiva ma nessun modello è stato assegnato." % (line.name, result.id))
+                                model_str = line.name_model.model if line.name_model else '[MODELLO_ASSENTE]'
+                                line_key = model_str + str(line.option_selection_model)
+                                if line.option_selection_model:
+                                    values = self.env[line.name_model.model].sudo().search(
+                                        safe_eval.safe_eval(line.option_selection_model))
+                                else:
+                                    values = self.env[line.name_model.model].sudo().search(
+                                        [])
+                                if line_key not in anagrafiche:
+                                    anagrafiche[line_key] = []
+                                    for value in values:
+                                        anagrafiche[line_key].append(
+                                            {
+                                                'id': value.id,
+                                                'name': value.display_name if value.display_name else "[NOME ASSENTE]"
+                                            }
+                                        )
             checklists_dict['anagrafiche'] = anagrafiche
         return checklists_dict
-
 
     line_ids = fields.One2many(
         string="Lines",

@@ -754,34 +754,73 @@ class Checklist(models.Model):
         # Ottieni tutte le checklist selezionate
         checklists = self.env['checklist.checklist'].browse(self.env.context.get('active_ids', []))
 
-        # Raccogli tutte le linee (non photo) da tutte le checklist e ottieni i nomi univoci, in ordine di posizione
-        all_lines = checklists.mapped('line_ids').filtered(lambda l: l.type != 'photo')
-        # ordino per position e estraggo i nomi
-        names = [l.name.strip() or "Senza Nome" for l in all_lines.sorted(key='position')]
-        # rimuovo duplicati mantenendo l'ordine
+        # Raggruppa le checklist per data e utente
+        groups = {}
+        for checklist in checklists:
+            # Usa confirmed_date se disponibile, altrimenti data_compilazione, altrimenti data corrente
+            date_key = checklist.confirmed_date or (checklist.data_compilazione.date() if checklist.data_compilazione else fields.Date.today())
+            user_key = checklist.user_id.id if checklist.user_id else 0
+            group_key = (date_key, user_key)
+            
+            if group_key not in groups:
+                groups[group_key] = {'day_start': [], 'others': [], 'day_end': []}
+            
+            if checklist.day_start:
+                groups[group_key]['day_start'].append(checklist)
+            elif checklist.day_end:
+                groups[group_key]['day_end'].append(checklist)
+            else:
+                groups[group_key]['others'].append(checklist)
+
+        # Ordina le checklist: day_start -> others -> day_end per ogni gruppo
+        ordered_checklists = []
+        for group_key in sorted(groups.keys()):  # Ordina per data e poi per utente
+            group = groups[group_key]
+            ordered_checklists.extend(group['day_start'] + group['others'] + group['day_end'])
+
+        # Raccogli i nomi delle linee nell'ordine specificato (escludi photo e section)
         unique_names = []
-        for n in names:
-            if n not in unique_names:
-                unique_names.append(n)
+        
+        for checklist in ordered_checklists:
+            lines = checklist.line_ids.filtered(lambda l: l.type not in ['photo', 'section'])
+            names = [l.name.strip() or "Senza Nome" for l in lines.sorted(key='position')]
+            for n in names:
+                if n not in unique_names:
+                    unique_names.append(n)
 
         # Prepara gli header
-        headers = ["ID Checklist", "Nome Checklist"] + unique_names
+        headers = ["ID Checklist", "Nome Checklist", "Data", "Utente", "Tipo"] + unique_names
 
-        # Prepara i dati
+        # Prepara i dati usando l'ordine delle checklist
         rows = []
-        for checklist in checklists:
-            row = [str(checklist.id), checklist.name]
+        for checklist in ordered_checklists:
+            # Determina il tipo di checklist
+            checklist_type = "Inizio giornata" if checklist.day_start else "Fine giornata" if checklist.day_end else "Standard"
+            
+            # Determina la data da mostrare
+            display_date = checklist.confirmed_date or (checklist.data_compilazione.date() if checklist.data_compilazione else "")
+            
+            row = [
+                str(checklist.id), 
+                checklist.name, 
+                str(display_date) if display_date else "",
+                checklist.user_id.name if checklist.user_id else "",
+                checklist_type
+            ]
+            
             # mappa nome_linea -> valore
             name_to_val = {}
             for line in checklist.line_ids:
-                key = line.name.strip() or "Senza Nome"
-                if line.registration_id:
-                    val = line.registration_id.raw_value
-                elif line.type == 'precompiled':
-                    val = line.option_precompiled_test
-                else:
-                    val = ""
-                name_to_val[key] = val
+                if line.type not in ['photo', 'section']:  # Escludi photo e section dai valori
+                    key = line.name.strip() or "Senza Nome"
+                    if line.registration_id:
+                        val = line.registration_id.raw_value
+                    elif line.type == 'precompiled':
+                        val = line.option_precompiled_test
+                    else:
+                        val = ""
+                    name_to_val[key] = val
+            
             # allinea i valori secondo unique_names
             row += [name_to_val.get(n, "") for n in unique_names]
             rows.append(row)

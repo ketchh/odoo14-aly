@@ -776,7 +776,7 @@ class Checklist(models.Model):
         ordered_checklists = []
         for group_key in sorted(groups.keys()):  # Ordina per data e poi per utente
             group = groups[group_key]
-            ordered_checklists.extend(group['day_start'] + group['others'] + group['day_end'])
+            ordered_checklists.extend(group['day_start'] + group['day_end'] + group['others'])
 
         # Raccogli i nomi delle linee nell'ordine specificato (escludi photo e section)
         unique_names = []

@@ -313,7 +313,7 @@ class FleetMove(models.Model):
             if rec.contextual_vehicle_id:
                 match_move = self.env['fleet.move'].search([
                     ('vehicle_id', '=', rec.contextual_vehicle_id.id)
-                ], limit=1)
+                ], order='id desc', limit=1)
                 rec.contextual_move_id = match_move.id if match_move else False
             else:
                 rec.contextual_move_id = False

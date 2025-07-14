@@ -111,14 +111,20 @@ class Checklist(models.Model):
         store = True
     )
 
-    @api.constrains('confirmed_date')
-    def _check_confirmed_date(self):
+    @api.model
+    def _process_confirmed_date_checklists(self):
         """
-        If confirmed_date matches today's date, set the checklist state to 'ready'.
+        This method is intended to be called by a daily cron job.
+        It finds all checklists with a confirmed_date of today
+        and a state that is not yet 'ready', 'done', or 'canceled',
+        and sets their state to 'ready'.
         """
-        for record in self:
-            if record.confirmed_date == fields.Date.today():
-                record.state = 'ready'
+        today = fields.Date.context_today(self)
+        checklists_to_update = self.search([
+            ('confirmed_date', '=', today),
+            ('state', 'in', ['new', 'draft'])
+        ])
+        checklists_to_update.write({'state': 'ready'})
 
     description = fields.Text(
         string="Description",
@@ -772,7 +778,7 @@ class Checklist(models.Model):
             else:
                 groups[group_key]['others'].append(checklist)
 
-        # Ordina le checklist: day_start -> others -> day_end per ogni gruppo
+        # Ordina le checklist: day_start -> day_end -> others per ogni gruppo
         ordered_checklists = []
         for group_key in sorted(groups.keys()):  # Ordina per data e poi per utente
             group = groups[group_key]
@@ -798,7 +804,7 @@ class Checklist(models.Model):
             checklist_type = "Inizio giornata" if checklist.day_start else "Fine giornata" if checklist.day_end else "Standard"
             
             # Determina la data da mostrare
-            display_date = checklist.confirmed_date or (checklist.data_compilazione.date() if checklist.data_compilazione else "")
+            display_date = checklist.confirmed_date
             
             row = [
                 str(checklist.id), 
@@ -814,7 +820,14 @@ class Checklist(models.Model):
                 if line.type not in ['photo', 'section']:  # Escludi photo e section dai valori
                     key = line.name.strip() or "Senza Nome"
                     if line.registration_id:
-                        val = line.registration_id.raw_value
+                        # Converti datetime da UTC a timezone locale
+                        if line.type == 'datetime':
+                            raw = line.registration_id.raw_value
+                            dt_utc = fields.Datetime.from_string(raw)
+                            dt_local = fields.Datetime.context_timestamp(self.env, dt_utc)
+                            val = dt_local.strftime("%Y-%m-%d %H:%M:%S")
+                        else:
+                            val = line.registration_id.raw_value
                     elif line.type == 'precompiled':
                         val = line.option_precompiled_test
                     else:

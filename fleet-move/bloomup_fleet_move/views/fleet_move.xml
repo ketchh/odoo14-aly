@@ -93,6 +93,7 @@
                                 />
                                 <field name="delivery_address_copy"/>
                                 <field name="distance"/>
+                                <field name="email_carr"/>
                             <separator string="Contatti Fleet Manager" colspan="2"/>
                                 <field name="email_fleetmanager" widget="field_char_highlight"/>
                                 <field name="phone_fleetmanager" widget="field_char_highlight"/>
@@ -297,6 +298,10 @@
         <field name="arch" type="xml">
             <search string="Fleet Move">
                 <field name="vehicle_id" />
+                <field name="pickup_address_code"/>
+                <field name="pickup_address_state_id_city"/>
+                <field name="delivery_address_code"/>
+                <field name="delivery_address_state_id_city"/>
                 <field name="name" />
                 <field name="partner_id" />
                 <field name="employee_id" />

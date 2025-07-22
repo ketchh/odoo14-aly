@@ -146,6 +146,11 @@ class FleetMove(models.Model):
         tracking=True
     )
 
+    email_carr = fields.Char(
+        string="Email Carrozzeria",
+        tracking = True
+    )
+
     email_fleetmanager =fields.Char(
         string="Email Fleet Manager",
         tracking = True
@@ -230,6 +235,12 @@ class FleetMove(models.Model):
         string = "Pickup address code",
         related = "pickup_address.state_id.code"
     )
+
+    pickup_address_state_id_city = fields.Many2one(
+        string = "Pickup Address State",
+        related = "pickup_address.state_id",
+        store = True
+    )
     
     delivery_address = fields.Many2one(
         string="Delivery Address",
@@ -278,6 +289,12 @@ class FleetMove(models.Model):
     delivery_address_code = fields.Char(
         string = "Delivery Address Code",
         related = "delivery_address.state_id.code",
+        store = True
+    )
+
+    delivery_address_state_id_city = fields.Many2one(
+        string = "Delivery Address State",
+        related = "delivery_address.state_id",
         store = True
     )
 #endregion

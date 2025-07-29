@@ -12,7 +12,7 @@ odoo.define("hr_attendance_geolocation.attendances_geolocation", function (requi
 
     const locationOptions = {
         enableHighAccuracy: true,
-        timeout: 5000,
+        timeout: 10000,
         maximumAge: 60000,
     };
 
@@ -27,16 +27,18 @@ odoo.define("hr_attendance_geolocation.attendances_geolocation", function (requi
         init: function () {
             this._super.apply(this, arguments);
             this.position = {coords: {latitude: 0.0, longitude: 0.0}};
+        },
+        /**
+         * @override
+         */
+        willStart: async function () {
+            await this._super(...arguments);
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    (position) => {
-                        this.position = position;
-                    },
-                    (error) => {
-                        console.warn(`ERROR ${error.code}: ${error.message}`);
-                    },
-                    locationOptions
-                );
+                try {
+                    this.position = await this.getCoordinates();
+                } catch (error) {
+                    console.warn(`ERROR ${error.code}: ${error.message}`);
+                }
             }
         },
         /**
@@ -50,6 +52,17 @@ odoo.define("hr_attendance_geolocation.attendances_geolocation", function (requi
                 ],
             });
             return this._super(...arguments);
+        },
+        /**
+         * We need to Promisify the getCurrentPosition method to be able to await for
+         * its resolution.
+         *
+         * @returns {Promise}
+         */
+        getCoordinates: function () {
+            return new Promise((resolve, reject) => {
+                navigator.geolocation.getCurrentPosition(resolve, reject, locationOptions);
+            });
         },
     });
 

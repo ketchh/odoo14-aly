@@ -6,4 +6,13 @@ venv/
 
 **/__pycache__/
 
-**/odoo.conf
+*:Zone.Identifier
+
+l10n-italy/
+
+odoo/
+
+partner-contract/
+
+server-ux/
+.gitignore

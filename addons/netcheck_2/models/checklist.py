@@ -823,6 +823,9 @@ class Checklist(models.Model):
                         # Converti datetime da UTC a timezone locale
                         if line.type == 'datetime':
                             raw = line.registration_id.raw_value
+                            # Rimuovi i microsecondi se presenti per evitare errori di parsing
+                            if '.' in str(raw):
+                                raw = str(raw).split('.')[0]
                             dt_utc = fields.Datetime.from_string(raw)
                             dt_local = fields.Datetime.context_timestamp(self.env, dt_utc)
                             val = dt_local.strftime("%Y-%m-%d %H:%M:%S")

@@ -170,7 +170,7 @@ class FleetMove(models.Model):
                     'confirmed_date': record.confirmed_date,
                     'is_template': False,
                     'is_copied': True,
-                    'name': "[{}]{}".format(record.vehicle_id.license_plate,name)
+                    'name': "[{}] {}".format(record.vehicle_id.license_plate,name)
                 })
                 for line in checklist_model.line_ids:
                     new_line = line.copy()

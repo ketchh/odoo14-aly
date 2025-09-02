@@ -7,6 +7,8 @@ import locale
 from odoo.tools import format_datetime, format_date
 import base64
 import pytz
+import csv
+from io import StringIO
 
 
 class Checklist(models.Model):
@@ -753,10 +755,6 @@ class Checklist(models.Model):
             record.access_url = "/my/checklist/%s" % (record.id)
     
     def action_export_csv(self):
-        import base64
-        import csv
-        from io import StringIO
-
         # Ottieni tutte le checklist selezionate
         active_ids = self._context.get('active_ids', []) or [self.id]
         checklists = self.env['checklist.checklist'].browse(active_ids)

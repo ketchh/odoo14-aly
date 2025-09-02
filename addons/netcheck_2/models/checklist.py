@@ -755,9 +755,8 @@ class Checklist(models.Model):
             record.access_url = "/my/checklist/%s" % (record.id)
     
     def action_export_csv(self):
-        # Ottieni tutte le checklist selezionate
-        active_ids = self._context.get('active_ids', []) or [self.id]
-        checklists = self.env['checklist.checklist'].browse(active_ids)
+        # Usa i record correnti (self) invece di cercare active_ids nel contesto
+        checklists = self
 
         # Raggruppa le checklist per data e utente
         groups = {}

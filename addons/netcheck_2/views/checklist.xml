@@ -42,7 +42,7 @@
         <field name="binding_model_id" ref="model_checklist_checklist"/>
         <field name="state">code</field>
         <field name="code">
-            action = env["checklist.checklist"].browse(context.get("active_ids")).action_export_csv()
+action = records.action_export_csv()
         </field>
     </record>
     

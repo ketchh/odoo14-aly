@@ -758,7 +758,8 @@ class Checklist(models.Model):
         from io import StringIO
 
         # Ottieni tutte le checklist selezionate
-        checklists = self.env['checklist.checklist'].browse(self.env.context.get('active_ids', []))
+        active_ids = self._context.get('active_ids', []) or [self.id]
+        checklists = self.env['checklist.checklist'].browse(active_ids)
 
         # Raggruppa le checklist per data e utente
         groups = {}
@@ -875,7 +876,10 @@ class Checklist(models.Model):
         self.ensure_one()
         lines = self.line_ids.filtered(lambda x: x.is_visible)
         attrs = {}
-        tz = self.env.context.get('tz') or self.env.user.tz
+        try:
+            tz = self.env.context.get('tz') or self.env.user.tz
+        except AttributeError:
+            tz = self._context.get('tz') or self.env.user.tz
         for o in self:
             attrs[o.id] = {0: []}
             section = 0
@@ -1114,10 +1118,17 @@ class ChecklistLines(models.Model):
 
                 try:
                     # check sui field type
-                    tz = self.env.context.get('tz') or self.env.user.tz
+                    try:
+                        tz = self.env.context.get('tz') or self.env.user.tz
+                    except AttributeError:
+                        tz = self._context.get('tz') or self.env.user.tz
+                    
+                    # Rimuovi i microsecondi se presenti per evitare errori di parsing
+                    response_clean = str(response).split('.')[0] if '.' in str(response) else response
+                    
                     line.option_precompiled_test = fields.Datetime.context_timestamp(
                         self.with_context(tz=tz),
-                        fields.Datetime.from_string(response)
+                        fields.Datetime.from_string(response_clean)
                     )
                     if type(response) is datetime.date:
                         line.option_precompiled_test = format_date(
@@ -1129,7 +1140,7 @@ class ChecklistLines(models.Model):
                         )
                         line.option_precompiled_test = fields.Datetime.context_timestamp(
                             self.with_context(tz=tz),
-                            fields.Datetime.from_string(response)
+                            fields.Datetime.from_string(response_clean)
                         ).strftime(dformat)
                 except:
                     pass

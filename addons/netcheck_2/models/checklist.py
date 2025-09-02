@@ -825,7 +825,8 @@ class Checklist(models.Model):
                             if '.' in str(raw):
                                 raw = str(raw).split('.')[0]
                             dt_utc = fields.Datetime.from_string(raw)
-                            dt_local = fields.Datetime.context_timestamp(self.env, dt_utc)
+                            # Pass a recordset (self) to context_timestamp, not env, to avoid '_context' errors
+                            dt_local = fields.Datetime.context_timestamp(self, dt_utc)
                             val = dt_local.strftime("%Y-%m-%d %H:%M:%S")
                         else:
                             val = line.registration_id.raw_value

@@ -28,11 +28,11 @@ Installation:
     'depends': ['netcheck_2'],
     'data': [
         'security/ir.model.access.csv',
+        'reports/report_actions.xml',
+        'reports/report_template.xml',
         'wizards/migration_wizard_views.xml',
         'views/checklist_report_data_views.xml',
         'views/checklist_enhanced_views.xml',
-        'report/checklist_enhanced_report.xml',
-        'report/checklist_enhanced_template.xml',
     ],
     'demo': [],
     'installable': True,

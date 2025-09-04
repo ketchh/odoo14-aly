@@ -131,7 +131,6 @@ class FleetMove(models.Model):
                     sla_days -= 1
 
             record.sla_date = sla_date
-
     
     user_id = fields.Many2one(
         string='User',
@@ -140,6 +139,7 @@ class FleetMove(models.Model):
         tracking = True,
         copy=False
     )
+
     partner_id = fields.Many2one(
         string='Partner',
         comodel_name="res.partner",

@@ -52,7 +52,16 @@
                                             <td class="font-weight-bold" style="width:50% !important">
                                                 <t t-raw="registration['name']"/>
                                             </td>
-                                            <td class="text-right"><t t-raw="registration['value']"/></td>
+                                            <td class="text-right">
+                                                <t t-if="registration.get('photos')">
+                                                    <t t-foreach="registration['photos']" t-as="photo_b64">
+                                                        <img t-att-src="'data:image/png;base64,%s' % photo_b64" style="max-width:140px; max-height:140px; margin:4px;"/>
+                                                    </t>
+                                                </t>
+                                                <t t-else="">
+                                                    <t t-raw="registration['value']"/>
+                                                </t>
+                                            </td>
                                         </tr>
                                     </t>
                                 </tbody>

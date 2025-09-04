@@ -910,34 +910,16 @@ class Checklist(models.Model):
                         else:
                             datas['value'] = '<i class="fa fa-square-o"></i>'
                     if line.type in ['signature', 'photo']:
-                        # Mostra tutte le registrazioni attive collegate a questa linea
+                        # Prepara una lista di tutte le immagini (base64) per il template
                         reg_list = self.env['checklist.registration'].search([
                             ('checklist_line_id', '=', line.id),
                             ('active', '=', True)
                         ])
-                        datas['value'] = ''
+                        datas['photos'] = []
                         for reg in reg_list:
-                            datas['value'] += '<a href="#" data-toggle="modal" data-target="#modal%s"/><img src="%s"' % (
-                                reg.id, reg.raw_value) + ' style="max-width:100% !important; margin:5px;"/></a>'
-                            datas['value'] += """
-                                <div class='modal fade' id='modal{}' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                                <div class='modal-dialog modal-lg' role='document'>
-                                <div class='modal-content'>
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class='modal-body'>
-                                    <img src='{}' style='max-width:100% !important'/>
-                                    </div>
-                                    <div class='modal-footer'>
-                                        <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
-                                    </div>
-                                </div>
-                                </div>
-                                </div>
-                            """.format(reg.id, reg.raw_value)
+                            if reg.raw_value:
+                                datas['photos'].append(reg.raw_value)
+                        datas['value'] = ''  # lasciato vuoto per compatibilità
                     if line.type in ['selection'] and line.registration_id:
                         response = line.registration_id.raw_value.split(',')
                         val = []

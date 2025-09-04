@@ -72,6 +72,7 @@ class ChecklistEnhanced(models.Model):
             'checklist_id': self.id,
             'checklist_name': self.name,
             'user_id': self.user_id.id,
+            'partner_id': getattr(self, 'partner_id', False) and self.partner_id.id or False,
             'company_id': self.company_id.id,
             'completion_date': self.data_compilazione or fields.Datetime.now(),
             'confirmed_date': self.confirmed_date,
@@ -82,6 +83,7 @@ class ChecklistEnhanced(models.Model):
             'ref_doc_model': self.ref_doc_id._name if self.ref_doc_id else False,
             'ref_doc_id': self.ref_doc_id.id if self.ref_doc_id else False,
             'ref_doc_name': self.ref_doc_id.display_name if self.ref_doc_id else False,
+            'notes': getattr(self, 'notes', ''),
         })
         
         # Crea le linee del report

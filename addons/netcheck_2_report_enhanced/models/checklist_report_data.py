@@ -13,6 +13,9 @@ class ChecklistReportData(models.Model):
     _order = 'checklist_id, sequence'
     _rec_name = 'checklist_name'
 
+    # Campo di ordinamento
+    sequence = fields.Integer(string='Sequence', default=10)
+    
     # Riferimenti base
     checklist_id = fields.Many2one(
         'checklist.checklist',
@@ -30,6 +33,11 @@ class ChecklistReportData(models.Model):
         'res.users',
         string='User',
         required=True,
+        index=True
+    )
+    partner_id = fields.Many2one(
+        'res.partner',
+        string='Partner',
         index=True
     )
     company_id = fields.Many2one(
@@ -59,6 +67,9 @@ class ChecklistReportData(models.Model):
     ref_doc_model = fields.Char(string='Referenced Document Model')
     ref_doc_id = fields.Integer(string='Referenced Document ID')
     ref_doc_name = fields.Char(string='Referenced Document Name')
+    
+    # Note generali
+    notes = fields.Text(string='Notes')
     
     # Linee della checklist (struttura denormalizzata per performance)
     line_ids = fields.One2many(

@@ -46,16 +46,7 @@ class GenericChecklistReport(models.AbstractModel):
                         else:
                             datas['value'] = '<i class="fa fa-square-o"></i>'
                     if line.type in ['signature', 'photo']:
-                        # Mostra tutte le registrazioni attive collegate a questa linea
-                        reg_list = self.env['checklist.registration'].search([
-                            ('checklist_line_id', '=', line.id),
-                            ('active', '=', True)
-                        ])
-                        datas['photos'] = []
-                        for reg in reg_list:
-                            if reg.raw_value:
-                                datas['photos'].append(reg.raw_value)
-                        datas['value'] = ''  # lasciato vuoto per compatibilità 
+                        datas['value'] = '<img src="%s"' % (line.registration_id.raw_value) + ' style="max-width:100% !important"/>' 
                     if line.type in ['selection'] and line.registration_id:
                         response = line.registration_id.raw_value.split(',') 
                         val = []

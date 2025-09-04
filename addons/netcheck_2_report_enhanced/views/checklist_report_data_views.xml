@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- Checklist Report Data Views -->
+    <record id="view_checklist_report_data_tree" model="ir.ui.view">
+        <field name="name">checklist.report.data.tree</field>
+        <field name="model">checklist.report.data</field>
+        <field name="arch" type="xml">
+            <tree string="Checklist Report Data" decoration-info="day_start" decoration-warning="day_end">
+                <field name="checklist_name"/>
+                <field name="user_id"/>
+                <field name="completion_date"/>
+                <field name="confirmed_date"/>
+                <field name="company_id"/>
+                <field name="total_lines"/>
+                <field name="completed_lines"/>
+                <field name="completion_percentage" widget="percentage"/>
+                <field name="day_start"/>
+                <field name="day_end"/>
+                <field name="ref_doc_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_checklist_report_data_form" model="ir.ui.view">
+        <field name="name">checklist.report.data.form</field>
+        <field name="model">checklist.report.data</field>
+        <field name="arch" type="xml">
+            <form string="Checklist Report Data">
+                <header>
+                    <button name="%(action_report_checklist_enhanced)d" 
+                            string="Print Enhanced Report" 
+                            type="action" 
+                            class="btn-primary"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="checklist_name"/>
+                        </h1>
+                        <h3>
+                            <field name="user_id" readonly="1"/>
+                        </h3>
+                    </div>
+                    
+                    <group>
+                        <group string="General Info">
+                            <field name="checklist_id" readonly="1"/>
+                            <field name="completion_date" readonly="1"/>
+                            <field name="confirmed_date" readonly="1"/>
+                            <field name="company_id" readonly="1"/>
+                        </group>
+                        <group string="Statistics">
+                            <field name="total_lines" readonly="1"/>
+                            <field name="completed_lines" readonly="1"/>
+                            <field name="completion_percentage" widget="percentage" readonly="1"/>
+                        </group>
+                    </group>
+                    
+                    <group string="Checklist Metadata">
+                        <group>
+                            <field name="day_start" readonly="1"/>
+                            <field name="day_end" readonly="1"/>
+                        </group>
+                        <group string="GPS Location" attrs="{'invisible': [('latitude', '=', False)]}">
+                            <field name="latitude" readonly="1"/>
+                            <field name="longitude" readonly="1"/>
+                        </group>
+                    </group>
+                    
+                    <group string="Referenced Document" attrs="{'invisible': [('ref_doc_name', '=', False)]}">
+                        <field name="ref_doc_model" readonly="1"/>
+                        <field name="ref_doc_id" readonly="1"/>
+                        <field name="ref_doc_name" readonly="1"/>
+                    </group>
+                    
+                    <notebook>
+                        <page string="Report Lines">
+                            <field name="line_ids" readonly="1">
+                                <tree>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="line_name"/>
+                                    <field name="line_type"/>
+                                    <field name="section_name"/>
+                                    <field name="has_data"/>
+                                    <field name="registration_count"/>
+                                    <field name="primary_value"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_checklist_report_data_search" model="ir.ui.view">
+        <field name="name">checklist.report.data.search</field>
+        <field name="model">checklist.report.data</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="checklist_name"/>
+                <field name="user_id"/>
+                <field name="company_id"/>
+                <separator/>
+                <filter name="day_start" string="Day Start" domain="[('day_start', '=', True)]"/>
+                <filter name="day_end" string="Day End" domain="[('day_end', '=', True)]"/>
+                <filter name="completed_today" string="Completed Today" 
+                        domain="[('completion_date', '>=', datetime.datetime.combine(context_today(), datetime.time(0,0,0))), ('completion_date', '&lt;', datetime.datetime.combine(context_today() + datetime.timedelta(days=1), datetime.time(0,0,0)))]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="User" name="group_by_user" context="{'group_by': 'user_id'}"/>
+                    <filter string="Completion Date" name="group_by_completion_date" context="{'group_by': 'completion_date:day'}"/>
+                    <filter string="Company" name="group_by_company" context="{'group_by': 'company_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Checklist Report Data Line Views -->
+    <record id="view_checklist_report_data_line_tree" model="ir.ui.view">
+        <field name="name">checklist.report.data.line.tree</field>
+        <field name="model">checklist.report.data.line</field>
+        <field name="arch" type="xml">
+            <tree string="Report Lines" decoration-muted="not has_data" decoration-bf="is_section">
+                <field name="sequence" widget="handle"/>
+                <field name="line_name"/>
+                <field name="line_type"/>
+                <field name="section_name"/>
+                <field name="has_data"/>
+                <field name="registration_count"/>
+                <field name="primary_value"/>
+                <field name="is_section" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_checklist_report_data_line_form" model="ir.ui.view">
+        <field name="name">checklist.report.data.line.form</field>
+        <field name="model">checklist.report.data.line</field>
+        <field name="arch" type="xml">
+            <form string="Report Line">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="line_name"/>
+                        </h1>
+                    </div>
+                    
+                    <group>
+                        <group>
+                            <field name="line_type"/>
+                            <field name="section_name"/>
+                            <field name="sequence"/>
+                            <field name="position"/>
+                        </group>
+                        <group>
+                            <field name="has_data"/>
+                            <field name="registration_count"/>
+                            <field name="is_section"/>
+                        </group>
+                    </group>
+                    
+                    <group string="Values">
+                        <field name="primary_value" readonly="1"/>
+                        <field name="formatted_value" widget="html" readonly="1"/>
+                    </group>
+                    
+                    <notebook>
+                        <page string="Registrations">
+                            <field name="registration_ids" readonly="1">
+                                <tree>
+                                    <field name="user_id"/>
+                                    <field name="create_date"/>
+                                    <field name="display_value"/>
+                                    <field name="raw_value"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_checklist_report_data" model="ir.actions.act_window">
+        <field name="name">Checklist Report Data</field>
+        <field name="res_model">checklist.report.data</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_checklist_report_data_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No report data found
+            </p>
+            <p>
+                Report data is automatically created when checklists are completed.
+                This optimized structure provides better performance for reports,
+                especially when dealing with multiple photos or complex data.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem
+        id="menu_checklist_report_data"
+        name="Report Data"
+        parent="netcheck_2.checklist_root"
+        action="action_checklist_report_data"
+        sequence="10"/>
+
+</odoo>

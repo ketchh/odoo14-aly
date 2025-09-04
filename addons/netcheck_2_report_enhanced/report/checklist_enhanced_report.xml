@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- Enhanced Checklist Report -->
+    <record id="action_report_checklist_enhanced" model="ir.actions.report">
+        <field name="name">Enhanced Checklist Report</field>
+        <field name="model">checklist.report.data</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">netcheck_2_report_enhanced.report_checklist_enhanced_template</field>
+        <field name="report_file">netcheck_2_report_enhanced.report_checklist_enhanced_template</field>
+        <field name="print_report_name">'Enhanced Report - %s' % (object.checklist_name)</field>
+        <field name="binding_model_id" ref="model_checklist_report_data"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

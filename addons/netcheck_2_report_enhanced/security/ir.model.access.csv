@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_checklist_report_data,checklist.report.data,model_checklist_report_data,netcheck_2.group_netcheck_manager,1,1,1,1
+access_checklist_report_data_user,checklist.report.data user,model_checklist_report_data,netcheck_2.group_netcheck_user,1,0,0,0
+access_checklist_report_data_line,checklist.report.data.line,model_checklist_report_data_line,netcheck_2.group_netcheck_manager,1,1,1,1
+access_checklist_report_data_line_user,checklist.report.data.line user,model_checklist_report_data_line,netcheck_2.group_netcheck_user,1,0,0,0
+access_checklist_report_data_registration,checklist.report.data.registration,model_checklist_report_data_registration,netcheck_2.group_netcheck_manager,1,1,1,1
+access_checklist_report_data_registration_user,checklist.report.data.registration user,model_checklist_report_data_registration,netcheck_2.group_netcheck_user,1,0,0,0
+access_migration_wizard,checklist.report.data.migration.wizard,model_checklist_report_data_migration_wizard,netcheck_2.group_netcheck_manager,1,1,1,1

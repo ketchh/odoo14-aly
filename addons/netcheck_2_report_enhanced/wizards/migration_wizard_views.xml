@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_migration_wizard_form" model="ir.ui.view">
+        <field name="name">checklist.report.data.migration.wizard.form</field>
+        <field name="model">checklist.report.data.migration.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Migrazione Dati Report">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            Migrazione Dati Report Enhanced
+                        </h1>
+                        <p class="oe_grey">
+                            Questo wizard ti aiuterà a migrare le checklist completate nella nuova struttura dati ottimizzata per i report.
+                        </p>
+                    </div>
+                    
+                    <group string="Filtri di Selezione">
+                        <group>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="checklist_count" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="company_ids" widget="many2many_tags"/>
+                            <field name="user_ids" widget="many2many_tags"/>
+                            <field name="force_recreate"/>
+                        </group>
+                    </group>
+                    
+                    <group string="Risultato Migrazione" attrs="{'invisible': [('migration_status', '=', False)]}">
+                        <field name="migration_status" widget="text" readonly="1"/>
+                    </group>
+                    
+                </sheet>
+                <footer>
+                    <button name="action_migrate" 
+                            string="Avvia Migrazione" 
+                            type="object" 
+                            class="btn-primary"
+                            attrs="{'invisible': [('migration_status', '!=', False)]}"/>
+                    <button name="action_view_migrated_data"
+                            string="Visualizza Dati Migrati"
+                            type="object"
+                            class="btn-secondary"
+                            attrs="{'invisible': [('migration_status', '=', False)]}"/>
+                    <button string="Chiudi" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_migration_wizard" model="ir.actions.act_window">
+        <field name="name">Migrazione Dati Report</field>
+        <field name="res_model">checklist.report.data.migration.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Add to menu -->
+    <menuitem
+        id="menu_migration_wizard"
+        name="Migrazione Dati"
+        parent="netcheck_2.checklist_root"
+        action="action_migration_wizard"
+        sequence="20"/>
+
+</odoo>

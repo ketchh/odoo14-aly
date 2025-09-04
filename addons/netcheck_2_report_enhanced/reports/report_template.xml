@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_checklist_enhanced" name="Enhanced Checklist Report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <div class="oe_structure">
+                        <div class="row">
+                            <div class="col-12">
+                                <div style="border-bottom: 1px solid #aaa;">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h3><span t-field="doc.checklist_id.name"/></h3>
+                                        </div>
+                                        <div class="col-6 text-right">
+                                            <h4><span t-field="doc.completion_date"/></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Informazioni generali -->
+                        <div class="row mt16">
+                            <div class="col-6">
+                                <strong>Cliente:</strong> <span t-field="doc.partner_id.name"/>
+                            </div>
+                            <div class="col-6">
+                                <strong>Utente:</strong> <span t-field="doc.user_id.name"/>
+                            </div>
+                        </div>
+                        
+                        <!-- Linee del checklist -->
+                        <table class="table table-bordered mt16">
+                            <thead>
+                                <tr>
+                                    <th>Campo</th>
+                                    <th>Tipo</th>
+                                    <th>Registrazioni</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="doc.line_ids" t-as="line">
+                                    <tr>
+                                        <td>
+                                            <strong t-field="line.field_id.name"/>
+                                            <div t-if="line.field_id.description" class="text-muted small">
+                                                <span t-field="line.field_id.description"/>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.field_id.field_type"/>
+                                        </td>
+                                        <td>
+                                            <div t-if="line.field_id.field_type == 'photo'">
+                                                <!-- Gallery di foto -->
+                                                <div class="row">
+                                                    <t t-foreach="line.registration_ids" t-as="registration">
+                                                        <t t-if="registration.photo_value">
+                                                            <div class="col-4 mb8">
+                                                                <div class="text-center">
+                                                                    <img t-att-src="'data:image/png;base64,' + registration.photo_value" 
+                                                                         style="max-width: 100%; max-height: 150px; border: 1px solid #ddd; border-radius: 4px;"/>
+                                                                    <div class="small text-muted mt4">
+                                                                        <span t-field="registration.timestamp"/>
+                                                                    </div>
+                                                                    <div t-if="registration.notes" class="small">
+                                                                        <span t-field="registration.notes"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </t>
+                                                    </t>
+                                                </div>
+                                                <!-- Se non ci sono foto -->
+                                                <div t-if="not line.registration_ids.filtered(lambda r: r.photo_value)" class="text-muted">
+                                                    Nessuna foto disponibile
+                                                </div>
+                                            </div>
+                                            
+                                            <div t-elif="line.field_id.field_type == 'text'">
+                                                <!-- Testi -->
+                                                <t t-foreach="line.registration_ids" t-as="registration">
+                                                    <div t-if="registration.text_value" class="mb8">
+                                                        <div><span t-field="registration.text_value"/></div>
+                                                        <div class="small text-muted">
+                                                            <span t-field="registration.timestamp"/>
+                                                            <span t-if="registration.notes"> - <span t-field="registration.notes"/></span>
+                                                        </div>
+                                                    </div>
+                                                </t>
+                                                <div t-if="not line.registration_ids.filtered(lambda r: r.text_value)" class="text-muted">
+                                                    Nessun testo inserito
+                                                </div>
+                                            </div>
+                                            
+                                            <div t-elif="line.field_id.field_type in ['number', 'float']">
+                                                <!-- Numeri -->
+                                                <t t-foreach="line.registration_ids" t-as="registration">
+                                                    <div t-if="registration.number_value" class="mb8">
+                                                        <div><span t-field="registration.number_value"/></div>
+                                                        <div class="small text-muted">
+                                                            <span t-field="registration.timestamp"/>
+                                                            <span t-if="registration.notes"> - <span t-field="registration.notes"/></span>
+                                                        </div>
+                                                    </div>
+                                                </t>
+                                                <div t-if="not line.registration_ids.filtered(lambda r: r.number_value)" class="text-muted">
+                                                    Nessun valore inserito
+                                                </div>
+                                            </div>
+                                            
+                                            <div t-elif="line.field_id.field_type == 'boolean'">
+                                                <!-- Boolean -->
+                                                <t t-foreach="line.registration_ids" t-as="registration">
+                                                    <div class="mb8">
+                                                        <div>
+                                                            <span t-if="registration.boolean_value" class="text-success">✓ Sì</span>
+                                                            <span t-else="" class="text-danger">✗ No</span>
+                                                        </div>
+                                                        <div class="small text-muted">
+                                                            <span t-field="registration.timestamp"/>
+                                                            <span t-if="registration.notes"> - <span t-field="registration.notes"/></span>
+                                                        </div>
+                                                    </div>
+                                                </t>
+                                                <div t-if="not line.registration_ids" class="text-muted">
+                                                    Nessun valore inserito
+                                                </div>
+                                            </div>
+                                            
+                                            <div t-elif="line.field_id.field_type == 'selection'">
+                                                <!-- Selection -->
+                                                <t t-foreach="line.registration_ids" t-as="registration">
+                                                    <div t-if="registration.text_value" class="mb8">
+                                                        <div><span t-field="registration.text_value"/></div>
+                                                        <div class="small text-muted">
+                                                            <span t-field="registration.timestamp"/>
+                                                            <span t-if="registration.notes"> - <span t-field="registration.notes"/></span>
+                                                        </div>
+                                                    </div>
+                                                </t>
+                                                <div t-if="not line.registration_ids.filtered(lambda r: r.text_value)" class="text-muted">
+                                                    Nessuna selezione effettuata
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        
+                        <!-- Note generali -->
+                        <div t-if="doc.notes" class="row mt32">
+                            <div class="col-12">
+                                <h4>Note</h4>
+                                <div class="well">
+                                    <span t-field="doc.notes"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
